@@ -16,7 +16,7 @@ const Projects = () => {
         'Comprehensive reporting and analytics'
       ],
       techStack: ['Java', 'SQL'],
-      gradient: 'from-blue-500 to-cyan-500'
+      gradient: 'from-red-500 to-rose-500'
     },
     {
       title: 'ColourMash',
@@ -31,18 +31,20 @@ const Projects = () => {
         'Integration with popular design tools'
       ],
       techStack: ['React', 'TypeScript', 'CSS3', 'Color Theory API'],
-      gradient: 'from-purple-500 to-pink-500'
+      gradient: 'from-red-600 to-rose-600'
     }
   ];
 
   return (
     <section id="projects" className="py-20 bg-gradient-to-br from-gray-50 to-purple-50">
+    <section id="projects" className="py-20 bg-gradient-to-br from-gray-50 to-red-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
             Featured Projects
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-8"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-rose-600 mx-auto mb-8"></div>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Here are some of my key projects that showcase my skills in full-stack development, 
             problem-solving, and creating user-centered solutions.
@@ -76,7 +78,7 @@ const Projects = () => {
                   <ul className="space-y-2">
                     {project.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start">
-                        <span className="inline-block w-2 h-2 bg-purple-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                        <span className="inline-block w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                         <span className="text-gray-600">{feature}</span>
                       </li>
                     ))}
@@ -111,7 +113,7 @@ const Projects = () => {
                     href="https://github.com/vedantkansara"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center px-6 py-3 border-2 border-gray-300 text-gray-700 font-semibold rounded-xl hover:border-purple-500 hover:text-purple-600 transition-all duration-300"
+                    className="inline-flex items-center justify-center px-6 py-3 border-2 border-gray-300 text-gray-700 font-semibold rounded-xl hover:border-red-500 hover:text-red-600 transition-all duration-300"
                   >
                     <ExternalLink className="mr-2 h-5 w-5" />
                     Live Demo

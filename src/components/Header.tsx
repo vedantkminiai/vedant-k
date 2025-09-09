@@ -29,6 +29,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
           <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+          <div className="text-2xl font-bold bg-gradient-to-r from-red-600 to-rose-600 bg-clip-text text-transparent">
             VK
           </div>
           
@@ -36,25 +37,25 @@ const Header = () => {
           <nav className="hidden md:flex space-x-8">
             <button
               onClick={() => scrollToSection('hero')}
-              className="text-gray-700 hover:text-purple-600 transition-colors duration-200"
+              className="text-gray-700 hover:text-red-600 transition-colors duration-200"
             >
               Home
             </button>
             <button
               onClick={() => scrollToSection('about')}
-              className="text-gray-700 hover:text-purple-600 transition-colors duration-200"
+              className="text-gray-700 hover:text-red-600 transition-colors duration-200"
             >
               About
             </button>
             <button
               onClick={() => scrollToSection('projects')}
-              className="text-gray-700 hover:text-purple-600 transition-colors duration-200"
+              className="text-gray-700 hover:text-red-600 transition-colors duration-200"
             >
               Projects
             </button>
             <button
               onClick={() => scrollToSection('contact')}
-              className="text-gray-700 hover:text-purple-600 transition-colors duration-200"
+              className="text-gray-700 hover:text-red-600 transition-colors duration-200"
             >
               Contact
             </button>
@@ -79,25 +80,25 @@ const Header = () => {
             <div className="flex flex-col space-y-3">
               <button
                 onClick={() => scrollToSection('hero')}
-                className="text-left text-gray-700 hover:text-purple-600 transition-colors duration-200"
+                className="text-left text-gray-700 hover:text-red-600 transition-colors duration-200"
               >
                 Home
               </button>
               <button
                 onClick={() => scrollToSection('about')}
-                className="text-left text-gray-700 hover:text-purple-600 transition-colors duration-200"
+                className="text-left text-gray-700 hover:text-red-600 transition-colors duration-200"
               >
                 About
               </button>
               <button
                 onClick={() => scrollToSection('projects')}
-                className="text-left text-gray-700 hover:text-purple-600 transition-colors duration-200"
+                className="text-left text-gray-700 hover:text-red-600 transition-colors duration-200"
               >
                 Projects
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="text-left text-gray-700 hover:text-purple-600 transition-colors duration-200"
+                className="text-left text-gray-700 hover:text-red-600 transition-colors duration-200"
               >
                 Contact
               </button>
