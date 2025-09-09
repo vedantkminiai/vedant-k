@@ -36,7 +36,7 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-gray-50 to-blue-50">
+    <section id="projects" className="py-20 bg-gradient-to-br from-gray-50 to-purple-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
@@ -76,7 +76,7 @@ const Projects = () => {
                   <ul className="space-y-2">
                     {project.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start">
-                        <span className="inline-block w-2 h-2 bg-blue-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                        <span className="inline-block w-2 h-2 bg-purple-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
                         <span className="text-gray-600">{feature}</span>
                       </li>
                     ))}
@@ -111,7 +111,7 @@ const Projects = () => {
                     href="https://github.com/vedantkansara"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center px-6 py-3 border-2 border-gray-300 text-gray-700 font-semibold rounded-xl hover:border-blue-500 hover:text-blue-600 transition-all duration-300"
+                    className="inline-flex items-center justify-center px-6 py-3 border-2 border-gray-300 text-gray-700 font-semibold rounded-xl hover:border-purple-500 hover:text-purple-600 transition-all duration-300"
                   >
                     <ExternalLink className="mr-2 h-5 w-5" />
                     Live Demo

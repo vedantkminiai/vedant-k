@@ -36,25 +36,25 @@ const Header = () => {
           <nav className="hidden md:flex space-x-8">
             <button
               onClick={() => scrollToSection('hero')}
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
+              className="text-gray-700 hover:text-purple-600 transition-colors duration-200"
             >
               Home
             </button>
             <button
               onClick={() => scrollToSection('about')}
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
+              className="text-gray-700 hover:text-purple-600 transition-colors duration-200"
             >
               About
             </button>
             <button
               onClick={() => scrollToSection('projects')}
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
+              className="text-gray-700 hover:text-purple-600 transition-colors duration-200"
             >
               Projects
             </button>
             <button
               onClick={() => scrollToSection('contact')}
-              className="text-gray-700 hover:text-blue-600 transition-colors duration-200"
+              className="text-gray-700 hover:text-purple-600 transition-colors duration-200"
             >
               Contact
             </button>
@@ -79,25 +79,25 @@ const Header = () => {
             <div className="flex flex-col space-y-3">
               <button
                 onClick={() => scrollToSection('hero')}
-                className="text-left text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                className="text-left text-gray-700 hover:text-purple-600 transition-colors duration-200"
               >
                 Home
               </button>
               <button
                 onClick={() => scrollToSection('about')}
-                className="text-left text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                className="text-left text-gray-700 hover:text-purple-600 transition-colors duration-200"
               >
                 About
               </button>
               <button
                 onClick={() => scrollToSection('projects')}
-                className="text-left text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                className="text-left text-gray-700 hover:text-purple-600 transition-colors duration-200"
               >
                 Projects
               </button>
               <button
                 onClick={() => scrollToSection('contact')}
-                className="text-left text-gray-700 hover:text-blue-600 transition-colors duration-200"
+                className="text-left text-gray-700 hover:text-purple-600 transition-colors duration-200"
               >
                 Contact
               </button>
