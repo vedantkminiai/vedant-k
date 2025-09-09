@@ -32,6 +32,7 @@ const Header = () => {
           <div className="text-2xl font-bold bg-gradient-to-r from-red-600 to-rose-600 bg-clip-text text-transparent">
             VK
           </div>
+          </div>
           
           {/* Desktop Navigation */}
           <nav className="hidden md:flex space-x-8">
