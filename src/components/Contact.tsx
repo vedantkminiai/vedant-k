@@ -6,19 +6,19 @@ const Contact = () => {
     {
       icon: Github,
       label: 'GitHub',
-      href: 'https://github.com/vedantkansara',
+      href: 'https://github.com/vedantkminiai',
       description: 'Check out my code repositories and contributions'
     },
     {
       icon: Mail,
       label: 'Email',
-      href: 'mailto:vedantkansara@example.com',
+      href: 'vedantkansara224@gmail.com',
       description: 'Reach out for collaboration opportunities'
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
-      href: 'https://linkedin.com/in/vedantkansara',
+      href: 'https://ca.linkedin.com/in/vedant-kansara-381330221',
       description: 'Connect with me professionally'
     }
   ];
