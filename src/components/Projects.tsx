@@ -6,14 +6,14 @@ const Projects = () => {
     {
       title: 'Library Management System',
       icon: BookOpen,
-      description: 'A comprehensive digital solution for managing library operations, designed to streamline book lending, member management, and inventory tracking.',
+      description: 'A comprehensive library management application built in Java, designed to streamline book circulation, member handling, and resource tracking while showcasing object-oriented programming principles.',
       features: [
-        'User-friendly interface for librarians and members',
-        'Leverages object-oriented programming showcased by Java',
-        'Automated due date reminders and fine calculations',
-        'Advanced search and filtering capabilities',
-        'Member registration and profile management',
-        'Comprehensive reporting and analytics'
+        'Intuitive console-based interface for efficient librarian workflows',
+        'Implements object-oriented design with classes for books, members, and transactions',
+        'Automated due-date tracking with fine calculation for late returns',
+        'Robust search and filtering for quick book or member lookup',
+        'Member registration, authentication, and profile management',
+        'Extensible architecture, enabling future enhancements like reporting and analytics'
       ],
       techStack: ['Java', 'SQL'],
       gradient: 'from-red-500 to-rose-500'
