@@ -24,14 +24,12 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-gray-900 via-purple-900 to-indigo-900 text-white">
     <section id="contact" className="py-20 bg-gradient-to-br from-gray-900 via-red-900 to-rose-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold mb-6">
             Let's Connect
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-indigo-400 mx-auto mb-8"></div>
           <div className="w-24 h-1 bg-gradient-to-r from-red-400 to-rose-400 mx-auto mb-8"></div>
           <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
             I'm always interested in new opportunities, collaborations, and meaningful conversations 
@@ -48,7 +46,6 @@ const Contact = () => {
               rel="noopener noreferrer"
               className="group p-8 bg-white/10 backdrop-blur-sm rounded-2xl hover:bg-white/20 transform hover:-translate-y-2 transition-all duration-300"
             >
-              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-500 to-indigo-500 rounded-2xl mb-6 mx-auto group-hover:shadow-lg">
               <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-500 to-rose-500 rounded-2xl mb-6 mx-auto group-hover:shadow-lg">
                 <link.icon className="h-8 w-8 text-white" />
               </div>
@@ -58,7 +55,6 @@ const Contact = () => {
               <p className="text-gray-300 text-center leading-relaxed mb-4">
                 {link.description}
               </p>
-              <div className="flex items-center justify-center text-purple-400 group-hover:text-purple-300">
               <div className="flex items-center justify-center text-red-400 group-hover:text-red-300">
                 <ExternalLink className="h-4 w-4 mr-2" />
                 <span className="text-sm font-medium">Connect</span>
@@ -89,9 +85,6 @@ const Contact = () => {
           </div>
         </div>
       </div>
-    )
-    )
-    }
     </section>
   );
 };
