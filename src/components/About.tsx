@@ -5,7 +5,7 @@ const About = () => {
   const skills = [
     {
       icon: Code,
-      title: 'Part-Time Kumon Instructor/Software Engineer',
+      title: 'Kumon Instructor/Software Engineer',
       description: 'Mathematics and english tutor for students ranging from elementary to high school level content. Implementing machine learning software to optimize students progression through the curriculum.'
     },
     {
