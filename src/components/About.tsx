@@ -5,8 +5,8 @@ const About = () => {
   const skills = [
     {
       icon: Code,
-      title: 'Frontend Development',
-      description: 'Building responsive and interactive user interfaces with modern web technologies'
+      title: 'Part-Time Kumon Instructor/Software Engineer',
+      description: 'Mathematics and english tutor for students ranging from elementary to high school level content. Implementing machine learning software to optimize students progression through the curriculum.'
     },
     {
       icon: Database,
