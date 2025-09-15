@@ -1,7 +1,9 @@
-import React from 'react';
-import { Calendar, MapPin, Award, Users, Code, BookOpen } from 'lucide-react';
+import React, { useState } from 'react';
+import { Calendar, MapPin, Award, Users, Code, BookOpen, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Experience = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   const experiences = [
     {
       title: 'Kumon Instructor/Software Engineer',
@@ -84,6 +86,20 @@ const Experience = () => {
     }
   };
 
+  const nextExperience = () => {
+    setCurrentIndex((prev) => (prev + 1) % experiences.length);
+  };
+
+  const prevExperience = () => {
+    setCurrentIndex((prev) => (prev - 1 + experiences.length) % experiences.length);
+  };
+
+  const goToExperience = (index: number) => {
+    setCurrentIndex(index);
+  };
+
+  const currentExperience = experiences[currentIndex];
+
   return (
     <section id="experience" className="py-20 bg-gradient-to-br from-gray-50 to-red-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -94,105 +110,152 @@ const Experience = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-rose-600 mx-auto mb-8"></div>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             My journey through various roles has shaped my skills and passion for technology. 
-            Here's a timeline of my professional and educational experiences.
+            Navigate through my professional and educational experiences.
           </p>
         </div>
 
-        <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute left-8 md:left-1/2 transform md:-translate-x-px h-full w-0.5 bg-gradient-to-b from-red-500 to-rose-500"></div>
+        {/* Experience Counter */}
+        <div className="text-center mb-8">
+          <span className="text-sm font-medium text-gray-500">
+            {currentIndex + 1} of {experiences.length}
+          </span>
+        </div>
 
-          {/* Experience Items */}
-          <div className="space-y-12">
-            {experiences.map((experience, index) => (
-              <div
-                key={index}
-                className={`relative flex items-center ${
-                  index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
-                } flex-col md:flex-row`}
-              >
-                {/* Timeline Dot */}
-                <div className="absolute left-8 md:left-1/2 transform -translate-x-1/2 w-4 h-4 bg-gradient-to-r from-red-500 to-rose-500 rounded-full border-4 border-white shadow-lg z-10"></div>
-
-                {/* Content Card */}
-                <div className={`w-full md:w-5/12 ${index % 2 === 0 ? 'md:pr-8 pl-20 md:pl-0' : 'md:pl-8 pl-20 md:pl-0'}`}>
-                  <div className="bg-white rounded-2xl shadow-xl p-8 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
-                    {/* Header */}
-                    <div className="flex items-start justify-between mb-6">
-                      <div className="flex items-center">
-                        <div className="flex items-center justify-center w-12 h-12 bg-gradient-to-r from-red-500 to-rose-500 rounded-xl mr-4">
-                          <experience.icon className="h-6 w-6 text-white" />
-                        </div>
-                        <div>
-                          <h3 className="text-xl font-bold text-gray-900 mb-1">
-                            {experience.title}
-                          </h3>
-                          <p className="text-red-600 font-semibold">
-                            {experience.company}
-                          </p>
-                        </div>
-                      </div>
-                      <span className={`px-3 py-1 rounded-full text-xs font-medium ${getTypeColor(experience.type)}`}>
-                        {experience.type}
-                      </span>
-                    </div>
-
-                    {/* Location and Period */}
-                    <div className="flex flex-wrap items-center gap-4 mb-4 text-sm text-gray-600">
-                      <div className="flex items-center">
-                        <MapPin className="h-4 w-4 mr-1" />
-                        {experience.location}
-                      </div>
-                      <div className="flex items-center">
-                        <Calendar className="h-4 w-4 mr-1" />
-                        {experience.period}
-                      </div>
-                    </div>
-
-                    {/* Description */}
-                    <p className="text-gray-700 mb-6 leading-relaxed">
-                      {experience.description}
+        {/* Main Experience Card */}
+        <div className="relative max-w-4xl mx-auto mb-12">
+          <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
+            <div className="h-2 bg-gradient-to-r from-red-500 to-rose-500"></div>
+            
+            <div className="p-8 sm:p-12">
+              {/* Header */}
+              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-8">
+                <div className="flex items-center mb-4 sm:mb-0">
+                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-500 to-rose-500 rounded-2xl mr-6">
+                    <currentExperience.icon className="h-8 w-8 text-white" />
+                  </div>
+                  <div>
+                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
+                      {currentExperience.title}
+                    </h3>
+                    <p className="text-red-600 font-semibold text-lg">
+                      {currentExperience.company}
                     </p>
-
-                    {/* Achievements */}
-                    <div className="mb-6">
-                      <h4 className="text-lg font-semibold text-gray-900 mb-3">Key Achievements:</h4>
-                      <ul className="space-y-2">
-                        {experience.achievements.map((achievement, achievementIndex) => (
-                          <li key={achievementIndex} className="flex items-start">
-                            <span className="inline-block w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                            <span className="text-gray-600 text-sm">{achievement}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-
-                    {/* Skills */}
-                    <div>
-                      <h4 className="text-lg font-semibold text-gray-900 mb-3">Skills & Technologies:</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {experience.skills.map((skill, skillIndex) => (
-                          <span
-                            key={skillIndex}
-                            className="px-3 py-1 bg-red-100 text-red-700 rounded-full text-xs font-medium"
-                          >
-                            {skill}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
                   </div>
                 </div>
-
-                {/* Spacer for alternating layout */}
-                <div className="hidden md:block w-2/12"></div>
+                <span className={`px-4 py-2 rounded-full text-sm font-medium ${getTypeColor(currentExperience.type)} self-start`}>
+                  {currentExperience.type}
+                </span>
               </div>
+
+              {/* Location and Period */}
+              <div className="flex flex-wrap items-center gap-6 mb-8 text-gray-600">
+                <div className="flex items-center">
+                  <MapPin className="h-5 w-5 mr-2" />
+                  <span className="font-medium">{currentExperience.location}</span>
+                </div>
+                <div className="flex items-center">
+                  <Calendar className="h-5 w-5 mr-2" />
+                  <span className="font-medium">{currentExperience.period}</span>
+                </div>
+              </div>
+
+              {/* Description */}
+              <p className="text-gray-700 text-lg mb-8 leading-relaxed">
+                {currentExperience.description}
+              </p>
+
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                {/* Achievements */}
+                <div>
+                  <h4 className="text-xl font-semibold text-gray-900 mb-4">Key Achievements:</h4>
+                  <ul className="space-y-3">
+                    {currentExperience.achievements.map((achievement, achievementIndex) => (
+                      <li key={achievementIndex} className="flex items-start">
+                        <span className="inline-block w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                        <span className="text-gray-600">{achievement}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Skills */}
+                <div>
+                  <h4 className="text-xl font-semibold text-gray-900 mb-4">Skills & Technologies:</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {currentExperience.skills.map((skill, skillIndex) => (
+                      <span
+                        key={skillIndex}
+                        className="px-3 py-2 bg-red-100 text-red-700 rounded-full text-sm font-medium"
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Navigation Arrows */}
+          <button
+            onClick={prevExperience}
+            className="absolute left-4 top-1/2 transform -translate-y-1/2 -translate-x-full w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl flex items-center justify-center text-gray-600 hover:text-red-600 transition-all duration-300 hover:scale-110"
+            aria-label="Previous experience"
+          >
+            <ChevronLeft className="h-6 w-6" />
+          </button>
+          
+          <button
+            onClick={nextExperience}
+            className="absolute right-4 top-1/2 transform -translate-y-1/2 translate-x-full w-12 h-12 bg-white rounded-full shadow-lg hover:shadow-xl flex items-center justify-center text-gray-600 hover:text-red-600 transition-all duration-300 hover:scale-110"
+            aria-label="Next experience"
+          >
+            <ChevronRight className="h-6 w-6" />
+          </button>
+        </div>
+
+        {/* Dot Navigation */}
+        <div className="flex justify-center space-x-3 mb-12">
+          {experiences.map((_, index) => (
+            <button
+              key={index}
+              onClick={() => goToExperience(index)}
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === currentIndex
+                  ? 'bg-red-500 scale-125'
+                  : 'bg-gray-300 hover:bg-gray-400'
+              }`}
+              aria-label={`Go to experience ${index + 1}`}
+            />
+          ))}
+        </div>
+
+        {/* Experience Timeline Preview */}
+        <div className="bg-white rounded-2xl shadow-lg p-6 mb-12">
+          <h3 className="text-xl font-semibold text-gray-900 mb-6 text-center">Experience Timeline</h3>
+          <div className="flex flex-wrap justify-center gap-4">
+            {experiences.map((exp, index) => (
+              <button
+                key={index}
+                onClick={() => goToExperience(index)}
+                className={`flex items-center px-4 py-3 rounded-xl transition-all duration-300 ${
+                  index === currentIndex
+                    ? 'bg-red-100 text-red-700 shadow-md scale-105'
+                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                }`}
+              >
+                <exp.icon className="h-4 w-4 mr-2" />
+                <div className="text-left">
+                  <div className="font-medium text-sm">{exp.company}</div>
+                  <div className="text-xs opacity-75">{exp.period}</div>
+                </div>
+              </button>
             ))}
           </div>
         </div>
 
         {/* Call to Action */}
-        <div className="text-center mt-16">
+        <div className="text-center">
           <div className="bg-white rounded-3xl shadow-xl p-8 sm:p-12">
             <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
               Ready for New Challenges
