@@ -8,14 +8,10 @@ const Education = () => {
     location: 'Toronto, ON',
     expectedGraduation: '2026',
     coursework: [
-      'Data Structures and Algorithms',
-      'Software Engineering',
-      'Database Systems',
-      'Computer Systems Programming',
-      'Discrete Mathematics',
-      'Object-Oriented Programming',
-      'Web Development',
-      'Machine Learning Fundamentals'
+      'CSC110 (Principles of Computer Science)',
+      'CSC110 (Data Structures and Algorithms)',
+      'MAT223 (Linear Algebra)',
+      'MAT137 (Calculus with Proofs)',
     ]
   };
 
