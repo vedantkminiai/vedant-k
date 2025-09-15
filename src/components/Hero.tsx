@@ -22,7 +22,7 @@ const Hero = () => {
             </span>
           </h1>
           <p className="text-xl sm:text-2xl lg:text-3xl text-gray-700 mb-8 leading-relaxed">
-            Software Engineer and SpeedCube Enthusiast
+            Software Engineer and Speed-Cube Enthusiast
           </p>
           <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto mb-12 leading-relaxed">
             Passionate about creating innovative solutions and building impactful software that makes a difference
