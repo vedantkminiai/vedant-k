@@ -5,23 +5,23 @@ const About = () => {
   const skills = [
     {
       icon: Code,
-      title: 'Kumon Instructor/Software Engineer',
-      description: 'Mathematics and english tutor for students ranging from elementary to high school level content. Implementing machine learning software to optimize students progression through the curriculum.'
+      title: 'Frontend Development',
+      description: 'React, TypeScript, Vue.js'
     },
     {
       icon: Database,
       title: 'Backend Development',
-      description: 'Creating robust server-side applications and database management systems'
+      description: 'Node.js, Python, Java, C++, Pandas'
     },
     {
       icon: Globe,
-      title: 'Full-Stack Solutions',
-      description: 'Developing complete web applications from concept to deployment'
+      title: 'Web Technologies',
+      description: 'HTML5, CSS3, JavaScript ES6+'
     },
     {
       icon: Lightbulb,
-      title: 'Problem Solving',
-      description: 'Analyzing complex problems and crafting efficient, scalable solutions'
+      title: 'Modern Tools',
+      description: 'Git, VSCode, AWS, Stackblitz'
     }
   ];
 
