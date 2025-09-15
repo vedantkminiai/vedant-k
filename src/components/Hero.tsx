@@ -37,7 +37,7 @@ const Hero = () => {
             className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-red-600 to-rose-600 text-white font-semibold rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
           >
             <Github className="mr-2 h-5 w-5" />
-            View My Work
+            View Github
           </a>
           <button
             onClick={scrollToAbout}
