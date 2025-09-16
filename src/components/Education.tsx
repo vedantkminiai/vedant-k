@@ -36,7 +36,7 @@ const Education = () => {
             {/* Hero Image Section */}
             <div className="relative h-64 sm:h-80 overflow-hidden">
               <img
-                src="https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop"
+                src="https://www.diglib.org/wp-content/uploads/sites/3/2014/12/UofT_Logo.svg-copy.jpg"
                 alt="University of Toronto Campus"
                 className="w-full h-full object-cover"
               />
