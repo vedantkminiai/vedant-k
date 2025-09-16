@@ -12,6 +12,7 @@ const Experience = () => {
       period: '2023 - Present',
       type: 'Part-time',
       icon: BookOpen,
+      image: 'https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop',
       description: 'Mathematics and English tutor for students ranging from elementary to high school level content. Implementing machine learning software to optimize student progression through the curriculum.',
       achievements: [
         'Tutored 50+ students across various grade levels in mathematics and English',
@@ -28,6 +29,7 @@ const Experience = () => {
       period: 'Febuary 2024 - Present',
       type: 'Permanent Part-Time',
       icon: Code,
+      image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop',
       description: 'Co-founded an artifical intelligence education startup. Designed a machine learning focused curriculum using interactive coding labs from TensorFlow. ',
       achievements: [
         'Developed responsive web applications using React and Node.js',
@@ -44,6 +46,7 @@ const Experience = () => {
       period: 'June 2024 - September 2024',
       type: 'Education',
       icon: Award,
+      image: 'https://images.pexels.com/photos/6238297/pexels-photo-6238297.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop',
       description: 'Researched complex mathematics and computer science problem-solving techniques through the Summer Problem Solving Course offered by the Centre for Education, Mathematics and Computing. Wrote proofs and solved problems daily in the summer.',
       achievements: [
         'Achieved Top 25% Distinction in the 2024 Senior Canadian Mathematics Contest (37/60)',
@@ -59,6 +62,7 @@ const Experience = () => {
       period: '2022 - 2023',
       type: 'Volunteer',
       icon: Users,
+      image: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop',
       description: 'Volunteered to develop and maintain web applications for local community organizations, helping them digitize their operations.',
       achievements: [
         'Built donation tracking system that increased online donations by 40%',
@@ -125,6 +129,26 @@ const Experience = () => {
           <div className="bg-white rounded-3xl shadow-2xl overflow-hidden">
             <div className="h-2 bg-gradient-to-r from-red-500 to-rose-500"></div>
             
+            {/* Experience Image */}
+            <div className="relative h-48 sm:h-56 overflow-hidden">
+              <img
+                src={currentExperience.image}
+                alt={`${currentExperience.company} workplace`}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+              
+              {/* Company name overlay */}
+              <div className="absolute bottom-4 left-6 right-6">
+                <h4 className="text-white text-xl sm:text-2xl font-bold mb-1">
+                  {currentExperience.company}
+                </h4>
+                <p className="text-red-200 font-medium">
+                  {currentExperience.location} • {currentExperience.period}
+                </p>
+              </div>
+            </div>
+            
             <div className="p-8 sm:p-12">
               {/* Header */}
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-8">
@@ -136,26 +160,11 @@ const Experience = () => {
                     <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
                       {currentExperience.title}
                     </h3>
-                    <p className="text-red-600 font-semibold text-lg">
-                      {currentExperience.company}
-                    </p>
                   </div>
                 </div>
                 <span className={`px-4 py-2 rounded-full text-sm font-medium ${getTypeColor(currentExperience.type)} self-start`}>
                   {currentExperience.type}
                 </span>
-              </div>
-
-              {/* Location and Period */}
-              <div className="flex flex-wrap items-center gap-6 mb-8 text-gray-600">
-                <div className="flex items-center">
-                  <MapPin className="h-5 w-5 mr-2" />
-                  <span className="font-medium">{currentExperience.location}</span>
-                </div>
-                <div className="flex items-center">
-                  <Calendar className="h-5 w-5 mr-2" />
-                  <span className="font-medium">{currentExperience.period}</span>
-                </div>
               </div>
 
               {/* Description */}
