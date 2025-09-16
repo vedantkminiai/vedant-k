@@ -19,7 +19,7 @@ const Hero = () => {
         <div className="mb-8">
           <div className="relative inline-block">
             <img
-              src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop"
+              src="https://media.licdn.com/dms/image/v2/D4E03AQGxaM3JN97JNg/profile-displayphoto-shrink_200_200/B4EZR9EFvzHAAY-/0/1737265012370?e=2147483647&v=beta&t=hM64RuXSQD4lcZtRN35NQsTxm9oovwH2cl1dc-Prds0"
               alt="Vedant Kansara"
               className="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-4 border-white shadow-2xl mx-auto"
             />
