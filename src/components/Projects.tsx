@@ -29,7 +29,7 @@ const Projects = () => {
         'Core logic implemented in JavaScript for smooth, interactive gameplay',
         'Engaging color-matching mechanics with increasing difficulty levels',
         'Lightweight, browser-compatible design for quick deployment',
-        'Modular code structure, enabling easy customization and feature expansion',            'Ideal as a hackathon project showcasing creativity and front-end development skills
+        'Modular code structure, enabling easy customization and feature expansion',            'Ideal as a hackathon project showcasing creativity and front-end development skills'
       ],
       techStack: ['Next.js', 'React', 'OpenAI API', 'Tensorflow.js'],
       gradient: 'from-red-600 to-rose-600'
