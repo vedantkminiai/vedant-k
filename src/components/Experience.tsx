@@ -62,7 +62,7 @@ const Experience = () => {
       period: 'May 2024 - June 2024',
       type: 'Researcher',
       icon: Users,
-      image: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop',
+      image: 'https://www.diglib.org/wp-content/uploads/sites/3/2014/12/UofT_Logo.svg-copy.jpg',
       description: 'Attended the University of Toronto for their Computer Engineering Design program, CREATE Weekends.',
       achievements: [
         'Built and Programmed a Mini Solar Panel using Python, C++ and photo censors to rotate for optimal lighting exposure',
