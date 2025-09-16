@@ -22,26 +22,26 @@ const Experience = () => {
       skills: ['Python', 'Machine Learning', 'Data Analytics', 'Education Technology', 'Student Assessment']
     },
     {
-      title: 'Software Development Intern',
-      company: 'Tech Solutions Inc.',
+      title: 'Co-Founder and Software Engineer',
+      company: 'MiniAI',
       location: 'Toronto, ON',
-      period: '2023 - 2023',
-      type: 'Internship',
+      period: 'Febuary 2024 - Present',
+      type: 'Permanent Part-Time',
       icon: Code,
       description: 'Contributed to full-stack web development projects and gained hands-on experience with modern development practices and agile methodologies.',
-      achievements: [
+      /*achievements: [
         'Developed responsive web applications using React and Node.js',
         'Collaborated with senior developers on code reviews and best practices',
         'Implemented RESTful APIs and database integration',
         'Participated in daily standups and sprint planning sessions'
       ],
       skills: ['React', 'Node.js', 'JavaScript', 'SQL', 'Git', 'Agile Development']
-    },
+    },*/
     {
       title: 'Computer Science Student',
       company: 'University of Toronto',
       location: 'Toronto, ON',
-      period: '2022 - Present',
+      period: 'Febuary 2024 - Present',
       type: 'Education',
       icon: Award,
       description: 'Pursuing Bachelor of Science in Computer Science with focus on software engineering, algorithms, and data structures.',
