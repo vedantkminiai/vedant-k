@@ -135,7 +135,7 @@ const Projects = () => {
 
         <div className="text-center mt-16">
           <a
-            href="https://github.com/vedantkansara"
+            href="https://github.com/vedantkminiai"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-gray-900 to-gray-800 text-white font-semibold rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
