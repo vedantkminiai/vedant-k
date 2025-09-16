@@ -29,12 +29,12 @@ const Experience = () => {
       type: 'Permanent Part-Time',
       icon: Code,
       description: 'Contributed to full-stack web development projects and gained hands-on experience with modern development practices and agile methodologies.',
-      /*achievements: [
+      achievements: [
         'Developed responsive web applications using React and Node.js',
         'Collaborated with senior developers on code reviews and best practices',
         'Implemented RESTful APIs and database integration',
         'Participated in daily standups and sprint planning sessions'
-      ],*/
+      ],
       skills: ['React', 'Node.js', 'JavaScript', 'SQL', 'Git', 'Agile Development']
     },
     {
