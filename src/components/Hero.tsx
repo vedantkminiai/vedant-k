@@ -15,6 +15,18 @@ const Hero = () => {
       className="min-h-screen flex items-center justify-center relative bg-gradient-to-br from-red-50 via-white to-rose-50"
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        {/* Profile Image */}
+        <div className="mb-8">
+          <div className="relative inline-block">
+            <img
+              src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg?auto=compress&cs=tinysrgb&w=300&h=300&fit=crop"
+              alt="Vedant Kansara"
+              className="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-4 border-white shadow-2xl mx-auto"
+            />
+            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-red-600/20 to-rose-600/20"></div>
+          </div>
+        </div>
+
         <div className="mb-8">
           <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
             <span className="bg-gradient-to-r from-red-600 via-rose-600 to-red-800 bg-clip-text text-transparent">

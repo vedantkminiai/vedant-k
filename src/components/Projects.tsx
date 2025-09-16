@@ -6,6 +6,7 @@ const Projects = () => {
     {
       title: 'Library Management System',
       icon: BookOpen,
+      image: 'https://images.pexels.com/photos/481516/pexels-photo-481516.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
       description: 'A comprehensive library management application built in Java, designed to streamline book circulation, member handling, and resource tracking while showcasing object-oriented programming principles.',
       features: [
         'Intuitive console-based interface for efficient librarian workflows',
@@ -21,6 +22,7 @@ const Projects = () => {
     {
       title: 'ColourMash',
       icon: Palette,
+      image: 'https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
       description: 'An innovative color palette generator and design tool that helps designers and developers create harmonious color schemes with intelligent suggestions.',
       features: [
         'AI-powered color palette generation',
@@ -56,6 +58,16 @@ const Projects = () => {
               className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
             >
               <div className={`h-4 bg-gradient-to-r ${project.gradient}`}></div>
+              
+              {/* Project Image */}
+              <div className="relative overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-48 object-cover"
+                />
+                <div className={`absolute inset-0 bg-gradient-to-t ${project.gradient} opacity-20`}></div>
+              </div>
               
               <div className="p-8 sm:p-10">
                 <div className="flex items-center mb-6">
