@@ -6,7 +6,7 @@ const Education = () => {
     degree: 'Bachelor of Science in Computer Science',
     university: 'University of Toronto',
     location: 'Toronto, ON',
-    expectedGraduation: '2026',
+    expectedGraduation: 'June 2030',
     coursework: [
       'CSC110 (Principles of Computer Science)',
       'CSC111 (Data Structures and Algorithms)',
