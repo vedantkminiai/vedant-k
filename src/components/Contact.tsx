@@ -74,7 +74,7 @@ const Contact = () => {
               If you have an exciting opportunity or just want to chat about technology, I'd love to hear from you.
             </p>
             <a
-              href="https://github.com/vedantkansara"
+              href="https://github.com/vedantkminiai"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-red-600 to-rose-600 text-white font-semibold rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
