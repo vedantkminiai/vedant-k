@@ -29,7 +29,7 @@ const Experience = () => {
       period: 'Febuary 2024 - Present',
       type: 'Permanent Part-Time',
       icon: Code,
-      image: 'https://images.pexels.com/photos/3861969/pexels-photo-3861969.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop',
+      image: 'https://miniai.ca/miniAIhorizontal.png',
       description: 'Co-founded an artifical intelligence education startup. Designed a machine learning focused curriculum using interactive coding labs from TensorFlow. ',
       achievements: [
         'Developed responsive web applications using React and Node.js',
