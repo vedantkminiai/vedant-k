@@ -34,9 +34,9 @@ const Experience = () => {
         'Collaborated with senior developers on code reviews and best practices',
         'Implemented RESTful APIs and database integration',
         'Participated in daily standups and sprint planning sessions'
-      ],
+      ],*/
       skills: ['React', 'Node.js', 'JavaScript', 'SQL', 'Git', 'Agile Development']
-    },*/
+    },
     {
       title: 'Computer Science Student',
       company: 'University of Toronto',
