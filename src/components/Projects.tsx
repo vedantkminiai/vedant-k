@@ -25,14 +25,13 @@ const Projects = () => {
       image: 'https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
       description: 'Interactive web application designed to help individuals with Alzheimer’s and dementia improve memory and cognitive skills through pattern recognition.',
       features: [
-        'AI-powered color palette generation',
-        'Real-time color harmony analysis',
-        'Export palettes in multiple formats (HEX, RGB, HSL)',
-        'Color accessibility compliance checking',
-        'Save and organize favorite palettes',
-        'Integration with popular design tools'
+        'Responsive web interface with real-time visual updates',
+        'Core logic implemented in JavaScript for smooth, interactive gameplay',
+        'Engaging color-matching mechanics with increasing difficulty levels',
+        'Lightweight, browser-compatible design for quick deployment',
+        'Modular code structure, enabling easy customization and feature expansion',            'Ideal as a hackathon project showcasing creativity and front-end development skills
       ],
-      techStack: ['React', 'TypeScript', 'CSS3', 'Color Theory API'],
+      techStack: ['Next.js', 'React', 'OpenAI API', 'Tensorflow.js'],
       gradient: 'from-red-600 to-rose-600'
     }
   ];
