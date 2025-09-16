@@ -33,7 +33,11 @@ const Education = () => {
               <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-8">
                 <div className="flex items-center mb-6 sm:mb-0">
                   <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-600 to-rose-600 rounded-2xl mr-6">
-                    <GraduationCap className="h-10 w-10 text-white" />
+                    <img
+                      src="https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=64&h=64&fit=crop"
+                      alt="University of Toronto"
+                      className="w-10 h-10 rounded-lg object-cover"
+                    />
                   </div>
                   <div>
                     <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
