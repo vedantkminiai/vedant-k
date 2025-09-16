@@ -6,10 +6,10 @@ const Experience = () => {
 
   const experiences = [
     {
-      title: 'Kumon Instructor/Software Engineer',
+      title: 'Kumon Instructor',
       company: 'Kumon Learning Center',
       location: 'Toronto, ON',
-      period: '2023 - Present',
+      period: 'March 2023 - Present',
       type: 'Part-time',
       icon: BookOpen,
       image: 'https://www.kumon.com/assets/images/whats-kumon/logo_img_01.gif',
@@ -20,7 +20,7 @@ const Experience = () => {
         'Improved student performance metrics by 35% through data-driven teaching methods',
         'Created automated progress tracking system using Python and data analytics'
       ],
-      skills: ['Python', 'Machine Learning', 'Data Analytics', 'Education Technology', 'Student Assessment']
+      skills: ['Python', 'Teaching', 'Mathematics', 'Education Technology', 'Student Assessment']
     },
     {
       title: 'Co-Founder and Software Engineer',
