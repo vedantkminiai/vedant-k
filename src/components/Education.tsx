@@ -11,11 +11,7 @@ const Education = () => {
       'CSC110 (Principles of Computer Science)',
       'CSC111 (Data Structures and Algorithms)',
       'MAT223 (Linear Algebra)',
-      'MAT137 (Calculus with Proofs)',
-      'CSC148 (Introduction to Computer Science)',
-      'CSC165 (Mathematical Expression and Reasoning)',
-      'CSC207 (Software Design)',
-      'CSC236 (Introduction to the Theory of Computation)'
+      'MAT137 (Calculus with Proofs)'
     ]
   };
 
