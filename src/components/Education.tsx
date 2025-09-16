@@ -9,9 +9,13 @@ const Education = () => {
     expectedGraduation: '2026',
     coursework: [
       'CSC110 (Principles of Computer Science)',
-      'CSC110 (Data Structures and Algorithms)',
+      'CSC111 (Data Structures and Algorithms)',
       'MAT223 (Linear Algebra)',
       'MAT137 (Calculus with Proofs)',
+      'CSC148 (Introduction to Computer Science)',
+      'CSC165 (Mathematical Expression and Reasoning)',
+      'CSC207 (Software Design)',
+      'CSC236 (Introduction to the Theory of Computation)'
     ]
   };
 
@@ -25,52 +29,70 @@ const Education = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-rose-600 mx-auto mb-8"></div>
         </div>
 
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
             <div className="h-2 bg-gradient-to-r from-red-600 to-rose-600"></div>
             
-            <div className="p-8 sm:p-12">
-              <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between mb-8">
-                <div className="flex items-center mb-6 sm:mb-0">
-                  <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-600 to-rose-600 rounded-2xl mr-6">
-                    <img
-                      src="https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=64&h=64&fit=crop"
-                      alt="University of Toronto"
-                      className="w-10 h-10 rounded-lg object-cover"
-                    />
+            {/* Hero Image Section */}
+            <div className="relative h-64 sm:h-80 overflow-hidden">
+              <img
+                src="https://images.pexels.com/photos/1595391/pexels-photo-1595391.jpeg?auto=compress&cs=tinysrgb&w=1200&h=600&fit=crop"
+                alt="University of Toronto Campus"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent"></div>
+              
+              {/* Overlay Content */}
+              <div className="absolute bottom-0 left-0 right-0 p-8 text-white">
+                <div className="flex items-center mb-4">
+                  <div className="flex items-center justify-center w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl mr-4">
+                    <GraduationCap className="h-8 w-8 text-white" />
                   </div>
                   <div>
-                    <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-2">
-                      {education.degree}
-                    </h3>
-                    <p className="text-red-600 font-semibold text-lg mb-2">
+                    <h3 className="text-2xl sm:text-3xl font-bold mb-1">
                       {education.university}
+                    </h3>
+                    <p className="text-red-200 font-semibold text-lg">
+                      {education.degree}
                     </p>
                   </div>
                 </div>
-                
-                <div className="flex flex-col sm:flex-row gap-4 text-gray-600">
-                  <div className="flex items-center">
-                    <MapPin className="h-5 w-5 mr-2 text-red-500" />
-                    <span className="font-medium">{education.location}</span>
+              </div>
+            </div>
+            
+            <div className="p-8 sm:p-12">
+              {/* Key Information */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
+                <div className="flex items-center p-4 bg-red-50 rounded-xl">
+                  <MapPin className="h-6 w-6 mr-3 text-red-600" />
+                  <div>
+                    <p className="text-sm text-gray-600 font-medium">Location</p>
+                    <p className="text-lg font-semibold text-gray-900">{education.location}</p>
                   </div>
-                  <div className="flex items-center">
-                    <Calendar className="h-5 w-5 mr-2 text-red-500" />
-                    <span className="font-medium">Expected Graduation: {education.expectedGraduation}</span>
+                </div>
+                
+                <div className="flex items-center p-4 bg-red-50 rounded-xl">
+                  <Calendar className="h-6 w-6 mr-3 text-red-600" />
+                  <div>
+                    <p className="text-sm text-gray-600 font-medium">Expected Graduation</p>
+                    <p className="text-lg font-semibold text-gray-900">{education.expectedGraduation}</p>
                   </div>
                 </div>
               </div>
 
+              {/* Coursework Section */}
               <div>
-                <h4 className="text-xl font-semibold text-gray-900 mb-6 flex items-center">
-                  <BookOpen className="h-6 w-6 mr-3 text-red-600" />
+                <h4 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
+                  <BookOpen className="h-7 w-7 mr-3 text-red-600" />
                   Relevant Coursework
                 </h4>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {education.coursework.map((course, index) => (
-                    <div key={index} className="flex items-center p-4 bg-red-50 rounded-lg">
-                      <span className="inline-block w-2 h-2 bg-red-500 rounded-full mr-3 flex-shrink-0"></span>
-                      <span className="text-gray-700 font-medium">{course}</span>
+                    <div key={index} className="group p-4 bg-gradient-to-br from-gray-50 to-red-50 rounded-xl hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                      <div className="flex items-start">
+                        <span className="inline-block w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0 group-hover:bg-red-600 transition-colors"></span>
+                        <span className="text-gray-700 font-medium leading-relaxed">{course}</span>
+                      </div>
                     </div>
                   ))}
                 </div>
