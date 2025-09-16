@@ -56,21 +56,19 @@ const Experience = () => {
       skills: ['Critical Thinking', 'Python', 'Proofs', 'Algorithms']
     },
     {
-      title: 'Volunteer Developer',
-      company: 'Local Non-Profit Organization',
+      title: 'CREATE Student Researcher',
+      company: 'University of Toronto',
       location: 'Toronto, ON',
-      period: '2022 - 2023',
-      type: 'Volunteer',
+      period: 'May 2024 - June 2024',
+      type: 'Researcher',
       icon: Users,
       image: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop',
-      description: 'Volunteered to develop and maintain web applications for local community organizations, helping them digitize their operations.',
+      description: 'Attended the University of Toronto for their Computer Engineering Design program, CREATE Weekends.',
       achievements: [
-        'Built donation tracking system that increased online donations by 40%',
-        'Created volunteer management portal for efficient coordination',
-        'Provided technical training to staff members',
-        'Maintained and updated existing web infrastructure'
+        'Built and Programmed a Mini Solar Panel using Python, C++ and photo censors to rotate for optimal lighting exposure',
+        'Connected with upper year Computer Science and Computer Engineering students',
       ],
-      skills: ['HTML/CSS', 'JavaScript', 'PHP', 'MySQL', 'WordPress', 'Community Outreach']
+      skills: ['Python', 'C++', 'Arduino']
     }
   ];
 
