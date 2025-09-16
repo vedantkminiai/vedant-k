@@ -46,7 +46,7 @@ const Experience = () => {
       period: 'June 2024 - September 2024',
       type: 'Education',
       icon: Award,
-      image: 'https://images.pexels.com/photos/6238297/pexels-photo-6238297.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop',
+      image: 'https://uwaterloo.ca/brand/sites/ca.brand/files/styles/body-500px-wide/public/uploads/images/universityofwaterloo_logo_horiz_rgb_1.jpg?itok=1aKXR4xp',
       description: 'Researched complex mathematics and computer science problem-solving techniques through the Summer Problem Solving Course offered by the Centre for Education, Mathematics and Computing. Wrote proofs and solved problems daily in the summer.',
       achievements: [
         'Achieved Top 25% Distinction in the 2024 Senior Canadian Mathematics Contest (37/60)',
