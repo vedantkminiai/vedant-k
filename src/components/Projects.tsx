@@ -6,7 +6,7 @@ const Projects = () => {
     {
       title: 'Library Management System',
       icon: BookOpen,
-      image: 'https://apuedge.com/wp-content/uploads/2020/08/online-library-databases.jpg,
+      image: 'https://apuedge.com/wp-content/uploads/2020/08/online-library-databases.jpg',
       description: 'A comprehensive library management application built in Java, designed to streamline book circulation, member handling, and resource tracking while showcasing object-oriented programming principles.',
       features: [
         'Intuitive console-based interface for efficient librarian workflows',
