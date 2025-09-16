@@ -12,7 +12,7 @@ const Experience = () => {
       period: '2023 - Present',
       type: 'Part-time',
       icon: BookOpen,
-      image: 'https://images.pexels.com/photos/5212345/pexels-photo-5212345.jpeg?auto=compress&cs=tinysrgb&w=600&h=300&fit=crop',
+      image: 'https://www.kumon.com/assets/images/whats-kumon/logo_img_01.gif',
       description: 'Mathematics and English tutor for students ranging from elementary to high school level content. Implementing machine learning software to optimize student progression through the curriculum.',
       achievements: [
         'Tutored 50+ students across various grade levels in mathematics and English',
