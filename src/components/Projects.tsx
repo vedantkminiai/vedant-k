@@ -20,10 +20,10 @@ const Projects = () => {
       gradient: 'from-red-500 to-rose-500'
     },
     {
-      title: 'ColourMash',
+      title: 'ColourMashAI',
       icon: Palette,
       image: 'https://images.pexels.com/photos/1762851/pexels-photo-1762851.jpeg?auto=compress&cs=tinysrgb&w=600&h=400&fit=crop',
-      description: 'An innovative color palette generator and design tool that helps designers and developers create harmonious color schemes with intelligent suggestions.',
+      description: 'Interactive web application designed to help individuals with Alzheimer’s and dementia improve memory and cognitive skills through pattern recognition.',
       features: [
         'AI-powered color palette generation',
         'Real-time color harmony analysis',
