@@ -110,7 +110,7 @@ const Projects = () => {
 
                 <div className="flex flex-col sm:flex-row gap-4">
                   <a
-                    href="https://github.com/vedantkansara"
+                    href="https://github.com/vedantkminiai"
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`inline-flex items-center justify-center px-6 py-3 bg-gradient-to-r ${project.gradient} text-white font-semibold rounded-xl hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300`}
@@ -119,7 +119,7 @@ const Projects = () => {
                     View Code
                   </a>
                   <a
-                    href="https://github.com/vedantkansara"
+                    href="https://github.com/vedantkminiai"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center justify-center px-6 py-3 border-2 border-gray-300 text-gray-700 font-semibold rounded-xl hover:border-red-500 hover:text-red-600 transition-all duration-300"
