@@ -50,7 +50,7 @@ const Experience = () => {
         'Achieved Top 25% Distinction in the 2025 Canadian Computing Competition (43/75)',
         'Recieved Certificate of Achievement upon completing the course.',
       ],
-      skills: ['Java', 'Python', 'C++', 'Data Structures', 'Algorithms', 'Software Design']
+      skills: ['Critical Thinking', 'Python', 'Proofs', 'Algorithms']
     },
     {
       title: 'Volunteer Developer',
