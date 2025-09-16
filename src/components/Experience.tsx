@@ -28,7 +28,7 @@ const Experience = () => {
       period: 'Febuary 2024 - Present',
       type: 'Permanent Part-Time',
       icon: Code,
-      description: 'Created a machine learning and artifical intelligence curriculum using interactive coding labs from TensorFlow. ',
+      description: 'Co-founded an artifical intelligence education startup. Designed a machine learning focused curriculum using interactive coding labs from TensorFlow. ',
       achievements: [
         'Developed responsive web applications using React and Node.js',
         'Collaborated with engineers from Meta, Amazon and Microsoft',
@@ -38,18 +38,17 @@ const Experience = () => {
       skills: ['React', 'Node.js', 'JavaScript', 'SQL', 'Git', 'Agile Development']
     },
     {
-      title: 'Computer Science Student',
-      company: 'University of Toronto',
+      title: 'Mathematics Researcher',
+      company: 'University of Waterloo',
       location: 'Toronto, ON',
-      period: 'Febuary 2024 - Present',
+      period: 'June 2024 - September 2024',
       type: 'Education',
       icon: Award,
-      description: 'Pursuing Bachelor of Science in Computer Science with focus on software engineering, algorithms, and data structures.',
+      description: 'Researched complex mathematics and computer science problem-solving techniques through the Summer Problem Solving Course offered by the Centre for Education, Mathematics and Computing. Wrote proofs and solved problems daily in the summer.',
       achievements: [
-        'Maintained Dean\'s List status with 3.8+ GPA',
-        'Completed advanced coursework in algorithms, data structures, and software design',
-        'Led team projects in software engineering and database systems',
-        'Active member of Computer Science Student Association'
+        'Achieved Top 25% Distinction in the 2024 Senior Canadian Mathematics Contest (37/60)',
+        'Achieved Top 25% Distinction in the 2025 Canadian Computing Competition (43/75)',
+        'Recieved Certificate of Achievement upon completing the course.',
       ],
       skills: ['Java', 'Python', 'C++', 'Data Structures', 'Algorithms', 'Software Design']
     },
