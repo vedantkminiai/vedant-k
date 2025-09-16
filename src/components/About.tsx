@@ -35,9 +35,7 @@ const About = () => {
           <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-8"></div>
           <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-rose-600 mx-auto mb-8"></div>
           <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            I'm a dedicated software engineering student with a passion for creating meaningful digital experiences. 
-            My journey in programming started with curiosity and has evolved into a commitment to building software 
-            that solves real-world problems.
+           Hey, I'm Vedant, a Computer Science student at the University of Toronto’s St. George Campus. Passionate about mathematics, problem-solving and programming. Co-founder of MiniAI, Education Startup. Software and Machine Learning Engineer. 
           </p>
         </div>
 
