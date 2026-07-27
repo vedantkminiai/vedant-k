@@ -1,3 +1,220 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  overflow-x: hidden;
+}
+
+.screen-transition {
+  animation: screen-enter 480ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.background-cubes {
+  position: fixed;
+  inset: 0;
+  z-index: 20;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.cube-decoration {
+  --cube-size: 64px;
+  --cube-depth: calc(var(--cube-size) / 2);
+  position: absolute;
+  width: var(--cube-size);
+  height: var(--cube-size);
+  perspective: 700px;
+  opacity: 0.25;
+  filter: drop-shadow(0 18px 22px rgb(127 29 29 / 0.18));
+}
+
+.cube-decoration--large {
+  --cube-size: 82px;
+}
+
+.cube-decoration--medium {
+  --cube-size: 64px;
+}
+
+.cube-decoration--small {
+  --cube-size: 50px;
+}
+
+.cube-decoration--tiny {
+  --cube-size: 38px;
+}
+
+.cube-decoration--top-left {
+  top: 19%;
+  left: 3%;
+}
+
+.cube-decoration--middle-right {
+  top: 42%;
+  right: 3%;
+}
+
+.cube-decoration--bottom-left {
+  bottom: 14%;
+  left: 5%;
+}
+
+.cube-decoration--bottom-right {
+  right: 9%;
+  bottom: 8%;
+}
+
+.background-cubes--experiences .cube-decoration--top-left {
+  top: 29%;
+}
+
+.background-cubes--experiences .cube-decoration--middle-right {
+  top: 66%;
+}
+
+.background-cubes--projects .cube-decoration--top-left {
+  top: 55%;
+}
+
+.background-cubes--projects .cube-decoration--middle-right {
+  top: 24%;
+}
+
+.cube-decoration__body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  animation: cube-drift 12s linear infinite;
+}
+
+.cube-decoration:nth-child(2) .cube-decoration__body {
+  animation-duration: 15s;
+  animation-direction: reverse;
+}
+
+.cube-decoration:nth-child(3) .cube-decoration__body {
+  animation-duration: 10s;
+  animation-delay: -4s;
+}
+
+.cube-decoration:nth-child(4) .cube-decoration__body {
+  animation-duration: 18s;
+  animation-delay: -7s;
+  animation-direction: reverse;
+}
+
+.cube-decoration__face {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid rgb(17 24 39 / 0.55);
+  background: #7f1d1d;
+  backface-visibility: hidden;
+}
+
+.cube-decoration__face span {
+  border: 1px solid rgb(17 24 39 / 0.35);
+  border-radius: 2px;
+  background: var(--tile-color);
+}
+
+.cube-decoration__face--front {
+  --tile-color: #ef4444;
+  transform: translateZ(var(--cube-depth));
+}
+
+.cube-decoration__face--back {
+  --tile-color: #f97316;
+  transform: rotateY(180deg) translateZ(var(--cube-depth));
+}
+
+.cube-decoration__face--right {
+  --tile-color: #2563eb;
+  transform: rotateY(90deg) translateZ(var(--cube-depth));
+}
+
+.cube-decoration__face--left {
+  --tile-color: #22c55e;
+  transform: rotateY(-90deg) translateZ(var(--cube-depth));
+}
+
+.cube-decoration__face--top {
+  --tile-color: #f8fafc;
+  transform: rotateX(90deg) translateZ(var(--cube-depth));
+}
+
+.cube-decoration__face--bottom {
+  --tile-color: #facc15;
+  transform: rotateX(-90deg) translateZ(var(--cube-depth));
+}
+
+@keyframes cube-drift {
+  0% {
+    transform: rotateX(-18deg) rotateY(0deg) rotateZ(4deg) translateY(0);
+  }
+  50% {
+    transform: rotateX(22deg) rotateY(180deg) rotateZ(-8deg) translateY(-16px);
+  }
+  100% {
+    transform: rotateX(-18deg) rotateY(360deg) rotateZ(4deg) translateY(0);
+  }
+}
+
+@keyframes screen-enter {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 767px) {
+  .cube-decoration {
+    opacity: 0.16;
+  }
+
+  .cube-decoration--top-left,
+  .cube-decoration--bottom-left {
+    left: -18px;
+  }
+
+  .cube-decoration--middle-right,
+  .cube-decoration--bottom-right {
+    right: -18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .screen-transition,
+  .cube-decoration__body {
+    animation: none;
+  }
+}
+
+@media print {
+  header,
+  .background-cubes {
+    display: none !important;
+  }
+
+  .screen-transition {
+    animation: none;
+  }
+}

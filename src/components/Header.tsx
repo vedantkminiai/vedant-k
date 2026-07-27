@@ -1,7 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Download, ExternalLink, Menu, X } from 'lucide-react';
 
-const Header = () => {
+type Screen = 'home' | 'experiences' | 'projects';
+
+type HeaderProps = {
+  activeScreen: Screen;
+  onNavigate: (screen: Screen) => void;
+};
+
+const Header = ({ activeScreen, onNavigate }: HeaderProps) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
 
@@ -14,13 +21,23 @@ const Header = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+  const navigate = (screen: Screen) => {
+    onNavigate(screen);
     setIsMenuOpen(false);
   };
+
+  const navigation = [
+    { label: 'Home', screen: 'home' as const },
+    { label: 'Experiences', screen: 'experiences' as const },
+    { label: 'Projects', screen: 'projects' as const },
+  ];
+
+  const navButtonClass = (screen: Screen, mobile = false) =>
+    `${mobile ? 'text-left ' : ''}relative font-medium transition-colors duration-200 ${
+      activeScreen === screen
+        ? 'text-red-600'
+        : 'text-gray-700 hover:text-red-600'
+    }`;
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
@@ -35,42 +52,36 @@ const Header = () => {
           </div>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex space-x-8">
-            <button
-              onClick={() => scrollToSection('hero')}
-              className="text-gray-700 hover:text-red-600 transition-colors duration-200"
+          <nav className="hidden md:flex items-center space-x-8" aria-label="Main navigation">
+            {navigation.map((item) => (
+              <button
+                key={item.screen}
+                onClick={() => navigate(item.screen)}
+                className={navButtonClass(item.screen)}
+                aria-current={activeScreen === item.screen ? 'page' : undefined}
+              >
+                {item.label}
+                {activeScreen === item.screen && (
+                  <span className="absolute -bottom-2 left-0 right-0 h-0.5 rounded-full bg-red-500" />
+                )}
+              </button>
+            ))}
+            <a
+              href="https://github.com/vedantkminiai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center font-medium text-gray-700 hover:text-red-600 transition-colors duration-200"
             >
-              Home
-            </button>
+              Github
+              <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
+            </a>
             <button
-              onClick={() => scrollToSection('about')}
-              className="text-gray-700 hover:text-red-600 transition-colors duration-200"
+              onClick={() => window.print()}
+              className="inline-flex items-center rounded-full bg-gray-900 px-5 py-2.5 font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-red-600 hover:shadow-lg"
+              title="Print or save this portfolio as a PDF"
             >
-              About
-            </button>
-            <button
-              onClick={() => scrollToSection('education')}
-              className="text-gray-700 hover:text-red-600 transition-colors duration-200"
-            >
-              Education
-            </button>
-            <button
-              onClick={() => scrollToSection('experience')}
-              className="text-gray-700 hover:text-red-600 transition-colors duration-200"
-            >
-              Experience
-            </button>
-            <button
-              onClick={() => scrollToSection('projects')}
-              className="text-gray-700 hover:text-red-600 transition-colors duration-200"
-            >
-              Projects
-            </button>
-            <button
-              onClick={() => scrollToSection('contact')}
-              className="text-gray-700 hover:text-red-600 transition-colors duration-200"
-            >
-              Contact
+              Resume
+              <Download className="ml-2 h-4 w-4" />
             </button>
           </nav>
 
@@ -91,41 +102,35 @@ const Header = () => {
         {isMenuOpen && (
           <nav className="md:hidden pb-4">
             <div className="flex flex-col space-y-3">
-              <button
-                onClick={() => scrollToSection('hero')}
-                className="text-left text-gray-700 hover:text-red-600 transition-colors duration-200"
+              {navigation.map((item) => (
+                <button
+                  key={item.screen}
+                  onClick={() => navigate(item.screen)}
+                  className={navButtonClass(item.screen, true)}
+                  aria-current={activeScreen === item.screen ? 'page' : undefined}
+                >
+                  {item.label}
+                </button>
+              ))}
+              <a
+                href="https://github.com/vedantkminiai"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center font-medium text-gray-700 hover:text-red-600"
+                onClick={() => setIsMenuOpen(false)}
               >
-                Home
-              </button>
+                Github
+                <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
+              </a>
               <button
-                onClick={() => scrollToSection('about')}
-                className="text-left text-gray-700 hover:text-red-600 transition-colors duration-200"
+                onClick={() => {
+                  setIsMenuOpen(false);
+                  window.print();
+                }}
+                className="inline-flex w-fit items-center rounded-full bg-gray-900 px-5 py-2.5 font-medium text-white"
               >
-                About
-              </button>
-              <button
-                onClick={() => scrollToSection('education')}
-                className="text-left text-gray-700 hover:text-red-600 transition-colors duration-200"
-              >
-                Education
-              </button>
-              <button
-                onClick={() => scrollToSection('experience')}
-                className="text-left text-gray-700 hover:text-red-600 transition-colors duration-200"
-              >
-                Experience
-              </button>
-              <button
-                onClick={() => scrollToSection('projects')}
-                className="text-left text-gray-700 hover:text-red-600 transition-colors duration-200"
-              >
-                Projects
-              </button>
-              <button
-                onClick={() => scrollToSection('contact')}
-                className="text-left text-gray-700 hover:text-red-600 transition-colors duration-200"
-              >
-                Contact
+                Resume
+                <Download className="ml-2 h-4 w-4" />
               </button>
             </div>
           </nav>

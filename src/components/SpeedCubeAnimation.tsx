@@ -48,7 +48,7 @@ const SpeedCubeAnimation = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-white/95 backdrop-blur-sm">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-white/95 backdrop-blur-sm">
       <div className="text-center">
         <div className="cube-container mb-8" style={{ perspective: '1000px' }}>
           <div 

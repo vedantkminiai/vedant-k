@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar, MapPin, Award, Users, Code, BookOpen, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Award, Users, Code, BookOpen, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const Experience = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
