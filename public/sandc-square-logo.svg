@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 286 285" role="img" aria-labelledby="title">
+  <title id="title">S&amp;C Electric Company</title>
+  <rect width="286" height="285" fill="#368860"/>
+  <rect x="6" y="6" width="274" height="273" fill="none" stroke="#fff" stroke-width="7"/>
+  <path d="M10 275L276 10" stroke="#fff" stroke-width="7"/>
+  <g fill="#fff" font-family="Arial Black, Arial, sans-serif" font-weight="900">
+    <text x="28" y="123" font-size="105">S</text>
+    <text x="166" y="244" font-size="105">C</text>
+  </g>
+  <text x="112" y="177" fill="#fff" font-family="Arial, sans-serif" font-size="64" font-weight="700">&amp;</text>
+</svg>

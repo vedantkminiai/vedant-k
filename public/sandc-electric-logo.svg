@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 180" role="img" aria-labelledby="title">
+  <title id="title">S&amp;C Electric Company</title>
+  <rect width="1200" height="180" fill="#ffffff"/>
+  <g transform="translate(8 8)">
+    <rect width="164" height="164" fill="#00856f"/>
+    <path d="M6 6h152v152H6z" fill="none" stroke="#fff" stroke-width="6"/>
+    <path d="M8 156L156 8" stroke="#fff" stroke-width="6"/>
+    <text x="25" y="70" fill="#fff" font-family="Arial Black, Arial, sans-serif" font-size="65" font-weight="900">S</text>
+    <text x="96" y="143" fill="#fff" font-family="Arial Black, Arial, sans-serif" font-size="65" font-weight="900">C</text>
+    <text x="65" y="107" fill="#fff" font-family="Arial, sans-serif" font-size="38" font-weight="700">&amp;</text>
+  </g>
+  <text x="205" y="92" fill="#171717" font-family="Arial Black, Arial, sans-serif" font-size="70" font-weight="900" letter-spacing="1">S&amp;C ELECTRIC COMPANY</text>
+  <text x="207" y="140" fill="#3f3f46" font-family="Arial, sans-serif" font-size="34" letter-spacing="12">EXCELLENCE THROUGH INNOVATION</text>
+</svg>

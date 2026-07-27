@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SpeedCubeAnimation from './components/SpeedCubeAnimation';
 import BackgroundCubes from './components/BackgroundCubes';
+import CustomCursor from './components/CustomCursor';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import About from './components/About';
@@ -42,6 +43,7 @@ function App() {
 
   return (
     <div className="min-h-screen bg-neutral-950">
+      <CustomCursor />
       <SpeedCubeAnimation />
       <Header activeScreen={activeScreen} onNavigate={navigate} />
       <BackgroundCubes screen={activeScreen} />

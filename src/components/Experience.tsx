@@ -1,5 +1,6 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
+  ArrowDown,
   ArrowLeft,
   ArrowRight,
   Award,
@@ -11,13 +12,67 @@ import {
 
 const experiences = [
   {
-    title: 'Kumon Instructor',
+    title: 'Data Analytics Engineer Intern',
+    company: 'S&C Electric Company',
+    location: 'Toronto, ON',
+    period: 'May 2026 — August 2026',
+    type: 'Internship',
+    icon: Code,
+    image: 'https://powerandtelecom.ca/wp-content/uploads/2024/03/Sccanada_pt_836.jpg',
+    imageFit: 'cover',
+    coverImage: 'https://www.sandc.com/globalassets/sac-electric/content-callouts/tripsaver/logo2.png',
+    coverImageFit: 'contain',
+    description:
+      'Completing a four-month Data Analytics Engineering internship at S&C Electric, building end-to-end analytics infrastructure for metal-enclosed switchgear and Vista product data. Developed ETL pipelines that extract data from internal REST APIs, transform and validate it with Python, and load curated tables into Azure SQL. Designed a Power BI marginal-costing dashboard with filters for kV and amp ratings, product style, bay type—including breakers and switch-and-fuse configurations—and quantity.',
+    achievements: [
+      'Reduced end-to-end data ingestion time by 53% by optimizing API extraction, Python transformations, and database-loading workflows',
+      'Processed more than 500,000 aggregated component records spanning over 10 years of product history',
+      'Delivered component-level costing insights projected to save approximately $150,000 annually',
+      'Increased overall data throughput by 28% across the analytics pipeline',
+    ],
+    skills: ['Python', 'PowerBI', 'Databricks', 'Azure SQL', 'DAX', 'Excel', 'REST APIs'],
+  },
+  {
+    title: 'Software Engineering Intern',
+    company: 'Coding Campus',
+    location: 'Toronto, ON',
+    period: 'May 2025 — August 2025',
+    type: 'Internship',
+    icon: Code,
+    image:
+      'https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/970/527/datas/original.jpeg',
+    imageFit: 'cover',
+    description:
+      'Built and scaled full-stack platforms for developer education, hackathon operations, and applicant management. Delivered responsive product experiences, AI-assisted course recommendations, production APIs, and cloud data optimizations across React, Next.js, Spring, and relational database systems.',
+    achievements: [
+      'Developed a responsive course platform with React, Next.js, Tailwind CSS, and MySQL, using GPT-4o to generate personalized coding-course recommendations and increase users by 30%',
+      'Organized Apple Hacks for 250+ hackers and processed over 500 applications through a React and Spring applicant-management platform powered by Gemini AI',
+      'Engineered PostgreSQL schemas and API endpoints to manage more than 100 monthly email requests',
+      'Architected 9+ reusable React components and add-ons while establishing 5+ GraphQL and JSON-RPC endpoints',
+      'Optimized storage and retrieval workflows in Azure Data Lake Storage, reducing data-access latency by 70%',
+    ],
+    skills: [
+      'React',
+      'Next.js',
+      'Tailwind CSS',
+      'Spring',
+      'MySQL',
+      'PostgreSQL',
+      'GraphQL',
+      'Azure Data Lake',
+      'GPT-4o',
+      'Gemini AI',
+    ],
+  },
+  {
+    title: 'Mathematics and English Instructor',
     company: 'Kumon Learning Center',
     location: 'Toronto, ON',
-    period: 'March 2023 — Present',
+    period: 'March 2023 — April 2026',
     type: 'Part-time',
     icon: BookOpen,
-    image: 'https://www.kumon.com/assets/images/whats-kumon/logo_img_01.gif',
+    image: 'https://www.kumon.ie/storage/uploads/iVgrv7ZioMNPsFh3as6cHlIrWbYuzduFL82B8YrO.jpg',
+    imageFit: 'cover',
     description:
       'Mathematics and English tutor for students ranging from elementary to high school level content. Implementing machine learning software to optimize student progression through the curriculum.',
     achievements: [
@@ -29,7 +84,7 @@ const experiences = [
     skills: ['Python', 'Teaching', 'Mathematics', 'Education Technology', 'Student Assessment'],
   },
   {
-    title: 'Co-Founder and Software Engineer',
+    title: 'Co-Founder (Founding Engineer)',
     company: 'MiniAI',
     location: 'Toronto, ON',
     period: 'February 2024 — Present',
@@ -37,17 +92,17 @@ const experiences = [
     icon: Code,
     image: 'https://miniai.ca/miniAIhorizontal.png',
     description:
-      'Co-founded an artificial intelligence education startup. Designed a machine-learning-focused curriculum using interactive coding labs from TensorFlow.',
+      'Co-founded and lead operations for an artificial intelligence education startup expanding access to practical AI learning in underprivileged communities. Direct product engineering, curriculum development, technical partnerships, and student-program delivery across an international learning community.',
     achievements: [
-      'Developed responsive web applications using React and Node.js',
-      'Collaborated with engineers from Meta, Amazon and Microsoft',
-      'Ran a summer program graduating nearly 300 students',
-      'Hosted workshops at Pierre Laporte Middle School and Northview Heights Secondary School',
+      'Led a team of 5+ contributors to build a machine-learning curriculum and manage student programs',
+      'Formed partnerships with engineers from Meta, Microsoft, and Amazon to deliver virtual AI workshops',
+      'Engineered the company website with React, TypeScript, and Vite; deployed through AWS ECS and Vercel using Docker and GitHub Actions CI/CD pipelines to maintain 99.9% uptime',
+      'Reached 1,000+ students internationally, with more than 300 earning a Foundations of AI credential',
     ],
-    skills: ['React', 'Node.js', 'JavaScript', 'SQL', 'Git', 'Agile Development'],
+    skills: ['React', 'TypeScript', 'Vite', 'AWS ECS', 'Vercel', 'Docker', 'GitHub Actions'],
   },
   {
-    title: 'Mathematics Researcher',
+    title: 'Student Researcher',
     company: 'University of Waterloo',
     location: 'Toronto, ON',
     period: 'June 2024 — September 2024',
@@ -55,6 +110,9 @@ const experiences = [
     icon: Award,
     image:
       'https://uwaterloo.ca/brand/sites/ca.brand/files/styles/body-500px-wide/public/uploads/images/universityofwaterloo_logo_horiz_rgb_1.jpg?itok=1aKXR4xp',
+    thumbnailFit: 'cover',
+    coverImage: 'https://upload.wikimedia.org/wikipedia/en/6/6e/University_of_Waterloo_seal.svg',
+    coverImageFit: 'contain',
     description:
       'Researched complex mathematics and computer science problem-solving techniques through the Summer Problem Solving Course offered by the Centre for Education, Mathematics and Computing. Wrote proofs and solved problems daily throughout the summer.',
     achievements: [
@@ -71,7 +129,10 @@ const experiences = [
     period: 'May 2024 — June 2024',
     type: 'Researcher',
     icon: Users,
-    image: 'https://www.diglib.org/wp-content/uploads/sites/3/2014/12/UofT_Logo.svg-copy.jpg',
+    image: 'https://spacesandexperiences.utoronto.ca/wp-content/uploads/2024/04/brand-UofT.jpg',
+    thumbnailFit: 'cover',
+    coverImage: 'https://upload.wikimedia.org/wikipedia/en/0/04/Utoronto_coa.svg',
+    coverImageFit: 'contain',
     description:
       'Attended the University of Toronto for its Computer Engineering Design program, CREATE Weekends.',
     achievements: [
@@ -85,13 +146,39 @@ const experiences = [
 const Experience = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const scrollerRef = useRef<HTMLDivElement>(null);
+  const detailRef = useRef<HTMLElement>(null);
   const currentExperience = experiences[currentIndex];
 
-  const selectExperience = (index: number) => {
-    setCurrentIndex(index);
-    const selectedCard = scrollerRef.current?.children[index] as HTMLElement | undefined;
-    selectedCard?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-  };
+  const selectExperience = (index: number) => setCurrentIndex(index);
+
+  useEffect(() => {
+    const scroller = scrollerRef.current;
+    if (!scroller) return;
+
+    let animationFrame = 0;
+    let previousTime = 0;
+    let scrollPosition = scroller.scrollLeft;
+    const pixelsPerSecond = 22;
+
+    const moveCarousel = (time: number) => {
+      if (previousTime) {
+        scrollPosition += ((time - previousTime) / 1000) * pixelsPerSecond;
+
+        const loopPoint = scroller.scrollWidth / 2;
+        if (loopPoint && scrollPosition >= loopPoint) {
+          scrollPosition -= loopPoint;
+        }
+
+        scroller.scrollLeft = scrollPosition;
+      }
+
+      previousTime = time;
+      animationFrame = window.requestAnimationFrame(moveCarousel);
+    };
+
+    animationFrame = window.requestAnimationFrame(moveCarousel);
+    return () => window.cancelAnimationFrame(animationFrame);
+  }, []);
 
   const moveSelection = (direction: -1 | 1) => {
     const nextIndex =
@@ -105,7 +192,7 @@ const Experience = () => {
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="mb-4 font-mono text-sm uppercase tracking-[0.28em] text-neutral-500">
-              Career archive / 01—04
+              Career archive / 01—06
             </p>
             <h2 className="text-4xl font-bold tracking-tight sm:text-6xl">
               Experience
@@ -136,27 +223,43 @@ const Experience = () => {
 
         <div
           ref={scrollerRef}
-          className="experience-scroll mb-10 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-5"
+          className="experience-scroll mb-10 flex gap-4 overflow-x-auto pb-5"
           role="tablist"
           aria-label="Select an experience"
         >
-          {experiences.map((experience, index) => (
+          {[...experiences, ...experiences].map((experience, displayIndex) => {
+            const index = displayIndex % experiences.length;
+            const isDuplicate = displayIndex >= experiences.length;
+
+            return (
             <button
-              key={experience.company}
+              key={`${experience.company}-${isDuplicate ? 'duplicate' : 'original'}`}
               onClick={() => selectExperience(index)}
-              className={`group min-w-[250px] max-w-[250px] snap-center overflow-hidden rounded-2xl border text-left transition-all duration-300 sm:min-w-[290px] sm:max-w-[290px] ${
+              className={`group min-w-[250px] max-w-[250px] overflow-hidden rounded-2xl border text-left transition-all duration-300 sm:min-w-[290px] sm:max-w-[290px] ${
                 index === currentIndex
                   ? 'border-white bg-neutral-800'
                   : 'border-neutral-800 bg-neutral-900/80 hover:border-neutral-600 hover:bg-neutral-900'
               }`}
               role="tab"
               aria-selected={index === currentIndex}
+              aria-hidden={isDuplicate || undefined}
+              tabIndex={isDuplicate ? -1 : 0}
             >
-              <div className="h-24 overflow-hidden bg-white">
+              <div className={`h-24 overflow-hidden ${
+                (experience.thumbnailFit ?? experience.imageFit) === 'cover'
+                  ? 'bg-transparent'
+                  : 'bg-neutral-800'
+              }`}>
                 <img
                   src={experience.image}
                   alt={`${experience.company} logo`}
-                  className="h-full w-full object-contain p-3 transition duration-500 group-hover:scale-105"
+                  className={`block h-full w-full transition duration-500 ${
+                    (experience.thumbnailFit ?? experience.imageFit) === 'cover'
+                      ? 'object-cover object-center p-0 group-hover:scale-105'
+                      : `object-contain group-hover:scale-105 ${
+                          experience.thumbnailPadding === 'wide' ? 'p-4' : 'p-3'
+                        }`
+                  }`}
                 />
               </div>
               <div className="p-5">
@@ -173,17 +276,41 @@ const Experience = () => {
                 </p>
               </div>
             </button>
-          ))}
+            );
+          })}
         </div>
 
-        <article className="overflow-hidden rounded-[2rem] border border-neutral-800 bg-neutral-900 shadow-2xl shadow-black/40">
+        <div className="-mt-3 mb-9 flex flex-col items-center gap-3">
+          <span className="text-xs uppercase tracking-[0.2em] text-neutral-600">
+            Continuously scrolling
+          </span>
+          <button
+            onClick={() =>
+              detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+            }
+            className="group flex h-12 w-12 items-center justify-center rounded-full border border-neutral-700 bg-neutral-900 text-neutral-300 transition hover:border-white hover:bg-white hover:text-black"
+            aria-label={`View ${currentExperience.title} details`}
+            title="View selected experience"
+          >
+            <ArrowDown className="h-5 w-5 transition-transform duration-300 group-hover:translate-y-1" />
+          </button>
+        </div>
+
+        <article
+          ref={detailRef}
+          className="scroll-mt-24 overflow-hidden rounded-[2rem] border border-neutral-800 bg-neutral-900 shadow-2xl shadow-black/40"
+        >
           <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
-            <div className="relative min-h-[310px] overflow-hidden bg-white lg:min-h-[540px]">
+            <div className="relative min-h-[310px] overflow-hidden bg-neutral-800 lg:min-h-[540px]">
               <img
-                key={currentExperience.image}
-                src={currentExperience.image}
+                key={currentExperience.coverImage ?? currentExperience.image}
+                src={currentExperience.coverImage ?? currentExperience.image}
                 alt={`${currentExperience.company} cover`}
-                className="absolute inset-0 h-full w-full object-contain p-8 sm:p-12"
+                className={`absolute inset-0 h-full w-full ${
+                  (currentExperience.coverImageFit ?? currentExperience.imageFit) === 'cover'
+                    ? 'scale-[1.03] object-cover p-0'
+                    : 'object-contain p-8 sm:p-12'
+                }`}
               />
               <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 to-transparent p-7 pt-20">
                 <p className="font-medium text-white">{currentExperience.company}</p>
