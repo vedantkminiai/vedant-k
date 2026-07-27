@@ -31,7 +31,7 @@ body {
   height: var(--cube-size);
   perspective: 700px;
   opacity: 0.25;
-  filter: drop-shadow(0 18px 22px rgb(127 29 29 / 0.18));
+  filter: drop-shadow(0 18px 22px rgb(0 0 0 / 0.45));
 }
 
 .cube-decoration--large {
@@ -118,8 +118,27 @@ body {
   gap: 2px;
   padding: 3px;
   border: 1px solid rgb(17 24 39 / 0.55);
-  background: #7f1d1d;
+  background: #171717;
   backface-visibility: hidden;
+}
+
+.experience-scroll {
+  scrollbar-color: #525252 #171717;
+  scrollbar-width: thin;
+}
+
+.experience-scroll::-webkit-scrollbar {
+  height: 7px;
+}
+
+.experience-scroll::-webkit-scrollbar-track {
+  border-radius: 999px;
+  background: #171717;
+}
+
+.experience-scroll::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: #525252;
 }
 
 .cube-decoration__face span {

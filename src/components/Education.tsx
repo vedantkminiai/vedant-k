@@ -16,18 +16,18 @@ const Education = () => {
   };
 
   return (
-    <section id="education" className="py-20 bg-white">
+    <section id="education" className="py-20 bg-neutral-950 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
             Education
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-rose-600 mx-auto mb-8"></div>
+          <div className="w-24 h-px bg-neutral-500 mx-auto mb-8"></div>
         </div>
 
         <div className="max-w-6xl mx-auto">
-          <div className="bg-white rounded-3xl shadow-xl overflow-hidden">
-            <div className="h-2 bg-gradient-to-r from-red-600 to-rose-600"></div>
+          <div className="border border-neutral-800 bg-neutral-900 rounded-3xl shadow-xl shadow-black/30 overflow-hidden">
+            <div className="h-px bg-neutral-500"></div>
             
             {/* Hero Image Section */}
             <div className="relative h-64 sm:h-80 overflow-hidden">
@@ -48,7 +48,7 @@ const Education = () => {
                     <h3 className="text-2xl sm:text-3xl font-bold mb-1">
                       {education.university}
                     </h3>
-                    <p className="text-red-200 font-semibold text-lg">
+                    <p className="text-neutral-300 font-semibold text-lg">
                       {education.degree}
                     </p>
                   </div>
@@ -59,35 +59,35 @@ const Education = () => {
             <div className="p-8 sm:p-12">
               {/* Key Information */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-10">
-                <div className="flex items-center p-4 bg-red-50 rounded-xl">
-                  <MapPin className="h-6 w-6 mr-3 text-red-600" />
+                <div className="flex items-center p-4 bg-neutral-800 rounded-xl">
+                  <MapPin className="h-6 w-6 mr-3 text-neutral-300" />
                   <div>
-                    <p className="text-sm text-gray-600 font-medium">Location</p>
-                    <p className="text-lg font-semibold text-gray-900">{education.location}</p>
+                    <p className="text-sm text-neutral-500 font-medium">Location</p>
+                    <p className="text-lg font-semibold text-white">{education.location}</p>
                   </div>
                 </div>
                 
-                <div className="flex items-center p-4 bg-red-50 rounded-xl">
-                  <Calendar className="h-6 w-6 mr-3 text-red-600" />
+                <div className="flex items-center p-4 bg-neutral-800 rounded-xl">
+                  <Calendar className="h-6 w-6 mr-3 text-neutral-300" />
                   <div>
-                    <p className="text-sm text-gray-600 font-medium">Expected Graduation</p>
-                    <p className="text-lg font-semibold text-gray-900">{education.expectedGraduation}</p>
+                    <p className="text-sm text-neutral-500 font-medium">Expected Graduation</p>
+                    <p className="text-lg font-semibold text-white">{education.expectedGraduation}</p>
                   </div>
                 </div>
               </div>
 
               {/* Coursework Section */}
               <div>
-                <h4 className="text-2xl font-bold text-gray-900 mb-6 flex items-center">
-                  <BookOpen className="h-7 w-7 mr-3 text-red-600" />
+                <h4 className="text-2xl font-bold text-white mb-6 flex items-center">
+                  <BookOpen className="h-7 w-7 mr-3 text-neutral-300" />
                   Relevant Coursework
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
                   {education.coursework.map((course, index) => (
-                    <div key={index} className="group p-4 bg-gradient-to-br from-gray-50 to-red-50 rounded-xl hover:shadow-md transition-all duration-300 hover:-translate-y-1">
+                    <div key={index} className="group p-4 border border-neutral-700 bg-neutral-800 rounded-xl hover:border-neutral-500 hover:shadow-md transition-all duration-300 hover:-translate-y-1">
                       <div className="flex items-start">
-                        <span className="inline-block w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0 group-hover:bg-red-600 transition-colors"></span>
-                        <span className="text-gray-700 font-medium leading-relaxed">{course}</span>
+                        <span className="inline-block w-2 h-2 bg-neutral-400 rounded-full mt-2 mr-3 flex-shrink-0 group-hover:bg-white transition-colors"></span>
+                        <span className="text-neutral-300 font-medium leading-relaxed">{course}</span>
                       </div>
                     </div>
                   ))}

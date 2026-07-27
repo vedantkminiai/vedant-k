@@ -48,7 +48,7 @@ const SpeedCubeAnimation = () => {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-white/95 backdrop-blur-sm">
+    <div className="fixed inset-0 z-[100] flex items-center justify-center bg-neutral-950/95 backdrop-blur-sm">
       <div className="text-center">
         <div className="cube-container mb-8" style={{ perspective: '1000px' }}>
           <div 
@@ -234,14 +234,14 @@ const SpeedCubeAnimation = () => {
         </div>
 
         <div className="text-center">
-          <h2 className="text-2xl font-bold bg-gradient-to-r from-red-600 to-rose-600 bg-clip-text text-transparent mb-4">
+          <h2 className="text-2xl font-bold bg-gradient-to-r from-white to-neutral-500 bg-clip-text text-transparent mb-4">
             Solving Problems...
           </h2>
           <div className="flex justify-center space-x-1">
             {Array.from({ length: 3 }).map((_, i) => (
               <div
                 key={i}
-                className="w-2 h-2 bg-red-500 rounded-full animate-pulse"
+                className="w-2 h-2 bg-neutral-400 rounded-full animate-pulse"
                 style={{
                   animationDelay: `${i * 0.2}s`,
                   animationDuration: '1s',

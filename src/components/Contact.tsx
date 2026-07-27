@@ -24,14 +24,14 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-gray-900 via-red-900 to-rose-900 text-white">
+    <section id="contact" className="py-20 bg-gradient-to-br from-neutral-900 via-neutral-950 to-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-4xl sm:text-5xl font-bold mb-6">
             Let's Connect
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-red-400 to-rose-400 mx-auto mb-8"></div>
-          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+          <div className="w-24 h-px bg-neutral-500 mx-auto mb-8"></div>
+          <p className="text-lg sm:text-xl text-neutral-400 max-w-3xl mx-auto leading-relaxed">
             I'm always interested in new opportunities, collaborations, and meaningful conversations 
             about technology. Feel free to reach out!
           </p>
@@ -44,18 +44,18 @@ const Contact = () => {
               href={link.href}
               target="_blank"
               rel="noopener noreferrer"
-              className="group p-8 bg-white/10 backdrop-blur-sm rounded-2xl hover:bg-white/20 transform hover:-translate-y-2 transition-all duration-300"
+              className="group p-8 border border-white/10 bg-white/5 backdrop-blur-sm rounded-2xl hover:border-white/25 hover:bg-white/10 transform hover:-translate-y-2 transition-all duration-300"
             >
-              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-500 to-rose-500 rounded-2xl mb-6 mx-auto group-hover:shadow-lg">
+              <div className="flex items-center justify-center w-16 h-16 bg-neutral-800 rounded-2xl mb-6 mx-auto group-hover:bg-neutral-700 group-hover:shadow-lg">
                 <link.icon className="h-8 w-8 text-white" />
               </div>
               <h3 className="text-xl font-bold mb-4 text-center">
                 {link.label}
               </h3>
-              <p className="text-gray-300 text-center leading-relaxed mb-4">
+              <p className="text-neutral-400 text-center leading-relaxed mb-4">
                 {link.description}
               </p>
-              <div className="flex items-center justify-center text-red-400 group-hover:text-red-300">
+              <div className="flex items-center justify-center text-neutral-400 group-hover:text-white">
                 <ExternalLink className="h-4 w-4 mr-2" />
                 <span className="text-sm font-medium">Connect</span>
               </div>
@@ -64,11 +64,11 @@ const Contact = () => {
         </div>
 
         <div className="text-center">
-          <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 sm:p-12 mb-8">
+          <div className="border border-white/10 bg-white/5 backdrop-blur-sm rounded-3xl p-8 sm:p-12 mb-8">
             <h3 className="text-2xl sm:text-3xl font-bold mb-6">
               Open to Opportunities
             </h3>
-            <p className="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed mb-8">
+            <p className="text-lg text-neutral-400 max-w-4xl mx-auto leading-relaxed mb-8">
               I'm currently seeking internship opportunities and entry-level positions where I can 
               contribute to meaningful projects while continuing to learn and grow as a software engineer. 
               If you have an exciting opportunity or just want to chat about technology, I'd love to hear from you.
@@ -77,7 +77,7 @@ const Contact = () => {
               href="https://github.com/vedantkminiai"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-red-600 to-rose-600 text-white font-semibold rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+              className="inline-flex items-center px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-neutral-300 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
             >
               <Github className="mr-2 h-5 w-5" />
               Explore My Work

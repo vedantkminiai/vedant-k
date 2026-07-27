@@ -41,7 +41,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-neutral-950">
       <SpeedCubeAnimation />
       <Header activeScreen={activeScreen} onNavigate={navigate} />
       <BackgroundCubes screen={activeScreen} />

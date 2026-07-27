@@ -17,7 +17,7 @@ const Projects = () => {
         'Extensible architecture, enabling future enhancements like reporting and analytics'
       ],
       techStack: ['Java', 'SQL'],
-      gradient: 'from-red-500 to-rose-500'
+      gradient: 'from-neutral-500 to-neutral-800'
     },
     {
       title: 'ColourMashAI',
@@ -32,19 +32,19 @@ const Projects = () => {
         'Modular code structure, enabling easy customization and feature expansion',            'Ideal as a hackathon project showcasing creativity and front-end development skills'
       ],
       techStack: ['Next.js', 'React', 'OpenAI API', 'Tensorflow.js'],
-      gradient: 'from-red-600 to-rose-600'
+      gradient: 'from-neutral-400 to-neutral-700'
     }
   ];
 
   return (
-    <section id="projects" className="py-20 bg-gradient-to-br from-gray-50 to-red-50">
+    <section id="projects" className="py-20 bg-gradient-to-br from-neutral-950 to-black text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
             Featured Projects
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-rose-600 mx-auto mb-8"></div>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <div className="w-24 h-px bg-neutral-500 mx-auto mb-8"></div>
+          <p className="text-lg sm:text-xl text-neutral-400 max-w-3xl mx-auto leading-relaxed">
             Here are some of my key projects that showcase my skills in full-stack development, 
             problem-solving, and creating user-centered solutions.
           </p>
@@ -54,7 +54,7 @@ const Projects = () => {
           {projects.map((project, index) => (
             <div
               key={index}
-              className="bg-white rounded-3xl shadow-xl overflow-hidden hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
+              className="border border-neutral-800 bg-neutral-900 rounded-3xl shadow-xl shadow-black/30 overflow-hidden hover:border-neutral-600 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300"
             >
               <div className={`h-4 bg-gradient-to-r ${project.gradient}`}></div>
               
@@ -73,34 +73,34 @@ const Projects = () => {
                   <div className={`flex items-center justify-center w-16 h-16 bg-gradient-to-r ${project.gradient} rounded-2xl mr-4`}>
                     <project.icon className="h-8 w-8 text-white" />
                   </div>
-                  <h3 className="text-2xl sm:text-3xl font-bold text-gray-900">
+                  <h3 className="text-2xl sm:text-3xl font-bold text-white">
                     {project.title}
                   </h3>
                 </div>
 
-                <p className="text-gray-600 text-lg mb-8 leading-relaxed">
+                <p className="text-neutral-400 text-lg mb-8 leading-relaxed">
                   {project.description}
                 </p>
 
                 <div className="mb-8">
-                  <h4 className="text-xl font-semibold text-gray-900 mb-4">Key Features:</h4>
+                  <h4 className="text-xl font-semibold text-white mb-4">Key Features:</h4>
                   <ul className="space-y-2">
                     {project.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start">
-                        <span className="inline-block w-2 h-2 bg-red-500 rounded-full mt-2 mr-3 flex-shrink-0"></span>
-                        <span className="text-gray-600">{feature}</span>
+                        <span className="inline-block w-2 h-2 bg-neutral-400 rounded-full mt-2 mr-3 flex-shrink-0"></span>
+                        <span className="text-neutral-400">{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
 
                 <div className="mb-8">
-                  <h4 className="text-xl font-semibold text-gray-900 mb-4">Technology Stack:</h4>
+                  <h4 className="text-xl font-semibold text-white mb-4">Technology Stack:</h4>
                   <div className="flex flex-wrap gap-2">
                     {project.techStack.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-4 py-2 bg-gray-100 text-gray-700 rounded-full text-sm font-medium"
+                        className="px-4 py-2 border border-neutral-700 bg-neutral-800 text-neutral-300 rounded-full text-sm font-medium"
                       >
                         {tech}
                       </span>
@@ -122,7 +122,7 @@ const Projects = () => {
                     href="https://github.com/vedantkminiai/ColourMash"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center justify-center px-6 py-3 border-2 border-gray-300 text-gray-700 font-semibold rounded-xl hover:border-red-500 hover:text-red-600 transition-all duration-300"
+                    className="inline-flex items-center justify-center px-6 py-3 border border-neutral-600 text-neutral-300 font-semibold rounded-xl hover:border-white hover:text-white transition-all duration-300"
                   >
                     <ExternalLink className="mr-2 h-5 w-5" />
                     Live Demo
@@ -138,7 +138,7 @@ const Projects = () => {
             href="https://github.com/vedantkminiai"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center px-8 py-4 bg-gradient-to-r from-gray-900 to-gray-800 text-white font-semibold rounded-full hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
+            className="inline-flex items-center px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-neutral-300 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
           >
             <Github className="mr-2 h-5 w-5" />
             View All Projects on GitHub

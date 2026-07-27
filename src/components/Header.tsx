@@ -35,18 +35,18 @@ const Header = ({ activeScreen, onNavigate }: HeaderProps) => {
   const navButtonClass = (screen: Screen, mobile = false) =>
     `${mobile ? 'text-left ' : ''}relative font-medium transition-colors duration-200 ${
       activeScreen === screen
-        ? 'text-red-600'
-        : 'text-gray-700 hover:text-red-600'
+        ? 'text-white'
+        : 'text-neutral-400 hover:text-white'
     }`;
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-      isScrolled ? 'bg-white/95 backdrop-blur-sm shadow-lg' : 'bg-transparent'
+      isScrolled ? 'border-b border-white/10 bg-neutral-950/90 backdrop-blur-xl shadow-lg shadow-black/20' : 'bg-neutral-950/40 backdrop-blur-sm'
     }`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center py-4">
-          <div className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-          <div className="text-2xl font-bold bg-gradient-to-r from-red-600 to-rose-600 bg-clip-text text-transparent">
+          <div className="text-2xl font-bold">
+          <div className="text-2xl font-bold tracking-tight text-white">
             VK
           </div>
           </div>
@@ -62,7 +62,7 @@ const Header = ({ activeScreen, onNavigate }: HeaderProps) => {
               >
                 {item.label}
                 {activeScreen === item.screen && (
-                  <span className="absolute -bottom-2 left-0 right-0 h-0.5 rounded-full bg-red-500" />
+                  <span className="absolute -bottom-2 left-0 right-0 h-0.5 rounded-full bg-white" />
                 )}
               </button>
             ))}
@@ -70,14 +70,14 @@ const Header = ({ activeScreen, onNavigate }: HeaderProps) => {
               href="https://github.com/vedantkminiai"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center font-medium text-gray-700 hover:text-red-600 transition-colors duration-200"
+              className="inline-flex items-center font-medium text-neutral-400 hover:text-white transition-colors duration-200"
             >
               Github
               <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
             </a>
             <button
               onClick={() => window.print()}
-              className="inline-flex items-center rounded-full bg-gray-900 px-5 py-2.5 font-medium text-white transition-all duration-200 hover:-translate-y-0.5 hover:bg-red-600 hover:shadow-lg"
+              className="inline-flex items-center rounded-full bg-white px-5 py-2.5 font-medium text-black transition-all duration-200 hover:-translate-y-0.5 hover:bg-neutral-300 hover:shadow-lg"
               title="Print or save this portfolio as a PDF"
             >
               Resume
@@ -91,9 +91,9 @@ const Header = ({ activeScreen, onNavigate }: HeaderProps) => {
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? (
-              <X className="h-6 w-6 text-gray-700" />
+              <X className="h-6 w-6 text-white" />
             ) : (
-              <Menu className="h-6 w-6 text-gray-700" />
+              <Menu className="h-6 w-6 text-white" />
             )}
           </button>
         </div>
@@ -116,7 +116,7 @@ const Header = ({ activeScreen, onNavigate }: HeaderProps) => {
                 href="https://github.com/vedantkminiai"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center font-medium text-gray-700 hover:text-red-600"
+                className="inline-flex items-center font-medium text-neutral-400 hover:text-white"
                 onClick={() => setIsMenuOpen(false)}
               >
                 Github
@@ -127,7 +127,7 @@ const Header = ({ activeScreen, onNavigate }: HeaderProps) => {
                   setIsMenuOpen(false);
                   window.print();
                 }}
-                className="inline-flex w-fit items-center rounded-full bg-gray-900 px-5 py-2.5 font-medium text-white"
+                className="inline-flex w-fit items-center rounded-full bg-white px-5 py-2.5 font-medium text-black"
               >
                 Resume
                 <Download className="ml-2 h-4 w-4" />

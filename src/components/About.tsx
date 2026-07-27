@@ -26,15 +26,14 @@ const About = () => {
   ];
 
   return (
-    <section id="about" className="py-20 bg-white">
+    <section id="about" className="py-20 bg-neutral-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-6">
             About Me
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-8"></div>
-          <div className="w-24 h-1 bg-gradient-to-r from-red-600 to-rose-600 mx-auto mb-8"></div>
-          <p className="text-lg sm:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <div className="w-24 h-px bg-neutral-500 mx-auto mb-8"></div>
+          <p className="text-lg sm:text-xl text-neutral-400 max-w-3xl mx-auto leading-relaxed">
            Hey, I'm Vedant, a Computer Science student at the University of Toronto’s St. George Campus. Passionate about mathematics, problem-solving and programming. Co-founder of MiniAI, Education Startup. Software and Machine Learning Engineer. 
           </p>
         </div>
@@ -43,15 +42,15 @@ const About = () => {
           {skills.map((skill, index) => (
             <div
               key={index}
-              className="p-8 bg-gradient-to-br from-gray-50 to-red-50 rounded-2xl hover:shadow-xl transform hover:-translate-y-2 transition-all duration-300"
+              className="p-8 border border-neutral-700 bg-neutral-800 rounded-2xl hover:border-neutral-500 hover:shadow-xl hover:shadow-black/30 transform hover:-translate-y-2 transition-all duration-300"
             >
-              <div className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-red-600 to-rose-600 rounded-2xl mb-6 mx-auto">
-                <skill.icon className="h-8 w-8 text-white" />
+              <div className="flex items-center justify-center w-16 h-16 bg-neutral-700 rounded-2xl mb-6 mx-auto">
+                <skill.icon className="h-8 w-8 text-neutral-100" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4 text-center">
+              <h3 className="text-xl font-bold text-white mb-4 text-center">
                 {skill.title}
               </h3>
-              <p className="text-gray-600 text-center leading-relaxed">
+              <p className="text-neutral-400 text-center leading-relaxed">
                 {skill.description}
               </p>
             </div>
@@ -59,11 +58,11 @@ const About = () => {
         </div>
 
         <div className="mt-16 text-center">
-          <div className="bg-gradient-to-r from-red-50 to-rose-50 rounded-3xl p-8 sm:p-12">
-            <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 mb-6">
+          <div className="border border-neutral-700 bg-neutral-950 rounded-3xl p-8 sm:p-12">
+            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6">
               My Vision
             </h3>
-            <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-lg text-neutral-400 max-w-4xl mx-auto leading-relaxed">
               I believe technology should be accessible, intuitive, and impactful. My goal is to contribute to 
               innovative projects that push the boundaries of what's possible while maintaining a focus on user 
               experience and code quality. Every line of code is an opportunity to make something better.
