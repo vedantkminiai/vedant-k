@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   ArrowDown,
   ArrowLeft,
@@ -9,10 +9,13 @@ import {
   Code,
   Users,
 } from 'lucide-react';
+import useGlidingCarousel from '../hooks/useGlidingCarousel';
+import AnimatedDetailReveal from './AnimatedDetailReveal';
+import TechnologyRail from './TechnologyRail';
 
 const experiences = [
   {
-    title: 'Data Analytics Engineer Intern',
+    title: 'Data Analytics Engineering Intern',
     company: 'S&C Electric Company',
     location: 'Toronto, ON',
     period: 'May 2026 — August 2026',
@@ -73,6 +76,8 @@ const experiences = [
     icon: BookOpen,
     image: 'https://www.kumon.ie/storage/uploads/iVgrv7ZioMNPsFh3as6cHlIrWbYuzduFL82B8YrO.jpg',
     imageFit: 'cover',
+    logoImage: '/kumon-card-logo.png',
+    logoWide: true,
     description:
       'Mathematics and English tutor for students ranging from elementary to high school level content. Implementing machine learning software to optimize student progression through the curriculum.',
     achievements: [
@@ -145,40 +150,30 @@ const experiences = [
 
 const Experience = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const scrollerRef = useRef<HTMLDivElement>(null);
+  const [isDetailOpen, setIsDetailOpen] = useState(false);
+  const scrollerRef = useGlidingCarousel();
   const detailRef = useRef<HTMLElement>(null);
   const currentExperience = experiences[currentIndex];
+  const currentLogoImage =
+    'logoImage' in currentExperience
+      ? currentExperience.logoImage
+      : currentExperience.coverImage ?? currentExperience.image;
+  const hasWideLogo =
+    'logoWide' in currentExperience && currentExperience.logoWide;
 
-  const selectExperience = (index: number) => setCurrentIndex(index);
+  const selectExperience = (index: number) => {
+    setCurrentIndex(index);
+    setIsDetailOpen(true);
+  };
 
-  useEffect(() => {
-    const scroller = scrollerRef.current;
-    if (!scroller) return;
-
-    let animationFrame = 0;
-    let previousTime = 0;
-    let scrollPosition = scroller.scrollLeft;
-    const pixelsPerSecond = 22;
-
-    const moveCarousel = (time: number) => {
-      if (previousTime) {
-        scrollPosition += ((time - previousTime) / 1000) * pixelsPerSecond;
-
-        const loopPoint = scroller.scrollWidth / 2;
-        if (loopPoint && scrollPosition >= loopPoint) {
-          scrollPosition -= loopPoint;
-        }
-
-        scroller.scrollLeft = scrollPosition;
-      }
-
-      previousTime = time;
-      animationFrame = window.requestAnimationFrame(moveCarousel);
-    };
-
-    animationFrame = window.requestAnimationFrame(moveCarousel);
-    return () => window.cancelAnimationFrame(animationFrame);
-  }, []);
+  const revealSelectedExperience = () => {
+    setIsDetailOpen(true);
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  };
 
   const moveSelection = (direction: -1 | 1) => {
     const nextIndex =
@@ -274,6 +269,17 @@ const Experience = () => {
                 <p className="mt-4 text-xs uppercase tracking-wider text-neutral-500">
                   {experience.period}
                 </p>
+                <div className="mt-4 grid grid-cols-2 gap-2">
+                  {experience.skills.slice(0, 4).map((skill) => (
+                    <span
+                      key={skill}
+                      className="truncate rounded-lg border border-neutral-700 bg-neutral-950/70 px-2.5 py-2 text-[10px] font-medium text-neutral-400"
+                      title={skill}
+                    >
+                      {skill}
+                    </span>
+                  ))}
+                </div>
               </div>
             </button>
             );
@@ -285,9 +291,7 @@ const Experience = () => {
             Continuously scrolling
           </span>
           <button
-            onClick={() =>
-              detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-            }
+            onClick={revealSelectedExperience}
             className="group flex h-12 w-12 items-center justify-center rounded-full border border-neutral-700 bg-neutral-900 text-neutral-300 transition hover:border-white hover:bg-white hover:text-black"
             aria-label={`View ${currentExperience.title} details`}
             title="View selected experience"
@@ -296,6 +300,8 @@ const Experience = () => {
           </button>
         </div>
 
+        {isDetailOpen && (
+        <AnimatedDetailReveal revealKey={`${currentExperience.company}-${currentIndex}`}>
         <article
           ref={detailRef}
           className="relative scroll-mt-24 overflow-hidden rounded-[2rem] border border-neutral-800 bg-neutral-900 shadow-2xl shadow-black/40"
@@ -337,13 +343,26 @@ const Experience = () => {
 
             <div className="flex flex-col justify-between p-7 sm:p-10 lg:p-12">
               <div>
-                <div className="mb-8 flex flex-wrap items-center gap-3 text-sm text-neutral-400">
-                  <span className="rounded-full border border-neutral-700 px-4 py-2">
-                    {currentExperience.period}
-                  </span>
-                  <span className="rounded-full bg-neutral-800 px-4 py-2">
-                    {currentExperience.type}
-                  </span>
+                <div className="mb-8 flex items-start justify-between gap-5">
+                  <div className="flex flex-wrap items-center gap-3 text-sm text-neutral-400">
+                    <span className="rounded-full border border-neutral-700 px-4 py-2">
+                      {currentExperience.period}
+                    </span>
+                    <span className="rounded-full bg-neutral-800 px-4 py-2">
+                      {currentExperience.type}
+                    </span>
+                  </div>
+                  <div
+                    className={`flex h-16 shrink-0 items-center justify-center overflow-hidden rounded-2xl border border-neutral-700 bg-neutral-950 p-2 shadow-xl shadow-black/25 sm:h-20 sm:p-3 ${
+                      hasWideLogo ? 'w-28 sm:w-36' : 'w-16 sm:w-20'
+                    }`}
+                  >
+                    <img
+                      src={currentLogoImage}
+                      alt={`${currentExperience.company} logo`}
+                      className="h-full w-full object-contain"
+                    />
+                  </div>
                 </div>
 
                 <h3 className="max-w-2xl text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl">
@@ -355,19 +374,10 @@ const Experience = () => {
               </div>
 
               <div className="mt-10">
-                <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
-                  Technologies & capabilities
-                </p>
-                <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
-                  {currentExperience.skills.map((skill) => (
-                    <div
-                      key={skill}
-                      className="rounded-xl border border-neutral-700 bg-neutral-800/70 p-4 text-sm font-medium text-neutral-200"
-                    >
-                      {skill}
-                    </div>
-                  ))}
-                </div>
+                <TechnologyRail
+                  technologies={currentExperience.skills}
+                  label="Technologies & capabilities"
+                />
               </div>
             </div>
           </div>
@@ -392,6 +402,8 @@ const Experience = () => {
             </div>
           </div>
         </article>
+        </AnimatedDetailReveal>
+        )}
       </div>
     </section>
   );

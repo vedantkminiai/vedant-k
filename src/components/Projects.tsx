@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   ArrowDown,
   ArrowLeft,
@@ -7,6 +7,9 @@ import {
   Github,
   Layers3,
 } from 'lucide-react';
+import useGlidingCarousel from '../hooks/useGlidingCarousel';
+import AnimatedDetailReveal from './AnimatedDetailReveal';
+import TechnologyRail from './TechnologyRail';
 
 const projects = [
   {
@@ -105,46 +108,28 @@ const projects = [
 
 const Projects = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  const scrollerRef = useRef<HTMLDivElement>(null);
+  const [isDetailOpen, setIsDetailOpen] = useState(false);
+  const scrollerRef = useGlidingCarousel();
   const detailRef = useRef<HTMLElement>(null);
   const currentProject = projects[currentIndex];
 
-  const selectProject = (index: number) => setCurrentIndex(index);
-
-  const moveSelection = (direction: -1 | 1) => {
-    setCurrentIndex(
-      (currentIndex + direction + projects.length) % projects.length,
-    );
+  const selectProject = (index: number) => {
+    setCurrentIndex(index);
+    setIsDetailOpen(true);
   };
 
-  useEffect(() => {
-    const scroller = scrollerRef.current;
-    if (!scroller) return;
+  const revealSelectedProject = () => {
+    setIsDetailOpen(true);
+    window.requestAnimationFrame(() => {
+      window.requestAnimationFrame(() => {
+        detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+  };
 
-    let animationFrame = 0;
-    let previousTime = 0;
-    let scrollPosition = scroller.scrollLeft;
-    const pixelsPerSecond = 22;
-
-    const moveCarousel = (time: number) => {
-      if (previousTime) {
-        scrollPosition += ((time - previousTime) / 1000) * pixelsPerSecond;
-
-        const loopPoint = scroller.scrollWidth / 2;
-        if (loopPoint && scrollPosition >= loopPoint) {
-          scrollPosition -= loopPoint;
-        }
-
-        scroller.scrollLeft = scrollPosition;
-      }
-
-      previousTime = time;
-      animationFrame = window.requestAnimationFrame(moveCarousel);
-    };
-
-    animationFrame = window.requestAnimationFrame(moveCarousel);
-    return () => window.cancelAnimationFrame(animationFrame);
-  }, []);
+  const moveSelection = (direction: -1 | 1) => {
+    selectProject((currentIndex + direction + projects.length) % projects.length);
+  };
 
   return (
     <section id="projects" className="min-h-screen bg-neutral-950 py-20 text-white">
@@ -221,6 +206,17 @@ const Projects = () => {
                     {project.title}
                   </h3>
                   <p className="text-sm text-neutral-400">{project.category}</p>
+                  <div className="mt-4 grid grid-cols-2 gap-2">
+                    {project.techStack.slice(0, 4).map((technology) => (
+                      <span
+                        key={technology}
+                        className="truncate rounded-lg border border-neutral-700 bg-neutral-950/70 px-2.5 py-2 text-[10px] font-medium text-neutral-400"
+                        title={technology}
+                      >
+                        {technology}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </button>
             );
@@ -232,9 +228,7 @@ const Projects = () => {
             Continuously scrolling
           </span>
           <button
-            onClick={() =>
-              detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-            }
+            onClick={revealSelectedProject}
             className="group flex h-12 w-12 items-center justify-center rounded-full border border-neutral-700 bg-neutral-900 text-neutral-300 transition hover:border-white hover:bg-white hover:text-black"
             aria-label={`View ${currentProject.title} details`}
             title="View selected project"
@@ -243,6 +237,8 @@ const Projects = () => {
           </button>
         </div>
 
+        {isDetailOpen && (
+        <AnimatedDetailReveal revealKey={`${currentProject.title}-${currentIndex}`}>
         <article
           ref={detailRef}
           className="relative scroll-mt-24 overflow-hidden rounded-[2rem] border border-neutral-800 bg-neutral-900 shadow-2xl shadow-black/40"
@@ -279,58 +275,44 @@ const Projects = () => {
             </div>
           </div>
 
-          <div className="grid gap-10 p-8 sm:p-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-16 lg:p-12">
-            <div>
-              <div>
-                <p className="mb-5 font-mono text-sm text-neutral-500">
-                  PROJECT {String(currentIndex + 1).padStart(2, '0')}
-                </p>
-                <h3 className="max-w-2xl text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl">
-                  {currentProject.title}
-                </h3>
-                <p className="mt-7 max-w-2xl text-lg leading-relaxed text-neutral-400">
-                  {currentProject.description}
-                </p>
-              </div>
-
-              <div className="mt-10 flex flex-wrap gap-3">
-                <a
-                  href={currentProject.repository}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center rounded-full bg-white px-6 py-3 font-semibold text-black transition hover:bg-neutral-300"
-                >
-                  <Github className="mr-2 h-5 w-5" />
-                  View repository
-                </a>
-                {currentProject.liveUrl && (
-                  <a
-                    href={currentProject.liveUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center rounded-full border border-neutral-600 px-6 py-3 font-semibold text-neutral-200 transition hover:border-white hover:text-white"
-                  >
-                    <ExternalLink className="mr-2 h-5 w-5" />
-                    Live demo
-                  </a>
-                )}
-              </div>
+          <div className="p-8 sm:p-10 lg:p-14">
+            <div className="max-w-4xl">
+              <p className="mb-5 font-mono text-sm text-neutral-500">
+                PROJECT {String(currentIndex + 1).padStart(2, '0')}
+              </p>
+              <h3 className="text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
+                {currentProject.title}
+              </h3>
+              <p className="mt-8 text-lg leading-8 text-neutral-400 sm:text-xl sm:leading-9">
+                {currentProject.description}
+              </p>
             </div>
 
-            <div>
-              <p className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-neutral-500">
-                Technology stack
-              </p>
-              <div className="grid grid-cols-2 gap-3">
-                {currentProject.techStack.map((technology) => (
-                  <div
-                    key={technology}
-                    className="rounded-xl border border-neutral-700 bg-neutral-800/70 p-4 text-sm font-medium text-neutral-200"
-                  >
-                    {technology}
-                  </div>
-                ))}
-              </div>
+            <div className="mt-10 flex flex-wrap gap-3">
+              <a
+                href={currentProject.repository}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center rounded-full bg-white px-6 py-3 font-semibold text-black transition hover:bg-neutral-300"
+              >
+                <Github className="mr-2 h-5 w-5" />
+                View repository
+              </a>
+              {currentProject.liveUrl && (
+                <a
+                  href={currentProject.liveUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center rounded-full border border-neutral-600 px-6 py-3 font-semibold text-neutral-200 transition hover:border-white hover:text-white"
+                >
+                  <ExternalLink className="mr-2 h-5 w-5" />
+                  Live demo
+                </a>
+              )}
+            </div>
+
+            <div className="mt-14 border-t border-neutral-800 pt-10">
+              <TechnologyRail technologies={currentProject.techStack} />
             </div>
           </div>
 
@@ -354,6 +336,8 @@ const Projects = () => {
             </div>
           </div>
         </article>
+        </AnimatedDetailReveal>
+        )}
 
         <div className="mt-14 text-center">
           <a

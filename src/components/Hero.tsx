@@ -1,63 +1,194 @@
 import React from 'react';
-import { Github, ArrowDown } from 'lucide-react';
+import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
 
 const Hero = () => {
-  const scrollToAbout = () => {
-    const aboutSection = document.getElementById('about');
-    if (aboutSection) {
-      aboutSection.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
+  const highlights = [
+    {
+      label: 'Computer Science Specialist @ University of Toronto St. George',
+      education: {
+        graduation: 'Expected June 2030',
+        minor: 'Statistics Minor',
+        coursework: [
+          'CSC110 — Foundations of Computer Science 1',
+          'CSC111 — Foundations of Computer Science 2',
+          'MAT223 — Linear Algebra 1',
+          'MAT137 — Calculus with Proofs',
+          'STA130 — Statistical Reasoning and Data Science',
+        ],
+      },
+    },
+    {
+      label: 'Data Analytics Engineering Intern @ S&C Electric Company',
+      description:
+        'Building Python ETL pipelines, Azure SQL datasets, and Power BI costing dashboards across more than 500,000 component records.',
+    },
+    {
+      label: 'Founding Engineer @ MiniAI',
+      description:
+        'Leading product engineering and operations for an AI education startup that has reached more than 1,000 students internationally.',
+    },
+  ];
+
+  const socialLinks = [
+    {
+      label: 'LinkedIn',
+      href: 'https://ca.linkedin.com/in/vedant-kansara-381330221',
+      icon: Linkedin,
+    },
+    {
+      label: 'GitHub',
+      href: 'https://github.com/vedantkminiai',
+      icon: Github,
+    },
+  ];
 
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-neutral-950 via-neutral-900 to-black text-white"
+      className="relative z-30 flex min-h-screen items-center overflow-visible bg-gradient-to-br from-neutral-950 via-neutral-900 to-black py-24 text-white sm:py-28"
     >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {/* Profile Image */}
-        <div className="mb-8">
-          <div className="relative inline-block">
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid items-center gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
+          <div className="mx-auto w-full max-w-[390px] lg:mx-0">
+            <div className="group relative overflow-hidden rounded-[2rem] border border-neutral-700 bg-neutral-900 shadow-2xl shadow-black/60">
+              <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/35 via-transparent to-white/5" />
             <img
-              src="https://media.licdn.com/dms/image/v2/D4E03AQGxaM3JN97JNg/profile-displayphoto-shrink_200_200/B4EZR9EFvzHAAY-/0/1737265012370?e=2147483647&v=beta&t=hM64RuXSQD4lcZtRN35NQsTxm9oovwH2cl1dc-Prds0"
+                src="/vedant-home-portrait.png"
               alt="Vedant Kansara"
-              className="w-32 h-32 sm:w-40 sm:h-40 rounded-full object-cover border-4 border-neutral-700 shadow-2xl shadow-black/60 mx-auto"
+                className="aspect-[4/5] w-full object-cover object-center transition duration-700 group-hover:scale-[1.025]"
             />
-            <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-white/5 to-neutral-400/10"></div>
+              <div className="absolute inset-x-5 bottom-5 z-20 flex items-center justify-between rounded-2xl border border-white/10 bg-black/55 px-4 py-3 backdrop-blur-md">
+                <span className="text-sm font-semibold">Toronto, Canada</span>
+                <span className="h-2 w-2 rounded-full bg-emerald-400 shadow-[0_0_14px_rgba(52,211,153,0.8)]" />
+              </div>
+            </div>
+            <div className="mt-4 flex items-center justify-center gap-2.5" aria-label="Social links">
+              {socialLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  target={link.href.startsWith('mailto:') ? undefined : '_blank'}
+                  rel={link.href.startsWith('mailto:') ? undefined : 'noopener noreferrer'}
+                  className="group/social relative flex h-11 w-11 items-center justify-center rounded-full border border-neutral-700 bg-neutral-900/90 text-neutral-400 transition duration-300 hover:-translate-y-1 hover:border-white hover:bg-white hover:text-black"
+                  aria-label={link.label}
+                  title={link.label}
+                >
+                  <link.icon className="h-[18px] w-[18px]" />
+                  <span className="pointer-events-none absolute -bottom-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-white px-2 py-1 text-[10px] font-semibold text-black opacity-0 shadow-lg transition group-hover/social:opacity-100 group-focus-visible/social:opacity-100">
+                    {link.label}
+                  </span>
+                </a>
+              ))}
+              <div className="group/mail relative">
+                <button
+                  type="button"
+                  className="flex h-11 w-11 items-center justify-center rounded-full border border-neutral-700 bg-neutral-900/90 text-neutral-400 transition duration-300 hover:-translate-y-1 hover:border-white hover:bg-white hover:text-black focus-visible:-translate-y-1 focus-visible:border-white focus-visible:bg-white focus-visible:text-black"
+                  aria-label="Show email addresses"
+                  aria-haspopup="true"
+                >
+                  <Mail className="h-[18px] w-[18px]" />
+                </button>
+                <div className="pointer-events-none absolute left-1/2 top-full z-50 w-[min(19rem,calc(100vw-2rem))] -translate-x-1/2 translate-y-1 pt-3 opacity-0 transition duration-200 group-hover/mail:pointer-events-auto group-hover/mail:translate-y-0 group-hover/mail:opacity-100 group-focus-within/mail:pointer-events-auto group-focus-within/mail:translate-y-0 group-focus-within/mail:opacity-100">
+                  <div className="rounded-2xl border border-neutral-700 bg-neutral-950 p-4 text-left shadow-2xl shadow-black/60">
+                    <p className="mb-3 text-[10px] font-semibold uppercase tracking-[0.2em] text-neutral-600">
+                      Email
+                    </p>
+                    <div className="space-y-3 text-xs leading-5">
+                      <p>
+                        <span className="block font-semibold text-neutral-300">Personal</span>
+                        <a
+                          href="mailto:vedantkansara224@gmail.com"
+                          className="break-all text-neutral-500 transition hover:text-white"
+                        >
+                          vedantkansara224@gmail.com
+                        </a>
+                      </p>
+                      <p>
+                        <span className="block font-semibold text-neutral-300">Work</span>
+                        <a
+                          href="mailto:vedant.kansara@mail.utoronto.ca"
+                          className="break-all text-neutral-500 transition hover:text-white"
+                        >
+                          vedant.kansara@mail.utoronto.ca
+                        </a>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
 
-        <div className="mb-8">
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold mb-6">
+          <div className="text-center lg:text-left">
+            <p className="mb-4 font-mono text-xs uppercase tracking-[0.28em] text-neutral-500">
+              Software · Data · AI
+            </p>
+            <h1 className="hero-name-load mb-5 text-5xl font-bold sm:text-6xl lg:text-7xl">
             <span className="bg-gradient-to-r from-white via-neutral-300 to-neutral-500 bg-clip-text text-transparent">
               Vedant Kansara
             </span>
           </h1>
-          <p className="text-xl sm:text-2xl lg:text-3xl text-neutral-300 mb-8 leading-relaxed">
+            <p className="mb-7 text-xl leading-relaxed text-neutral-300 sm:text-2xl lg:text-3xl">
             Software Engineer and Speed-Cube Enthusiast
           </p>
-          <p className="text-lg sm:text-xl text-neutral-500 max-w-2xl mx-auto mb-12 leading-relaxed">
-            Passionate about creating innovative solutions and building impactful software that makes a difference
-          </p>
-        </div>
+            <div className="mx-auto max-w-2xl text-left lg:mx-0">
+              <p className="mb-5 text-base leading-7 text-neutral-500 sm:text-lg">
+                I’m passionate about educational technology, data engineering and analytics, and machine learning. Outside of building software, I enjoy weightlifting, playing basketball, and solving speedcubes. Currently:
+              </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16">
-          <a
-            href="https://github.com/vedantkansara"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center px-8 py-4 bg-white text-black font-semibold rounded-full hover:bg-neutral-300 hover:shadow-lg transform hover:-translate-y-1 transition-all duration-300"
-          >
-            <Github className="mr-2 h-5 w-5" />
-            View Github
-          </a>
-          <button
-            onClick={scrollToAbout}
-            className="inline-flex items-center px-8 py-4 border border-neutral-600 text-neutral-200 font-semibold rounded-full hover:border-white hover:bg-white hover:text-black transition-all duration-300"
-          >
-            Learn More
-            <ArrowDown className="ml-2 h-5 w-5" />
-          </button>
+            <ul className="space-y-1 border-l border-neutral-700 pl-5">
+              {highlights.map((highlight) => (
+                <li
+                  key={highlight.label}
+                  className="group/highlight relative text-sm font-medium leading-5 text-neutral-400 transition hover:text-white focus-within:text-white sm:text-base"
+                >
+                  <div
+                    className="flex items-start gap-3 py-2.5"
+                    tabIndex={0}
+                    aria-label={`${highlight.label}. Hover or focus for details.`}
+                  >
+                    <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-neutral-500 transition group-hover/highlight:bg-white group-focus-within/highlight:bg-white" />
+                    <span className="flex-1">{highlight.label}</span>
+                    <ChevronDown className="mt-0.5 h-4 w-4 shrink-0 text-neutral-600 transition-transform duration-300 group-hover/highlight:rotate-180 group-hover/highlight:text-neutral-300 group-focus-within/highlight:rotate-180 group-focus-within/highlight:text-neutral-300" />
+                  </div>
+
+                    <div className="grid grid-rows-[0fr] opacity-0 transition-all duration-300 group-hover/highlight:grid-rows-[1fr] group-hover/highlight:opacity-100 group-focus-within/highlight:grid-rows-[1fr] group-focus-within/highlight:opacity-100">
+                      <div className="overflow-hidden">
+                        <div className="mb-2 border-l border-neutral-700 py-2 pl-4 text-sm">
+                          {highlight.education ? (
+                            <>
+                          <div className="flex flex-wrap gap-2 text-[11px] text-neutral-400">
+                            <span className="rounded-full border border-neutral-800 px-3 py-1.5">
+                              {highlight.education.graduation}
+                            </span>
+                            <span className="rounded-full border border-neutral-800 px-3 py-1.5">
+                              {highlight.education.minor}
+                            </span>
+                          </div>
+                          <div className="mt-4 border-t border-neutral-800 pt-3">
+                            <p className="mb-2 text-[10px] font-semibold uppercase tracking-[0.16em] text-neutral-600">
+                              Relevant coursework
+                            </p>
+                            <ul className="space-y-1 text-[11px] leading-5 text-neutral-500">
+                              {highlight.education.coursework.map((course) => (
+                                <li key={course}>{course}</li>
+                              ))}
+                            </ul>
+                          </div>
+                            </>
+                          ) : (
+                            <p className="leading-6 text-neutral-500">
+                              {highlight.description}
+                            </p>
+                          )}
+                        </div>
+                      </div>
+                    </div>
+                </li>
+              ))}
+            </ul>
+            </div>
+          </div>
         </div>
       </div>
 
