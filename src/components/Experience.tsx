@@ -298,8 +298,25 @@ const Experience = () => {
 
         <article
           ref={detailRef}
-          className="scroll-mt-24 overflow-hidden rounded-[2rem] border border-neutral-800 bg-neutral-900 shadow-2xl shadow-black/40"
+          className="relative scroll-mt-24 overflow-hidden rounded-[2rem] border border-neutral-800 bg-neutral-900 shadow-2xl shadow-black/40"
         >
+          <button
+            onClick={() => moveSelection(-1)}
+            className="absolute left-3 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/75 text-white shadow-xl backdrop-blur-md transition hover:scale-110 hover:border-white hover:bg-white hover:text-black sm:left-5"
+            aria-label="Show previous experience"
+            title="Previous experience"
+          >
+            <ArrowLeft className="h-5 w-5" />
+          </button>
+          <button
+            onClick={() => moveSelection(1)}
+            className="absolute right-3 top-1/2 z-20 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full border border-white/20 bg-black/75 text-white shadow-xl backdrop-blur-md transition hover:scale-110 hover:border-white hover:bg-white hover:text-black sm:right-5"
+            aria-label="Show next experience"
+            title="Next experience"
+          >
+            <ArrowRight className="h-5 w-5" />
+          </button>
+
           <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
             <div className="relative min-h-[310px] overflow-hidden bg-neutral-800 lg:min-h-[540px]">
               <img
