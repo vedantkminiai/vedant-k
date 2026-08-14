@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   ArrowDown,
   ArrowLeft,
@@ -148,9 +148,13 @@ const experiences = [
   },
 ];
 
-const Experience = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isDetailOpen, setIsDetailOpen] = useState(false);
+type ExperienceProps = {
+  initialIndex?: number;
+};
+
+const Experience = ({ initialIndex }: ExperienceProps) => {
+  const [currentIndex, setCurrentIndex] = useState(initialIndex ?? 0);
+  const [isDetailOpen, setIsDetailOpen] = useState(initialIndex !== undefined);
   const scrollerRef = useGlidingCarousel();
   const detailRef = useRef<HTMLElement>(null);
   const currentExperience = experiences[currentIndex];
@@ -160,6 +164,24 @@ const Experience = () => {
       : currentExperience.coverImage ?? currentExperience.image;
   const hasWideLogo =
     'logoWide' in currentExperience && currentExperience.logoWide;
+
+  useEffect(() => {
+    if (initialIndex === undefined) return;
+
+    setCurrentIndex(initialIndex);
+    setIsDetailOpen(true);
+    let secondFrame = 0;
+    const firstFrame = window.requestAnimationFrame(() => {
+      secondFrame = window.requestAnimationFrame(() => {
+        detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    return () => {
+      window.cancelAnimationFrame(firstFrame);
+      window.cancelAnimationFrame(secondFrame);
+    };
+  }, [initialIndex]);
 
   const selectExperience = (index: number) => {
     setCurrentIndex(index);

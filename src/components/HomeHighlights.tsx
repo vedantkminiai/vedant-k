@@ -5,29 +5,34 @@ type Screen = 'experiences' | 'projects';
 
 type HomeHighlightsProps = {
   onNavigate: (screen: Screen) => void;
+  onSelect: (screen: Screen, index: number) => void;
 };
 
-const highlights: Record<Screen, Array<{ title: string; meta: string; description: string }>> = {
+const highlights: Record<Screen, Array<{ title: string; meta: string; description: string; targetIndex: number }>> = {
   experiences: [
     {
+      targetIndex: 0,
       title: 'Data Analytics Engineering Intern',
       meta: 'S&C Electric · 2026',
       description:
         'Building Python and Azure SQL data pipelines and Power BI costing tools across more than 500,000 component records.',
     },
     {
+      targetIndex: 1,
       title: 'Software Engineering Intern',
       meta: 'Coding Campus · 2025',
       description:
         'Developed AI-assisted education and hackathon platforms with React, Spring, PostgreSQL, GraphQL, and Azure.',
     },
     {
+      targetIndex: 3,
       title: 'Co-Founder (Founding Engineer)',
       meta: 'MiniAI · 2024—Present',
       description:
         'Leading an AI education startup that has reached over 1,000 students through products, curriculum, and workshops.',
     },
     {
+      targetIndex: 4,
       title: 'Student Researcher',
       meta: 'University of Waterloo · 2024',
       description:
@@ -36,24 +41,28 @@ const highlights: Record<Screen, Array<{ title: string; meta: string; descriptio
   ],
   projects: [
     {
+      targetIndex: 2,
       title: 'UFC Zone',
       meta: 'Fighter intelligence platform',
       description:
         'A full-stack searchable UFC roster with performance analytics, leaderboards, web-scraped data, and a Spring API.',
     },
     {
+      targetIndex: 3,
       title: 'EmployAI',
       meta: 'AI career platform',
       description:
         'A responsive resume-analysis experience that provides ATS scoring and targeted feedback for job applications.',
     },
     {
+      targetIndex: 5,
       title: 'MiniAI Learn',
       meta: 'Gamified AI education',
       description:
         'An interactive learning platform that teaches children foundational AI concepts through lessons, quests, and challenges.',
     },
     {
+      targetIndex: 1,
       title: 'ColourMash',
       meta: 'Accessible memory game',
       description:
@@ -67,7 +76,7 @@ const tabDetails = {
   projects: { label: 'Projects', icon: Folder },
 };
 
-const HomeHighlights = ({ onNavigate }: HomeHighlightsProps) => {
+const HomeHighlights = ({ onNavigate, onSelect }: HomeHighlightsProps) => {
   const [activeTab, setActiveTab] = useState<Screen>('experiences');
   const activeDetails = tabDetails[activeTab];
 
@@ -115,8 +124,9 @@ const HomeHighlights = ({ onNavigate }: HomeHighlightsProps) => {
             >
               <button
                 type="button"
+                onClick={() => onSelect(activeTab, highlight.targetIndex)}
                 className="flex w-full items-center gap-4 px-5 py-4 text-left sm:px-7"
-                aria-label={`Show a summary of ${highlight.title}`}
+                aria-label={`Open ${highlight.title} details`}
               >
                 <span className="font-mono text-[10px] text-neutral-600">
                   {String(index + 1).padStart(2, '0')}

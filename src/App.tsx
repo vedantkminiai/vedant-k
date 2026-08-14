@@ -10,6 +10,8 @@ import Experience from './components/Experience';
 import Projects from './components/Projects';
 
 type Screen = 'home' | 'experiences' | 'projects';
+type WorkScreen = Exclude<Screen, 'home'>;
+type SelectedWork = { screen: WorkScreen; index: number };
 
 const getScreenFromHash = (): Screen => {
   const screen = window.location.hash.replace('#/', '');
@@ -18,6 +20,7 @@ const getScreenFromHash = (): Screen => {
 
 function App() {
   const [activeScreen, setActiveScreen] = useState<Screen>(getScreenFromHash);
+  const [selectedWork, setSelectedWork] = useState<SelectedWork | null>(null);
 
   useEffect(() => {
     const handleHashChange = () => {
@@ -29,7 +32,7 @@ function App() {
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
 
-  const navigate = (screen: Screen) => {
+  const changeScreen = (screen: Screen) => {
     const nextHash = screen === 'home' ? '#/' : `#/${screen}`;
 
     if (window.location.hash === nextHash) {
@@ -38,6 +41,16 @@ function App() {
     }
 
     window.location.hash = nextHash;
+  };
+
+  const navigate = (screen: Screen) => {
+    setSelectedWork(null);
+    changeScreen(screen);
+  };
+
+  const navigateToWork = (screen: WorkScreen, index: number) => {
+    setSelectedWork({ screen, index });
+    changeScreen(screen);
   };
 
   return (
@@ -50,18 +63,26 @@ function App() {
         {activeScreen === 'home' && (
           <>
             <Hero />
-            <HomeHighlights onNavigate={navigate} />
+            <HomeHighlights onNavigate={navigate} onSelect={navigateToWork} />
             <About />
           </>
         )}
         {activeScreen === 'experiences' && (
           <div className="min-h-screen pt-16">
-            <Experience />
+            <Experience
+              initialIndex={
+                selectedWork?.screen === 'experiences' ? selectedWork.index : undefined
+              }
+            />
           </div>
         )}
         {activeScreen === 'projects' && (
           <div className="min-h-screen pt-16">
-            <Projects />
+            <Projects
+              initialIndex={
+                selectedWork?.screen === 'projects' ? selectedWork.index : undefined
+              }
+            />
           </div>
         )}
       </main>

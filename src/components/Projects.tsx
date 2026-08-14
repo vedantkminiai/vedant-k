@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import {
   ArrowDown,
   ArrowLeft,
@@ -106,12 +106,34 @@ const projects = [
   },
 ];
 
-const Projects = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isDetailOpen, setIsDetailOpen] = useState(false);
+type ProjectsProps = {
+  initialIndex?: number;
+};
+
+const Projects = ({ initialIndex }: ProjectsProps) => {
+  const [currentIndex, setCurrentIndex] = useState(initialIndex ?? 0);
+  const [isDetailOpen, setIsDetailOpen] = useState(initialIndex !== undefined);
   const scrollerRef = useGlidingCarousel();
   const detailRef = useRef<HTMLElement>(null);
   const currentProject = projects[currentIndex];
+
+  useEffect(() => {
+    if (initialIndex === undefined) return;
+
+    setCurrentIndex(initialIndex);
+    setIsDetailOpen(true);
+    let secondFrame = 0;
+    const firstFrame = window.requestAnimationFrame(() => {
+      secondFrame = window.requestAnimationFrame(() => {
+        detailRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    });
+
+    return () => {
+      window.cancelAnimationFrame(firstFrame);
+      window.cancelAnimationFrame(secondFrame);
+    };
+  }, [initialIndex]);
 
   const selectProject = (index: number) => {
     setCurrentIndex(index);
