@@ -38,9 +38,6 @@ const useGlidingCarousel = (pixelsPerSecond = 22, autoScroll = true) => {
       const bounds = scroller.getBoundingClientRect();
       isScrollbarDrag = event.clientY >= bounds.bottom - 16;
       resumeAt = Number.POSITIVE_INFINITY;
-      if (!isScrollbarDrag) {
-        scroller.setPointerCapture?.(event.pointerId);
-      }
       scroller.classList.add('experience-scroll--grabbing');
     };
 
@@ -52,6 +49,9 @@ const useGlidingCarousel = (pixelsPerSecond = 22, autoScroll = true) => {
       if (Math.abs(distance) > 4) {
         isDragging = true;
         suppressClick = true;
+        if (!scroller.hasPointerCapture?.(event.pointerId)) {
+          scroller.setPointerCapture?.(event.pointerId);
+        }
       }
 
       if (!isDragging) return;
