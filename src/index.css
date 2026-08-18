@@ -60,6 +60,60 @@ body {
   animation: hero-name-arrive 900ms 180ms cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
+.hero-profile-card {
+  isolation: isolate;
+}
+
+.hero-card-cubes {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.hero-card-cube {
+  --cube-size: 58px;
+  --cube-depth: calc(var(--cube-size) / 2);
+  position: absolute;
+  width: var(--cube-size);
+  height: var(--cube-size);
+  perspective: 700px;
+  opacity: 0.18;
+  filter: grayscale(0.35) drop-shadow(0 18px 22px rgb(0 0 0 / 0.55));
+}
+
+.hero-card-cube--top {
+  top: 8%;
+  right: 2%;
+}
+
+.hero-card-cube--middle {
+  --cube-size: 42px;
+  top: -12px;
+  left: 47%;
+}
+
+.hero-card-cube--bottom {
+  --cube-size: 50px;
+  bottom: 5%;
+  left: 1.5%;
+}
+
+.hero-card-cube--top .cube-decoration__body {
+  animation-duration: 16s;
+}
+
+.hero-card-cube--middle .cube-decoration__body {
+  animation-duration: 12s;
+  animation-direction: reverse;
+}
+
+.hero-card-cube--bottom .cube-decoration__body {
+  animation-duration: 19s;
+  animation-delay: -6s;
+}
+
 .background-cubes {
   position: fixed;
   inset: 0;
@@ -433,6 +487,24 @@ body {
   .cube-decoration--bottom-right {
     right: -18px;
   }
+
+  .hero-card-cube {
+    opacity: 0.13;
+  }
+
+  .hero-card-cube--top {
+    top: 3%;
+    right: -20px;
+  }
+
+  .hero-card-cube--middle {
+    display: none;
+  }
+
+  .hero-card-cube--bottom {
+    bottom: 2%;
+    left: -18px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -442,6 +514,7 @@ body {
 
   .screen-transition,
   .hero-name-load,
+  .hero-card-cube .cube-decoration__body,
   .cube-decoration__body,
   .detail-expansion,
   .detail-expansion__content,

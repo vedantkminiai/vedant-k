@@ -12,38 +12,31 @@ const highlights: Record<Screen, Array<{ title: string; meta: string; descriptio
   experiences: [
     {
       targetIndex: 0,
-      title: 'Data Engineering Intern',
-      meta: 'S&C Electric · 2026',
-      description:
-        'Built Azure and Airflow ETL workflows for 20+ years of switchgear data, modeled 3M+ sales records in Power BI, and delivered a React comparison tool saving $75,000+ annually.',
-    },
-    {
-      targetIndex: 1,
-      title: 'Software Engineering Intern',
-      meta: 'Atelier · 2026',
-      description:
-        'Built an LLM-powered product analytics pipeline and LangChain feature-generation engine for a Telora-backed startup with $60,000 in funding.',
-    },
-    {
-      targetIndex: 2,
-      title: 'Software Engineering Intern',
-      meta: 'Coding Campus · 2025',
-      description:
-        'Deployed an AI-powered Waterloo coding contest preparation app with React, Supabase, Judge0, OpenAI, AWS ECS, and Vercel for 200+ students.',
-    },
-    {
-      targetIndex: 4,
       title: 'Co-Founder',
       meta: 'MiniAI · 2024—Present',
       description:
         'Leading an AI education startup that has reached over 1,000 students through products, curriculum, and workshops.',
     },
     {
-      targetIndex: 5,
-      title: 'Student Researcher',
-      meta: 'University of Waterloo · 2024',
+      targetIndex: 1,
+      title: 'Data Engineering Intern',
+      meta: 'S&C Electric · 2026',
       description:
-        'Studied advanced mathematics, algorithms, proof writing, and computational problem solving through CEMC.',
+        'Built Python ETL workflows to process 3.6M+ component records spanning 20+ years of switchgear data, modeled the results in Power BI, and delivered a React comparison tool saving $75,000+ annually.',
+    },
+    {
+      targetIndex: 2,
+      title: 'Software Engineering Intern',
+      meta: 'Atelier · 2026',
+      description:
+        'Built an LLM-powered product analytics pipeline and LangChain feature-generation engine for a Telora-backed startup with $60,000 in funding.',
+    },
+    {
+      targetIndex: 3,
+      title: 'Software Engineering Intern',
+      meta: 'Coding Campus · 2025',
+      description:
+        'Deployed an AI-powered Waterloo coding contest preparation app with React, Supabase, Judge0, OpenAI, AWS ECS, and Vercel for 200+ students.',
     },
   ],
   projects: [

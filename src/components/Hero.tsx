@@ -1,6 +1,8 @@
 import React from 'react';
 import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
 
+const cubeFaces = ['front', 'back', 'right', 'left', 'top', 'bottom'];
+
 const Hero = () => {
   const highlights = [
     {
@@ -48,7 +50,29 @@ const Hero = () => {
       className="relative z-30 flex min-h-screen items-center overflow-visible bg-gradient-to-br from-neutral-950 via-neutral-900 to-black py-24 text-white sm:py-28"
     >
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid items-center gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
+        <div className="hero-profile-card relative overflow-visible rounded-[2rem] border border-neutral-800 bg-neutral-950/70 p-5 shadow-2xl shadow-black/40 backdrop-blur-sm sm:p-8 lg:p-10">
+          <div className="hero-card-cubes" aria-hidden="true">
+            {['hero-card-cube--top', 'hero-card-cube--middle', 'hero-card-cube--bottom'].map(
+              (position, cubeIndex) => (
+                <div className={`hero-card-cube ${position}`} key={position}>
+                  <div className="cube-decoration__body">
+                    {cubeFaces.map((face) => (
+                      <div
+                        className={`cube-decoration__face cube-decoration__face--${face}`}
+                        key={`${cubeIndex}-${face}`}
+                      >
+                        {Array.from({ length: 9 }).map((_, tileIndex) => (
+                          <span key={tileIndex} />
+                        ))}
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              ),
+            )}
+          </div>
+
+          <div className="relative z-10 grid items-center gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:gap-16">
           <div className="mx-auto w-full max-w-[390px] lg:mx-0">
             <div className="group relative overflow-hidden rounded-[2rem] border border-neutral-700 bg-neutral-900 shadow-2xl shadow-black/60">
               <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/35 via-transparent to-white/5" />
@@ -79,7 +103,7 @@ const Hero = () => {
                   </span>
                 </a>
               ))}
-              <div className="group/mail relative">
+              <div className="group/mail relative z-30">
                 <button
                   type="button"
                   className="flex h-11 w-11 items-center justify-center rounded-full border border-neutral-700 bg-neutral-900/90 text-neutral-400 transition duration-300 hover:-translate-y-1 hover:border-white hover:bg-white hover:text-black focus-visible:-translate-y-1 focus-visible:border-white focus-visible:bg-white focus-visible:text-black"
@@ -128,9 +152,6 @@ const Hero = () => {
               Vedant Kansara
             </span>
           </h1>
-            <p className="mb-7 text-xl leading-relaxed text-neutral-300 sm:text-2xl lg:text-3xl">
-            Software Engineer and Speed-Cube Enthusiast
-          </p>
             <div className="mx-auto max-w-2xl text-left lg:mx-0">
               <p className="mb-5 text-base leading-7 text-neutral-500 sm:text-lg">
                 I’m passionate about educational technology, data engineering and analytics, and machine learning. Outside of building software, I enjoy weightlifting, playing basketball, and solving speedcubes. Currently:
@@ -188,6 +209,7 @@ const Hero = () => {
               ))}
             </ul>
             </div>
+          </div>
           </div>
         </div>
       </div>

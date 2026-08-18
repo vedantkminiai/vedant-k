@@ -18,6 +18,7 @@ import TechnologyRail from './TechnologyRail';
 
 const experiences = [
   {
+    sortOrder: 1,
     title: 'Data Engineering Intern',
     company: 'S&C Electric Company',
     location: 'Toronto, ON',
@@ -52,6 +53,7 @@ const experiences = [
     ],
   },
   {
+    sortOrder: 2,
     title: 'Software Engineering Intern',
     company: 'Atelier',
     location: 'Toronto, ON',
@@ -74,6 +76,7 @@ const experiences = [
     linkedinUrl: 'https://www.linkedin.com/company/tryatelier/',
   },
   {
+    sortOrder: 3,
     title: 'Software Engineering Intern',
     company: 'Coding Campus',
     location: 'Toronto, ON',
@@ -110,8 +113,10 @@ const experiences = [
     ],
     repository: 'https://github.com/vedantkminiai/Coding-Campus-App',
     liveUrl: 'https://coding-campus-app.vercel.app/',
+    linkedinUrl: 'https://www.linkedin.com/company/codingcampus-org',
   },
   {
+    sortOrder: 6,
     title: 'Mathematics Instructor',
     company: 'Kumon Learning Center',
     location: 'Toronto, ON',
@@ -133,6 +138,7 @@ const experiences = [
     skills: ['Python', 'Teaching', 'Mathematics', 'Education Technology', 'Student Assessment'],
   },
   {
+    sortOrder: 0,
     title: 'Co-Founder',
     company: 'MiniAI',
     location: 'Toronto, ON',
@@ -153,6 +159,7 @@ const experiences = [
     linkedinUrl: 'https://www.linkedin.com/company/mini-ai/?viewAsMember=true',
   },
   {
+    sortOrder: 4,
     title: 'Student Researcher',
     company: 'University of Waterloo',
     location: 'Toronto, ON',
@@ -174,6 +181,7 @@ const experiences = [
     skills: ['Critical Thinking', 'Python', 'Proofs', 'Algorithms'],
   },
   {
+    sortOrder: 5,
     title: 'CREATE Student Researcher',
     company: 'University of Toronto',
     location: 'Toronto, ON',
@@ -192,7 +200,7 @@ const experiences = [
     ],
     skills: ['Python', 'C++', 'Arduino'],
   },
-];
+].sort((a, b) => a.sortOrder - b.sortOrder);
 
 type ExperienceProps = {
   initialIndex?: number;

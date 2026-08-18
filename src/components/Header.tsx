@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Download, ExternalLink, Menu, X } from 'lucide-react';
+import { ExternalLink, FileText, Menu, X } from 'lucide-react';
 
 type Screen = 'home' | 'experiences' | 'projects';
 
@@ -75,14 +75,16 @@ const Header = ({ activeScreen, onNavigate }: HeaderProps) => {
               Github
               <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
             </a>
-            <button
-              onClick={() => window.print()}
+            <a
+              href="/Vedant_Kansara_Resume.pdf#view=FitH&toolbar=1"
+              target="_blank"
+              rel="noopener noreferrer"
               className="inline-flex items-center rounded-full bg-white px-5 py-2.5 font-medium text-black transition-all duration-200 hover:-translate-y-0.5 hover:bg-neutral-300 hover:shadow-lg"
-              title="Print or save this portfolio as a PDF"
+              title="View Vedant Kansara's resume"
             >
               Resume
-              <Download className="ml-2 h-4 w-4" />
-            </button>
+              <FileText className="ml-2 h-4 w-4" />
+            </a>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -122,16 +124,16 @@ const Header = ({ activeScreen, onNavigate }: HeaderProps) => {
                 Github
                 <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
               </a>
-              <button
-                onClick={() => {
-                  setIsMenuOpen(false);
-                  window.print();
-                }}
+              <a
+                href="/Vedant_Kansara_Resume.pdf#view=FitH&toolbar=1"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMenuOpen(false)}
                 className="inline-flex w-fit items-center rounded-full bg-white px-5 py-2.5 font-medium text-black"
               >
                 Resume
-                <Download className="ml-2 h-4 w-4" />
-              </button>
+                <FileText className="ml-2 h-4 w-4" />
+              </a>
             </div>
           </nav>
         )}
