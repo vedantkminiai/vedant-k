@@ -7,6 +7,8 @@ import {
   BookOpen,
   Briefcase,
   Code,
+  ExternalLink,
+  Github,
   Users,
 } from 'lucide-react';
 import useGlidingCarousel from '../hooks/useGlidingCarousel';
@@ -15,7 +17,7 @@ import TechnologyRail from './TechnologyRail';
 
 const experiences = [
   {
-    title: 'Data Analytics Engineering Intern',
+    title: 'Data Engineering Intern',
     company: 'S&C Electric Company',
     location: 'Toronto, ON',
     period: 'May 2026 — August 2026',
@@ -26,14 +28,27 @@ const experiences = [
     coverImage: 'https://www.sandc.com/globalassets/sac-electric/content-callouts/tripsaver/logo2.png',
     coverImageFit: 'contain',
     description:
-      'Completing a four-month Data Analytics Engineering internship at S&C Electric, building end-to-end analytics infrastructure for metal-enclosed switchgear and Vista product data. Developed ETL pipelines that extract data from internal REST APIs, transform and validate it with Python, and load curated tables into Azure SQL. Designed a Power BI marginal-costing dashboard with filters for kV and amp ratings, product style, bay type—including breakers and switch-and-fuse configurations—and quantity.',
+      'Completed a four-month Data Engineering internship at S&C Electric, building ETL pipelines to process more than 20 years of Metal-Enclosed Switchgear and Vista component data. Developed Python, Azure, and Apache Airflow workflows; transformed REST API data into Azure SQL dimension tables; created Power BI and Excel data models; and delivered a React comparison tool for switchgear cost analysis.',
     achievements: [
-      'Reduced end-to-end data ingestion time by 53% by optimizing API extraction, Python transformations, and database-loading workflows',
-      'Processed more than 500,000 aggregated component records spanning over 10 years of product history',
-      'Delivered component-level costing insights projected to save approximately $150,000 annually',
-      'Increased overall data throughput by 28% across the analytics pipeline',
+      'Built a Python, Azure, and Airflow ETL pipeline to process 20+ years of Metal-Enclosed Switchgear and Vista component data for the Power BI Sales Dashboard, reducing ingestion time by 33%',
+      'Scraped unstructured REST API data with requests, pandas, and pyodbc; transformed it into dimension tables and loaded it into Azure SQL, cutting manual engineering work by 40%',
+      'Designed a React switchgear comparison tool to analyze price differences, saving the company more than $75,000 annually',
+      'Built Apache Airflow DAGs to orchestrate and parallelize ETL workflows, increasing data throughput by 28%',
+      'Built Power BI and Excel data models with DAX measures to highlight trends across more than 3 million historical sales records',
     ],
-    skills: ['Python', 'PowerBI', 'Databricks', 'Azure SQL', 'DAX', 'Excel', 'REST APIs'],
+    skills: [
+      'Python',
+      'Azure',
+      'Apache Airflow',
+      'SQL',
+      'PowerBI',
+      'pandas',
+      'React',
+      'Excel',
+      'REST APIs',
+      'pyodbc',
+      'DAX',
+    ],
   },
   {
     title: 'Software Engineering Intern',
@@ -46,26 +61,32 @@ const experiences = [
       'https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/970/527/datas/original.jpeg',
     imageFit: 'cover',
     description:
-      'Built and scaled full-stack platforms for developer education, hackathon operations, and applicant management. Delivered responsive product experiences, AI-assisted course recommendations, production APIs, and cloud data optimizations across React, Next.js, Spring, and relational database systems.',
+      'Deployed a full-stack, AI-powered Waterloo coding contest preparation platform built with React and Supabase across AWS ECS and Vercel. Established Docker and GitHub Actions CI/CD workflows to maintain 99.9% uptime and help more than 200 students prepare for competitive programming contests.',
     achievements: [
-      'Developed a responsive course platform with React, Next.js, Tailwind CSS, and MySQL, using GPT-4o to generate personalized coding-course recommendations and increase users by 30%',
-      'Organized Apple Hacks for 250+ hackers and processed over 500 applications through a React and Spring applicant-management platform powered by Gemini AI',
-      'Engineered PostgreSQL schemas and API endpoints to manage more than 100 monthly email requests',
-      'Architected 9+ reusable React components and add-ons while establishing 5+ GraphQL and JSON-RPC endpoints',
-      'Optimized storage and retrieval workflows in Azure Data Lake Storage, reducing data-access latency by 70%',
+      'Deployed the application through AWS ECS and Vercel with Docker and GitHub Actions CI/CD, sustaining 99.9% uptime for 200+ students',
+      'Engineered 3+ Supabase Edge Functions integrating Judge0 and OpenAI APIs with React Monaco Editor to run Java, Python, and C++ submissions in-browser and generate AI feedback',
+      'Created a Python analytics pipeline with Selenium and Beautiful Soup to scrape 5+ years of contest data into Supabase PostgreSQL, improving AI training accuracy by 45%',
     ],
     skills: [
       'React',
-      'Next.js',
-      'Tailwind CSS',
-      'Spring',
-      'MySQL',
+      'Supabase',
+      'Supabase Edge Functions',
+      'AWS ECS',
+      'Vercel',
+      'GitHub Actions',
+      'Docker',
+      'Judge0',
+      'OpenAI API',
+      'Monaco Editor',
+      'Java',
+      'Python',
+      'C++',
+      'Selenium',
+      'BeautifulSoup',
       'PostgreSQL',
-      'GraphQL',
-      'Azure Data Lake',
-      'GPT-4o',
-      'Gemini AI',
     ],
+    repository: 'https://github.com/vedantkminiai/Coding-Campus-App',
+    liveUrl: 'https://coding-campus-app.vercel.app/',
   },
   {
     title: 'Mathematics and English Instructor',
@@ -393,6 +414,32 @@ const Experience = ({ initialIndex }: ExperienceProps) => {
                 <p className="mt-7 max-w-2xl text-lg leading-relaxed text-neutral-400">
                   {currentExperience.description}
                 </p>
+                {('repository' in currentExperience || 'liveUrl' in currentExperience) && (
+                  <div className="mt-7 flex flex-wrap gap-3">
+                    {'repository' in currentExperience && currentExperience.repository && (
+                      <a
+                        href={currentExperience.repository}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-black transition hover:bg-neutral-300"
+                      >
+                        <Github className="mr-2 h-4 w-4" />
+                        View repository
+                      </a>
+                    )}
+                    {'liveUrl' in currentExperience && currentExperience.liveUrl && (
+                      <a
+                        href={currentExperience.liveUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center rounded-full border border-neutral-600 px-5 py-2.5 text-sm font-semibold text-neutral-200 transition hover:border-white hover:text-white"
+                      >
+                        <ExternalLink className="mr-2 h-4 w-4" />
+                        Visit live app
+                      </a>
+                    )}
+                  </div>
+                )}
               </div>
 
               <div className="mt-10">

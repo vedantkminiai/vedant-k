@@ -18,9 +18,9 @@ const Hero = () => {
       },
     },
     {
-      label: 'Data Analytics Engineering Intern @ S&C Electric Company',
+      label: 'Data Engineering Intern @ S&C Electric Company',
       description:
-        'Building Python ETL pipelines, Azure SQL datasets, and Power BI costing dashboards across more than 500,000 component records.',
+        'Built Azure and Airflow ETL workflows for 20+ years of switchgear data, modeled 3M+ sales records in Power BI, and delivered a React comparison tool saving $75,000+ annually.',
     },
     {
       label: 'Founding Engineer @ MiniAI',

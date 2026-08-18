@@ -12,17 +12,17 @@ const highlights: Record<Screen, Array<{ title: string; meta: string; descriptio
   experiences: [
     {
       targetIndex: 0,
-      title: 'Data Analytics Engineering Intern',
+      title: 'Data Engineering Intern',
       meta: 'S&C Electric · 2026',
       description:
-        'Building Python and Azure SQL data pipelines and Power BI costing tools across more than 500,000 component records.',
+        'Built Azure and Airflow ETL workflows for 20+ years of switchgear data, modeled 3M+ sales records in Power BI, and delivered a React comparison tool saving $75,000+ annually.',
     },
     {
       targetIndex: 1,
       title: 'Software Engineering Intern',
       meta: 'Coding Campus · 2025',
       description:
-        'Developed AI-assisted education and hackathon platforms with React, Spring, PostgreSQL, GraphQL, and Azure.',
+        'Deployed an AI-powered Waterloo coding contest preparation app with React, Supabase, Judge0, OpenAI, AWS ECS, and Vercel for 200+ students.',
     },
     {
       targetIndex: 3,

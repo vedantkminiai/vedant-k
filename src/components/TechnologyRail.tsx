@@ -2,6 +2,7 @@ import { Braces } from 'lucide-react';
 import useGlidingCarousel from '../hooks/useGlidingCarousel';
 
 const technologyIconSlugs: Record<string, string> = {
+  'Apache Airflow': 'apacheairflow',
   'AWS ECS': 'amazonecs',
   'Azure Data Lake': 'microsoftazure',
   'Azure SQL': 'microsoftazure',
@@ -22,6 +23,7 @@ const technologyIconSlugs: Record<string, string> = {
   HTML5: 'html5',
   Java: 'openjdk',
   JavaScript: 'javascript',
+  'Monaco Editor': 'visualstudiocode',
   MySQL: 'mysql',
   'NBA API': 'nba',
   Netlify: 'netlify',
@@ -37,8 +39,11 @@ const technologyIconSlugs: Record<string, string> = {
   React: 'react',
   'React Router': 'reactrouter',
   'REST APIs': 'fastapi',
+  Selenium: 'selenium',
   Spring: 'spring',
   'Spring Boot': 'springboot',
+  Supabase: 'supabase',
+  'Supabase Edge Functions': 'supabase',
   'Tailwind CSS': 'tailwindcss',
   TensorFlow: 'tensorflow',
   'TensorFlow.js': 'tensorflow',
@@ -50,6 +55,7 @@ const technologyIconSlugs: Record<string, string> = {
 const technologyCustomIcons: Record<string, string> = {
   AWS: '/aws-dark-technology.png',
   'AWS ECS': '/aws-dark-technology.png',
+  Azure: '/azure-dark-technology.png',
   'Azure Data Lake': '/azure-dark-technology.png',
   'Azure SQL': '/azure-dark-technology.png',
   CSS3: '/css3-dark-technology.png',
