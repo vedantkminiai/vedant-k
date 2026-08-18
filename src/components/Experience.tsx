@@ -51,6 +51,9 @@ const experiences = [
       'pyodbc',
       'DAX',
     ],
+    liveUrl: 'https://www.sandc.com/',
+    liveLabel: 'Visit company website',
+    linkedinUrl: 'https://www.linkedin.com/company/s&c-electric-company/posts/?feedView=all',
   },
   {
     sortOrder: 2,
@@ -86,6 +89,7 @@ const experiences = [
     image:
       'https://d112y698adiu2z.cloudfront.net/photos/production/challenge_thumbnails/002/970/527/datas/original.jpeg',
     imageFit: 'cover',
+    coverImageFit: 'contain',
     description:
       'Deployed a full-stack, AI-powered Waterloo coding contest preparation platform built with React and Supabase across AWS ECS and Vercel. Established Docker and GitHub Actions CI/CD workflows to maintain 99.9% uptime and help more than 200 students prepare for competitive programming contests.',
     achievements: [
@@ -125,6 +129,7 @@ const experiences = [
     icon: BookOpen,
     image: 'https://www.kumon.ie/storage/uploads/iVgrv7ZioMNPsFh3as6cHlIrWbYuzduFL82B8YrO.jpg',
     imageFit: 'cover',
+    coverImageFit: 'contain',
     logoImage: '/kumon-card-logo.png',
     logoWide: true,
     description:
@@ -155,6 +160,7 @@ const experiences = [
       'Reached 1,000+ students internationally, with more than 300 earning a Foundations of AI credential',
     ],
     skills: ['React', 'TypeScript', 'Vite', 'AWS ECS', 'Vercel', 'Docker', 'GitHub Actions'],
+    repository: 'https://github.com/vedantkminiai/MiniAI-Website',
     liveUrl: 'https://miniai.ca/',
     linkedinUrl: 'https://www.linkedin.com/company/mini-ai/?viewAsMember=true',
   },
@@ -470,7 +476,9 @@ const Experience = ({ initialIndex }: ExperienceProps) => {
                         className="inline-flex items-center rounded-full border border-neutral-600 px-5 py-2.5 text-sm font-semibold text-neutral-200 transition hover:border-white hover:text-white"
                       >
                         <ExternalLink className="mr-2 h-4 w-4" />
-                        Visit live app
+                        {'liveLabel' in currentExperience
+                          ? currentExperience.liveLabel
+                          : 'Visit live app'}
                       </a>
                     )}
                     {'linkedinUrl' in currentExperience && currentExperience.linkedinUrl && (

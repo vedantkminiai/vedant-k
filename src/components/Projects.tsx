@@ -13,7 +13,7 @@ import TechnologyRail from './TechnologyRail';
 
 const projects = [
   {
-    title: 'Library Management Software',
+    title: 'Library Software',
     category: 'Java application',
     image: 'https://apuedge.com/wp-content/uploads/2020/08/online-library-databases.jpg',
     description:
@@ -41,6 +41,7 @@ const projects = [
     ],
     techStack: ['Next.js', 'React', 'TypeScript', 'OpenAI API', 'TensorFlow.js'],
     repository: 'https://github.com/vedantkminiai/ColourMash',
+    liveUrl: 'https://colourmash.netlify.app/',
   },
   {
     title: 'UFC Zone',
