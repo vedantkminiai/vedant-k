@@ -132,7 +132,7 @@ const SpotifyMiniPlayer = () => {
       api.createController(
         playerRef.current,
         {
-          uri: 'spotify:track:3ym8ajVmKm6Fybgov3WBI5',
+          uri: songs[0].uri,
           width: '100%',
           height: 152,
         },
