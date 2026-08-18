@@ -114,6 +114,70 @@ body {
   animation-delay: -6s;
 }
 
+.spotify-vibration {
+  position: absolute;
+  top: 50%;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  opacity: 0;
+  transform: translateY(-50%);
+  transition: opacity 180ms ease;
+}
+
+.spotify-vibration--left {
+  right: calc(100% + 5px);
+}
+
+.spotify-vibration--right {
+  left: calc(100% + 5px);
+}
+
+.spotify-vibration span {
+  display: block;
+  width: 2px;
+  height: 8px;
+  border-radius: 999px;
+  background: #1ed760;
+  transform-origin: center;
+}
+
+.spotify-vibration span:last-child {
+  height: 13px;
+}
+
+.spotify-vibration.is-playing {
+  opacity: 1;
+}
+
+.spotify-vibration.is-playing span {
+  animation: spotify-vibrate 520ms ease-in-out infinite alternate;
+}
+
+.spotify-vibration.is-playing span:last-child {
+  animation-delay: -260ms;
+}
+
+.spotify-song-scroll {
+  scrollbar-color: #404040 #0a0a0a;
+  scrollbar-width: thin;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.spotify-song-scroll::-webkit-scrollbar {
+  height: 4px;
+}
+
+.spotify-song-scroll::-webkit-scrollbar-track {
+  background: #0a0a0a;
+}
+
+.spotify-song-scroll::-webkit-scrollbar-thumb {
+  border-radius: 999px;
+  background: #404040;
+}
+
 .background-cubes {
   position: fixed;
   inset: 0;
@@ -455,6 +519,15 @@ body {
   }
 }
 
+@keyframes spotify-vibrate {
+  from {
+    transform: scaleY(0.45);
+  }
+  to {
+    transform: scaleY(1.15);
+  }
+}
+
 @media (pointer: fine) {
   html,
   body,
@@ -515,6 +588,7 @@ body {
   .screen-transition,
   .hero-name-load,
   .hero-card-cube .cube-decoration__body,
+  .spotify-vibration.is-playing span,
   .cube-decoration__body,
   .detail-expansion,
   .detail-expansion__content,

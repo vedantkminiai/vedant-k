@@ -1,5 +1,6 @@
 import React from 'react';
 import { ChevronDown, Github, Linkedin, Mail } from 'lucide-react';
+import SpotifyMiniPlayer from './SpotifyMiniPlayer';
 
 const cubeFaces = ['front', 'back', 'right', 'left', 'top', 'bottom'];
 
@@ -140,6 +141,7 @@ const Hero = () => {
                   </div>
                 </div>
               </div>
+              <SpotifyMiniPlayer />
             </div>
           </div>
 
@@ -154,7 +156,7 @@ const Hero = () => {
           </h1>
             <div className="mx-auto max-w-2xl text-left lg:mx-0">
               <p className="mb-5 text-base leading-7 text-neutral-500 sm:text-lg">
-                I’m passionate about educational technology, data engineering and analytics, and machine learning. Outside of building software, I enjoy weightlifting, playing basketball, and solving speedcubes. Currently:
+                I’m passionate about educational technology, data engineering and analytics, and machine learning. Outside of building software, I enjoy weightlifting, playing basketball, solving speedcubes, and listening to music. Currently:
               </p>
 
             <ul className="space-y-1 border-l border-neutral-700 pl-5">
