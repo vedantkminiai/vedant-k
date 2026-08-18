@@ -41,28 +41,28 @@ const highlights: Record<Screen, Array<{ title: string; meta: string; descriptio
   ],
   projects: [
     {
-      targetIndex: 2,
+      targetIndex: 3,
       title: 'UFC Zone',
       meta: 'Fighter intelligence platform',
       description:
         'A full-stack searchable UFC roster with performance analytics, leaderboards, web-scraped data, and a Spring API.',
     },
     {
-      targetIndex: 3,
+      targetIndex: 4,
       title: 'EmployAI',
       meta: 'AI career platform',
       description:
         'A responsive resume-analysis experience that provides ATS scoring and targeted feedback for job applications.',
     },
     {
-      targetIndex: 5,
+      targetIndex: 6,
       title: 'MiniAI Learn',
       meta: 'Gamified AI education',
       description:
         'An interactive learning platform that teaches children foundational AI concepts through lessons, quests, and challenges.',
     },
     {
-      targetIndex: 1,
+      targetIndex: 2,
       title: 'ColourMash',
       meta: 'Accessible memory game',
       description:

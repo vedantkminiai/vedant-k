@@ -14,6 +14,7 @@ const technologyIconSlugs: Record<string, string> = {
   Databricks: 'databricks',
   Docker: 'docker',
   Excel: 'microsoftexcel',
+  FastAPI: 'fastapi',
   'Gemini AI': 'googlegemini',
   'Gemini API': 'googlegemini',
   Git: 'git',
@@ -60,9 +61,11 @@ const technologyCustomIcons: Record<string, string> = {
   'AWS ECS': '/aws-dark-technology.png',
   Azure: '/azure-dark-technology.png',
   'Azure Data Lake': '/azure-dark-technology.png',
+  'Azure DevOps': '/azure-devops-dark-technology.png',
   'Azure SQL': '/azure-dark-technology.png',
   CSS3: '/css3-dark-technology.png',
-  'OpenAI API': '/openai-dark-technology.png',
+  Excel: '/excel-technology.png',
+  'OpenAI API': '/openai-white-technology.png',
   PowerBI: '/powerbi-dark-technology.png',
 };
 
@@ -111,6 +114,7 @@ const TechnologyRail = ({
           const isDuplicate = displayIndex >= technologies.length;
           const iconSlug = technologyIconSlugs[technology];
           const customIcon = technologyCustomIcons[technology];
+          const usesLightIconBackground = technology === 'Excel';
 
           return (
             <div
@@ -120,12 +124,20 @@ const TechnologyRail = ({
             >
               <div className="mb-7 flex items-center justify-between">
                 <Braces className="h-4 w-4 text-neutral-500 transition group-hover:text-white" />
-                <div className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-xl border border-neutral-700 bg-neutral-900 shadow-lg shadow-black/20">
+                <div
+                  className={`flex h-9 w-9 items-center justify-center overflow-hidden rounded-xl border shadow-lg shadow-black/20 ${
+                    usesLightIconBackground
+                      ? 'border-neutral-500 bg-white'
+                      : 'border-neutral-700 bg-neutral-900'
+                  }`}
+                >
                   {customIcon ? (
                     <img
                       src={customIcon}
                       alt=""
-                      className="h-full w-full object-cover"
+                      className={`h-full w-full ${
+                        usesLightIconBackground ? 'object-contain p-0.5' : 'object-cover'
+                      }`}
                       loading="lazy"
                     />
                   ) : iconSlug ? (

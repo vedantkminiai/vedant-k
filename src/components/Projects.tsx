@@ -13,8 +13,36 @@ import TechnologyRail from './TechnologyRail';
 
 const projects = [
   {
+    title: 'StockAI',
+    category: 'AI stock research workspace',
+    date: 'March 2026',
+    image: '/stockai-dashboard.png',
+    description:
+      'A full-stack stock research workspace that combines live market data, portfolio analytics, watchlists, visual comparisons, and a streaming AI research assistant in one responsive dashboard.',
+    features: [
+      'Live market snapshots, top-mover rankings, company metrics, and six-month multi-stock price comparisons powered by Yahoo Finance',
+      'Watchlist and simulated portfolio analytics with market value, cost basis, profit-and-loss, and allocation breakdowns',
+      'Streaming LangChain research assistant with session memory and tools for prices, historical data, balance sheets, and company news',
+      'Dedicated responsive views for market discovery, watchlists, portfolio analysis, AI research, and settings',
+    ],
+    techStack: [
+      'React',
+      'TypeScript',
+      'Vite',
+      'Python',
+      'FastAPI',
+      'LangChain',
+      'LangGraph',
+      'OpenAI API',
+      'yfinance',
+    ],
+    repository: 'https://github.com/vedantkminiai/Stock-Analytics-Platform',
+    liveUrl: 'https://stock-analytics-platform.vercel.app/',
+  },
+  {
     title: 'Library Software',
     category: 'Java application',
+    date: 'January 2025',
     image: 'https://apuedge.com/wp-content/uploads/2020/08/online-library-databases.jpg',
     description:
       'A comprehensive library-management application designed to streamline circulation, member administration, and resource tracking while demonstrating maintainable object-oriented architecture.',
@@ -30,6 +58,7 @@ const projects = [
   {
     title: 'ColourMash',
     category: 'Accessible memory game',
+    date: 'August 2025',
     image: '/colourmash-screenshot.png',
     description:
       'A playful pattern-recognition experience designed to help people living with Alzheimer’s and dementia exercise memory and cognitive skills through approachable, interactive challenges.',
@@ -46,6 +75,7 @@ const projects = [
   {
     title: 'UFC Zone',
     category: 'Fighter intelligence platform',
+    date: 'July 2026',
     image: '/ufc-zone-screenshot.png',
     description:
       'A full-stack UFC fighter intelligence platform that transforms scraped athlete records into searchable profiles, performance analytics, and category leaderboards.',
@@ -61,6 +91,7 @@ const projects = [
   {
     title: 'EmployAI',
     category: 'Full-stack career platform',
+    date: 'January 2026',
     image: '/employai-screenshot.png',
     description:
       'A production-oriented full-stack application foundation for modern career workflows, combining server-rendered React, typed routing, optimized asset delivery, and container-ready deployment.',
@@ -76,6 +107,7 @@ const projects = [
   {
     title: 'NBA Passing Networks',
     category: 'Sports network analytics',
+    date: 'April 2026',
     image:
       'https://raw.githubusercontent.com/vedantkminiai/NBA-Passing-Networks/main/screenshot.png',
     description:
@@ -92,6 +124,7 @@ const projects = [
   {
     title: 'MiniAI Learn',
     category: 'Gamified AI education',
+    date: 'March 2026',
     image: '/miniai-learn-screenshot.png',
     description:
       'A web-based educational game that introduces children ages 6–12 to fundamental AI concepts through short lessons, interactive challenges, quests, and guided experimentation.',
@@ -160,7 +193,7 @@ const Projects = ({ initialIndex }: ProjectsProps) => {
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="mb-4 font-mono text-sm uppercase tracking-[0.28em] text-neutral-500">
-              Project archive / 01—06
+              Project archive / 01—07
             </p>
             <h2 className="text-4xl font-bold tracking-tight sm:text-6xl">
               Projects
@@ -223,7 +256,7 @@ const Projects = ({ initialIndex }: ProjectsProps) => {
                 <div className="p-5">
                   <div className="mb-4 flex items-center justify-between text-xs text-neutral-500">
                     <span>{String(index + 1).padStart(2, '0')}</span>
-                    <span>Project</span>
+                    <span>{'date' in project ? project.date : 'Project'}</span>
                   </div>
                   <h3 className="mb-2 text-lg font-semibold leading-snug text-white">
                     {project.title}
@@ -291,10 +324,15 @@ const Projects = ({ initialIndex }: ProjectsProps) => {
               className="absolute inset-0 h-full w-full object-cover object-center"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/5 to-transparent" />
-            <div className="absolute inset-x-0 bottom-0 p-7 sm:p-10">
+            <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-7 sm:p-10">
               <p className="text-sm uppercase tracking-[0.2em] text-neutral-200">
                 {currentProject.category}
               </p>
+              {'date' in currentProject && (
+                <p className="shrink-0 rounded-full border border-white/20 bg-black/50 px-4 py-2 text-xs font-semibold text-neutral-200 backdrop-blur-md">
+                  {currentProject.date}
+                </p>
+              )}
             </div>
           </div>
 
