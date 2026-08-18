@@ -9,6 +9,7 @@ import {
   Code,
   ExternalLink,
   Github,
+  Linkedin,
   Users,
 } from 'lucide-react';
 import useGlidingCarousel from '../hooks/useGlidingCarousel';
@@ -52,6 +53,28 @@ const experiences = [
   },
   {
     title: 'Software Engineering Intern',
+    company: 'Atelier',
+    location: 'Toronto, ON',
+    period: 'January 2026 — April 2026',
+    type: 'Internship',
+    icon: Code,
+    image: '/atelier-logo.png',
+    imageFit: 'cover',
+    coverImage: '/atelier-logo.png',
+    coverImageFit: 'contain',
+    description:
+      'Interned at an AI-driven product analytics startup backed by Telora with $60,000 in funding. Designed an end-to-end analytics pipeline that ingests website data from any provider into an LLM and returns automated UI/UX recommendations and product improvements.',
+    achievements: [
+      'Designed an end-to-end analytics pipeline that ingests provider-agnostic website data into an LLM and returns automated UI/UX recommendations',
+      'Developed an AI-driven feature-generation engine with LangChain to analyze website structure and identify product improvements',
+      'Automated deployments with Docker and Azure DevOps CI/CD pipelines, increasing release frequency by 20%',
+    ],
+    skills: ['AWS', 'Node.js', 'Redis', 'LangChain', 'Docker', 'Azure', 'Azure DevOps'],
+    liveUrl: 'https://atelier-blue-three.vercel.app/',
+    linkedinUrl: 'https://www.linkedin.com/company/tryatelier/',
+  },
+  {
+    title: 'Software Engineering Intern',
     company: 'Coding Campus',
     location: 'Toronto, ON',
     period: 'May 2025 — August 2025',
@@ -89,7 +112,7 @@ const experiences = [
     liveUrl: 'https://coding-campus-app.vercel.app/',
   },
   {
-    title: 'Mathematics and English Instructor',
+    title: 'Mathematics Instructor',
     company: 'Kumon Learning Center',
     location: 'Toronto, ON',
     period: 'March 2023 — April 2026',
@@ -110,7 +133,7 @@ const experiences = [
     skills: ['Python', 'Teaching', 'Mathematics', 'Education Technology', 'Student Assessment'],
   },
   {
-    title: 'Co-Founder (Founding Engineer)',
+    title: 'Co-Founder',
     company: 'MiniAI',
     location: 'Toronto, ON',
     period: 'February 2024 — Present',
@@ -126,6 +149,8 @@ const experiences = [
       'Reached 1,000+ students internationally, with more than 300 earning a Foundations of AI credential',
     ],
     skills: ['React', 'TypeScript', 'Vite', 'AWS ECS', 'Vercel', 'Docker', 'GitHub Actions'],
+    liveUrl: 'https://miniai.ca/',
+    linkedinUrl: 'https://www.linkedin.com/company/mini-ai/?viewAsMember=true',
   },
   {
     title: 'Student Researcher',
@@ -230,7 +255,7 @@ const Experience = ({ initialIndex }: ExperienceProps) => {
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="mb-4 font-mono text-sm uppercase tracking-[0.28em] text-neutral-500">
-              Career archive / 01—06
+              Career archive / 01—07
             </p>
             <h2 className="text-4xl font-bold tracking-tight sm:text-6xl">
               Experience
@@ -414,7 +439,9 @@ const Experience = ({ initialIndex }: ExperienceProps) => {
                 <p className="mt-7 max-w-2xl text-lg leading-relaxed text-neutral-400">
                   {currentExperience.description}
                 </p>
-                {('repository' in currentExperience || 'liveUrl' in currentExperience) && (
+                {('repository' in currentExperience ||
+                  'liveUrl' in currentExperience ||
+                  'linkedinUrl' in currentExperience) && (
                   <div className="mt-7 flex flex-wrap gap-3">
                     {'repository' in currentExperience && currentExperience.repository && (
                       <a
@@ -436,6 +463,17 @@ const Experience = ({ initialIndex }: ExperienceProps) => {
                       >
                         <ExternalLink className="mr-2 h-4 w-4" />
                         Visit live app
+                      </a>
+                    )}
+                    {'linkedinUrl' in currentExperience && currentExperience.linkedinUrl && (
+                      <a
+                        href={currentExperience.linkedinUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center rounded-full border border-neutral-600 px-5 py-2.5 text-sm font-semibold text-neutral-200 transition hover:border-white hover:bg-white hover:text-black"
+                      >
+                        <Linkedin className="mr-2 h-4 w-4" aria-hidden="true" />
+                        LinkedIn
                       </a>
                     )}
                   </div>

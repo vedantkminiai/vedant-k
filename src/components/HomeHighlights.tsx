@@ -20,19 +20,26 @@ const highlights: Record<Screen, Array<{ title: string; meta: string; descriptio
     {
       targetIndex: 1,
       title: 'Software Engineering Intern',
+      meta: 'Atelier · 2026',
+      description:
+        'Built an LLM-powered product analytics pipeline and LangChain feature-generation engine for a Telora-backed startup with $60,000 in funding.',
+    },
+    {
+      targetIndex: 2,
+      title: 'Software Engineering Intern',
       meta: 'Coding Campus · 2025',
       description:
         'Deployed an AI-powered Waterloo coding contest preparation app with React, Supabase, Judge0, OpenAI, AWS ECS, and Vercel for 200+ students.',
     },
     {
-      targetIndex: 3,
-      title: 'Co-Founder (Founding Engineer)',
+      targetIndex: 4,
+      title: 'Co-Founder',
       meta: 'MiniAI · 2024—Present',
       description:
         'Leading an AI education startup that has reached over 1,000 students through products, curriculum, and workshops.',
     },
     {
-      targetIndex: 4,
+      targetIndex: 5,
       title: 'Student Researcher',
       meta: 'University of Waterloo · 2024',
       description:

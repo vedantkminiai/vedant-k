@@ -23,7 +23,7 @@ const Hero = () => {
         'Built Azure and Airflow ETL workflows for 20+ years of switchgear data, modeled 3M+ sales records in Power BI, and delivered a React comparison tool saving $75,000+ annually.',
     },
     {
-      label: 'Founding Engineer @ MiniAI',
+      label: 'Co-Founder @ MiniAI',
       description:
         'Leading product engineering and operations for an AI education startup that has reached more than 1,000 students internationally.',
     },

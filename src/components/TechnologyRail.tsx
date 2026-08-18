@@ -23,6 +23,7 @@ const technologyIconSlugs: Record<string, string> = {
   HTML5: 'html5',
   Java: 'openjdk',
   JavaScript: 'javascript',
+  LangChain: 'langchain',
   'Monaco Editor': 'visualstudiocode',
   MySQL: 'mysql',
   'NBA API': 'nba',
@@ -39,6 +40,7 @@ const technologyIconSlugs: Record<string, string> = {
   React: 'react',
   'React Router': 'reactrouter',
   'REST APIs': 'fastapi',
+  Redis: 'redis',
   Selenium: 'selenium',
   Spring: 'spring',
   'Spring Boot': 'springboot',
@@ -50,6 +52,7 @@ const technologyIconSlugs: Record<string, string> = {
   TypeScript: 'typescript',
   Vercel: 'vercel',
   Vite: 'vite',
+  'Azure DevOps': 'azuredevops',
 };
 
 const technologyCustomIcons: Record<string, string> = {
