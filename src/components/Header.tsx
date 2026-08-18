@@ -76,7 +76,7 @@ const Header = ({ activeScreen, onNavigate }: HeaderProps) => {
               <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
             </a>
             <a
-              href="/Vedant_Kansara_Resume.pdf#view=FitH&toolbar=1"
+              href="/Vedant_Kansara_Resume.pdf#page=1&zoom=80&toolbar=1"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center rounded-full bg-white px-5 py-2.5 font-medium text-black transition-all duration-200 hover:-translate-y-0.5 hover:bg-neutral-300 hover:shadow-lg"
@@ -125,7 +125,7 @@ const Header = ({ activeScreen, onNavigate }: HeaderProps) => {
                 <ExternalLink className="ml-1.5 h-3.5 w-3.5" />
               </a>
               <a
-                href="/Vedant_Kansara_Resume.pdf#view=FitH&toolbar=1"
+                href="/Vedant_Kansara_Resume.pdf#page=1&zoom=80&toolbar=1"
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setIsMenuOpen(false)}
