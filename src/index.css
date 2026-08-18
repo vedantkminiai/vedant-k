@@ -165,15 +165,15 @@ body {
   -webkit-overflow-scrolling: touch;
 }
 
-.spotify-song-scroll::-webkit-scrollbar {
-  height: 4px;
+.experience-scroll.spotify-song-scroll::-webkit-scrollbar {
+  height: 3px;
 }
 
-.spotify-song-scroll::-webkit-scrollbar-track {
+.experience-scroll.spotify-song-scroll::-webkit-scrollbar-track {
   background: #0a0a0a;
 }
 
-.spotify-song-scroll::-webkit-scrollbar-thumb {
+.experience-scroll.spotify-song-scroll::-webkit-scrollbar-thumb {
   border-radius: 999px;
   background: #404040;
 }
