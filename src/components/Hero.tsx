@@ -78,7 +78,7 @@ const Hero = () => {
             <div className="group relative overflow-hidden rounded-[2rem] border border-neutral-700 bg-neutral-900 shadow-2xl shadow-black/60">
               <div className="absolute inset-0 z-10 bg-gradient-to-t from-black/35 via-transparent to-white/5" />
             <img
-                src="/vedant-home-portrait.png"
+                src="/vedant-home-portrait-v2.png"
               alt="Vedant Kansara"
                 className="aspect-[4/5] w-full object-cover object-center transition duration-700 group-hover:scale-[1.025]"
             />
