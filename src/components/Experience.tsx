@@ -57,18 +57,18 @@ const experiences = [
   },
   {
     sortOrder: 2,
-    title: 'Software Engineering Intern',
+    title: 'Software Engineer',
     company: 'Atelier',
     location: 'Toronto, ON',
     period: 'January 2026 — April 2026',
-    type: 'Internship',
+    type: 'Part-Time',
     icon: Code,
     image: '/atelier-logo.png',
     imageFit: 'cover',
     coverImage: '/atelier-logo.png',
     coverImageFit: 'contain',
     description:
-      'Interned at an AI-driven product analytics startup backed by Telora with $60,000 in funding. Designed an end-to-end analytics pipeline that ingests website data from any provider into an LLM and returns automated UI/UX recommendations and product improvements.',
+      'Worked part-time as a software engineer at an AI-driven product analytics startup backed by Telora with $60,000 in funding. Designed an end-to-end analytics pipeline that ingests website data from any provider into an LLM and returns automated UI/UX recommendations and product improvements.',
     achievements: [
       'Designed an end-to-end analytics pipeline that ingests provider-agnostic website data into an LLM and returns automated UI/UX recommendations',
       'Developed an AI-driven feature-generation engine with LangChain to analyze website structure and identify product improvements',
@@ -150,7 +150,7 @@ const experiences = [
     period: 'February 2024 — Present',
     type: 'Permanent Part-Time',
     icon: Code,
-    image: 'https://miniai.ca/miniAIhorizontal.png',
+    image: '/miniai-logo.png',
     description:
       'Co-founded and lead operations for an artificial intelligence education startup expanding access to practical AI learning in underprivileged communities. Direct product engineering, curriculum development, technical partnerships, and student-program delivery across an international learning community.',
     achievements: [

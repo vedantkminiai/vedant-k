@@ -13,55 +13,29 @@ import TechnologyRail from './TechnologyRail';
 
 const projects = [
   {
-    title: 'StockAI',
-    category: 'AI stock research workspace',
-    date: 'March 2026',
-    image: '/stockai-dashboard.png',
+    title: 'HCP Schematic-to-Fetch Robot Arm',
+    category: 'Hack the North 2026 · AI + robotics',
+    date: 'September 2026',
+    image: '/hcp-schematic-to-fetch.png',
     description:
-      'A full-stack stock research workspace that combines live market data, portfolio analytics, watchlists, visual comparisons, and a streaming AI research assistant in one responsive dashboard.',
+      'Built at Hack the North 2026, Canada’s biggest hackathon hosted at the University of Waterloo, this AI and robotics system turns circuit schematics into a bill of materials and coordinates a DJI RoboMaster EP to retrieve tagged component containers. It combines schematic understanding, AprilTag computer vision, and human-approved robot control to bridge digital circuit designs and physical electronics assembly.',
     features: [
-      'Live market snapshots, top-mover rankings, company metrics, and six-month multi-stock price comparisons powered by Yahoo Finance',
-      'Watchlist and simulated portfolio analytics with market value, cost basis, profit-and-loss, and allocation breakdowns',
-      'Streaming LangChain research assistant with session memory and tools for prices, historical data, balance sheets, and company news',
-      'Dedicated responsive views for market discovery, watchlists, portfolio analysis, AI research, and settings',
+      'Baseten vision models extract components from PDFs and images, with local parsing for legacy KiCad and EAGLE schematics',
+      'Editable bills of materials, AI circuit review, and component classification into seven AprilTag-linked storage groups',
+      'Human-approved execution through a Raspberry Pi controller, with camera-guided alignment and scripted retrieval',
+      'Typed and optional voice commands prepare component requests for review before the robot moves',
     ],
-    techStack: [
-      'React',
-      'TypeScript',
-      'Vite',
-      'Python',
-      'FastAPI',
-      'LangChain',
-      'LangGraph',
-      'OpenAI API',
-      'yfinance',
-    ],
-    repository: 'https://github.com/vedantkminiai/Stock-Analytics-Platform',
-    liveUrl: 'https://stock-analytics-platform.vercel.app/',
-  },
-  {
-    title: 'Library Software',
-    category: 'Java application',
-    date: 'January 2025',
-    image: 'https://apuedge.com/wp-content/uploads/2020/08/online-library-databases.jpg',
-    description:
-      'A comprehensive library-management application designed to streamline circulation, member administration, and resource tracking while demonstrating maintainable object-oriented architecture.',
-    features: [
-      'Structured domain models for books, members, and lending transactions',
-      'Automated due-date tracking and late-return fine calculation',
-      'Search and filtering for rapid book and member lookup',
-      'Member registration, authentication, and profile management',
-    ],
-    techStack: ['Java', 'SQL', 'Object-Oriented Design'],
-    repository: 'https://github.com/vedantkminiai/Library-Management-System',
+    techStack: ['Python', 'Flask', 'Baseten', 'AprilTags', 'Raspberry Pi', 'DJI RoboMaster EP'],
+    repository: 'https://github.com/vedantkminiai/SchematicParserHTN2026',
+    devpostUrl: 'https://devpost.com/software/hcp-schematic-to-fetch-robot-arm',
   },
   {
     title: 'ColourMash',
-    category: 'Accessible memory game',
+    category: 'Ignition Hacks v.6 · Accessible memory game',
     date: 'August 2025',
     image: '/colourmash-screenshot.png',
     description:
-      'A playful pattern-recognition experience designed to help people living with Alzheimer’s and dementia exercise memory and cognitive skills through approachable, interactive challenges.',
+      'Built for Ignition Hacks v.6, ColourMash is a playful pattern-recognition experience designed to help people living with Alzheimer’s and dementia exercise memory and cognitive skills through approachable, interactive challenges.',
     features: [
       'Progressive color- and pattern-matching gameplay',
       'Responsive interface with immediate visual feedback',
@@ -70,6 +44,7 @@ const projects = [
     ],
     techStack: ['Next.js', 'React', 'TypeScript', 'OpenAI API', 'TensorFlow.js'],
     repository: 'https://github.com/vedantkminiai/ColourMash',
+    devpostUrl: 'https://devpost.com/software/colourmash',
     liveUrl: 'https://colourmash.netlify.app/',
   },
   {
@@ -138,6 +113,49 @@ const projects = [
     repository: 'https://github.com/vedantkminiai/MiniAIWebApp',
     liveUrl: 'https://miniai-learn.netlify.app',
   },
+  {
+    title: 'Library Software',
+    category: 'Java application',
+    date: 'January 2025',
+    image: 'https://apuedge.com/wp-content/uploads/2020/08/online-library-databases.jpg',
+    description:
+      'A comprehensive library-management application designed to streamline circulation, member administration, and resource tracking while demonstrating maintainable object-oriented architecture.',
+    features: [
+      'Structured domain models for books, members, and lending transactions',
+      'Automated due-date tracking and late-return fine calculation',
+      'Search and filtering for rapid book and member lookup',
+      'Member registration, authentication, and profile management',
+    ],
+    techStack: ['Java', 'SQL', 'Object-Oriented Design'],
+    repository: 'https://github.com/vedantkminiai/Library-Management-System',
+  },
+  {
+    title: 'StockAI',
+    category: 'AI stock research workspace',
+    date: 'March 2026',
+    image: '/stockai-dashboard.png',
+    description:
+      'A full-stack stock research workspace that combines live market data, portfolio analytics, watchlists, visual comparisons, and a streaming AI research assistant in one responsive dashboard.',
+    features: [
+      'Live market snapshots, top-mover rankings, company metrics, and six-month multi-stock price comparisons powered by Yahoo Finance',
+      'Watchlist and simulated portfolio analytics with market value, cost basis, profit-and-loss, and allocation breakdowns',
+      'Streaming LangChain research assistant with session memory and tools for prices, historical data, balance sheets, and company news',
+      'Dedicated responsive views for market discovery, watchlists, portfolio analysis, AI research, and settings',
+    ],
+    techStack: [
+      'React',
+      'TypeScript',
+      'Vite',
+      'Python',
+      'FastAPI',
+      'LangChain',
+      'LangGraph',
+      'OpenAI API',
+      'yfinance',
+    ],
+    repository: 'https://github.com/vedantkminiai/Stock-Analytics-Platform',
+    liveUrl: 'https://stock-analytics-platform.vercel.app/',
+  },
 ];
 
 type ProjectsProps = {
@@ -193,7 +211,7 @@ const Projects = ({ initialIndex }: ProjectsProps) => {
         <div className="mb-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
             <p className="mb-4 font-mono text-sm uppercase tracking-[0.28em] text-neutral-500">
-              Project archive / 01—07
+              Project archive / 01—{String(projects.length).padStart(2, '0')}
             </p>
             <h2 className="text-4xl font-bold tracking-tight sm:text-6xl">
               Projects
@@ -368,6 +386,17 @@ const Projects = ({ initialIndex }: ProjectsProps) => {
                 >
                   <ExternalLink className="mr-2 h-5 w-5" />
                   Live demo
+                </a>
+              )}
+              {currentProject.devpostUrl && (
+                <a
+                  href={currentProject.devpostUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center rounded-full border border-neutral-600 px-6 py-3 font-semibold text-neutral-200 transition hover:border-white hover:text-white"
+                >
+                  <ExternalLink className="mr-2 h-5 w-5" />
+                  View on Devpost
                 </a>
               )}
             </div>

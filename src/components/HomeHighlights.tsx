@@ -26,8 +26,8 @@ const highlights: Record<Screen, Array<{ title: string; meta: string; descriptio
     },
     {
       targetIndex: 2,
-      title: 'Software Engineering Intern',
-      meta: 'Atelier · 2026',
+      title: 'Software Engineer',
+      meta: 'Atelier · Part-Time · 2026',
       description:
         'Built an LLM-powered product analytics pipeline and LangChain feature-generation engine for a Telora-backed startup with $60,000 in funding.',
     },
@@ -41,30 +41,37 @@ const highlights: Record<Screen, Array<{ title: string; meta: string; descriptio
   ],
   projects: [
     {
-      targetIndex: 3,
+      targetIndex: 0,
+      title: 'HCP Schematic-to-Fetch Robot Arm',
+      meta: 'Hack the North 2026 · AI + robotics',
+      description:
+        'An AI and robotics system that turns circuit schematics into component requests for a camera-guided robot, built at Hack the North 2026, Canada’s biggest hackathon at the University of Waterloo.',
+    },
+    {
+      targetIndex: 2,
       title: 'UFC Zone',
       meta: 'Fighter intelligence platform',
       description:
         'A full-stack searchable UFC roster with performance analytics, leaderboards, web-scraped data, and a Spring API.',
     },
     {
-      targetIndex: 4,
+      targetIndex: 3,
       title: 'EmployAI',
       meta: 'AI career platform',
       description:
         'A responsive resume-analysis experience that provides ATS scoring and targeted feedback for job applications.',
     },
     {
-      targetIndex: 6,
+      targetIndex: 5,
       title: 'MiniAI Learn',
       meta: 'Gamified AI education',
       description:
         'An interactive learning platform that teaches children foundational AI concepts through lessons, quests, and challenges.',
     },
     {
-      targetIndex: 2,
+      targetIndex: 1,
       title: 'ColourMash',
-      meta: 'Accessible memory game',
+      meta: 'Ignition Hacks v.6 · Accessible memory game',
       description:
         'A playful pattern-recognition game designed to support memory practice for people living with Alzheimer’s and dementia.',
     },
