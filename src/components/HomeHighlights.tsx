@@ -42,6 +42,13 @@ const highlights: Record<Screen, Array<{ title: string; meta: string; descriptio
   projects: [
     {
       targetIndex: 0,
+      title: 'Premiere',
+      meta: 'Hack the Valley 11 · 3rd Overall · 1st UofT School of Cities',
+      description:
+        'A winning property redevelopment platform combining Raspberry Pi robotics, iPhone LiDAR, and interactive Three.js digital twins to inspect building interiors and visualize redevelopment.',
+    },
+    {
+      targetIndex: 1,
       title: 'HCP Schematic-to-Fetch Robot Arm',
       meta: 'Hack the North 2026 · AI + robotics',
       description:
@@ -49,31 +56,17 @@ const highlights: Record<Screen, Array<{ title: string; meta: string; descriptio
     },
     {
       targetIndex: 2,
-      title: 'UFC Zone',
-      meta: 'Fighter intelligence platform',
-      description:
-        'A full-stack searchable UFC roster with performance analytics, leaderboards, web-scraped data, and a Spring API.',
-    },
-    {
-      targetIndex: 3,
-      title: 'EmployAI',
-      meta: 'AI career platform',
-      description:
-        'A responsive resume-analysis experience that provides ATS scoring and targeted feedback for job applications.',
-    },
-    {
-      targetIndex: 5,
-      title: 'MiniAI Learn',
-      meta: 'Gamified AI education',
-      description:
-        'An interactive learning platform that teaches children foundational AI concepts through lessons, quests, and challenges.',
-    },
-    {
-      targetIndex: 1,
       title: 'ColourMash',
       meta: 'Ignition Hacks v.6 · Accessible memory game',
       description:
         'A playful pattern-recognition game designed to support memory practice for people living with Alzheimer’s and dementia.',
+    },
+    {
+      targetIndex: 6,
+      title: 'MiniAI Learn',
+      meta: 'Gamified AI education',
+      description:
+        'An interactive learning platform that teaches children foundational AI concepts through lessons, quests, and challenges.',
     },
   ],
 };

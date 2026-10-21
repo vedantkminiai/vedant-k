@@ -6,12 +6,48 @@ import {
   ExternalLink,
   Github,
   Layers3,
+  Trophy,
 } from 'lucide-react';
 import useGlidingCarousel from '../hooks/useGlidingCarousel';
 import AnimatedDetailReveal from './AnimatedDetailReveal';
 import TechnologyRail from './TechnologyRail';
 
 const projects = [
+  {
+    title: 'Premiere',
+    category: 'Hack the Valley 11 · Property inspection + 3D reconstruction',
+    date: 'October 2026',
+    image: '/premiere-mission-map.jpg',
+    gallery: [
+      {
+        src: '/premiere-mission-map.jpg',
+        alt: 'Premiere mission map showing a Toronto inspection route, mission log, and rover status',
+        caption: 'Mission control · Toronto inspection routes and rover telemetry',
+      },
+      {
+        src: '/premiere-awards.jpeg',
+        alt: 'Premiere rover with Hack the Valley winner medals, AirPods prizes, and a cash prize display',
+        caption: 'Hack the Valley 11 · Our rover and winning prizes',
+      },
+      {
+        src: '/premiere-team.jpeg',
+        alt: 'The four Premiere teammates celebrating with their Hack the Valley medals beside their rover and prizes',
+        caption: 'Hack the Valley 11 · The Premiere team celebrating our wins',
+      },
+    ],
+    awards: ['3rd Overall', '1st · UofT School of Cities'],
+    description:
+      'A property redevelopment platform built at Hack the Valley 11, winning 3rd Overall and 1st for the UofT School of Cities prize among 750+ hackers and 100+ teams. Premiere combines a Raspberry Pi robotics system, iPhone LiDAR scanning, and an interactive Three.js digital twin to help inspect building interiors, document structural concerns, and visualize redevelopment possibilities.',
+    features: [
+      'SwiftUI and ARKit capture iPhone LiDAR depth data, camera poses, and imagery for spatial reconstruction',
+      'Python and FastAPI turn captures into 3D point clouds, integrating COLMAP and Gaussian Splatting for property visualization',
+      'Interactive Three.js digital twins support inspection markers and annotations of structural concerns',
+      'Procedural 3D building models visualize proposed redevelopment within scanned environments',
+    ],
+    techStack: ['Python', 'FastAPI', 'Raspberry Pi', 'SwiftUI', 'ARKit', 'Three.js', 'LiDAR', 'COLMAP', 'Gaussian Splatting'],
+    repository: 'https://github.com/Vedthakar/HTV11',
+    devpostUrl: 'https://devpost.com/software/estate-o-bot',
+  },
   {
     title: 'HCP Schematic-to-Fetch Robot Arm',
     category: 'Hack the North 2026 · AI + robotics',
@@ -242,7 +278,7 @@ const Projects = ({ initialIndex }: ProjectsProps) => {
 
         <div
           ref={scrollerRef}
-          className="experience-scroll mb-10 flex gap-4 overflow-x-auto pb-5"
+          className="experience-scroll mb-10 flex items-start gap-4 overflow-x-auto pb-5"
           role="tablist"
           aria-label="Select a project"
         >
@@ -254,7 +290,11 @@ const Projects = ({ initialIndex }: ProjectsProps) => {
               <button
                 key={`${project.title}-${isDuplicate ? 'duplicate' : 'original'}`}
                 onClick={() => selectProject(index)}
-                className={`group min-w-[250px] max-w-[250px] overflow-hidden rounded-2xl border text-left transition-all duration-300 sm:min-w-[290px] sm:max-w-[290px] ${
+                className={`group shrink-0 overflow-hidden rounded-2xl border text-left transition-all duration-300 ${
+                  project.awards
+                    ? 'w-[380px] sm:w-[420px]'
+                    : 'w-[250px] sm:w-[290px]'
+                } ${
                   index === currentIndex
                     ? 'border-white bg-neutral-800'
                     : 'border-neutral-800 bg-neutral-900/80 hover:border-neutral-600 hover:bg-neutral-900'
@@ -280,7 +320,17 @@ const Projects = ({ initialIndex }: ProjectsProps) => {
                     {project.title}
                   </h3>
                   <p className="text-sm text-neutral-400">{project.category}</p>
-                  <div className="mt-4 grid grid-cols-2 gap-2">
+                  {project.awards && (
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {project.awards.map((award) => (
+                        <span key={award} className="inline-flex items-center gap-1.5 rounded-lg border border-amber-400/25 bg-amber-400/10 px-2.5 py-1.5 text-xs font-medium text-amber-200">
+                          <Trophy className="h-3.5 w-3.5 shrink-0" aria-hidden="true" />
+                          {award}
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                  <div className={`mt-4 grid gap-2 ${project.awards ? 'grid-cols-4' : 'grid-cols-2'}`}>
                     {project.techStack.slice(0, 4).map((technology) => (
                       <span
                         key={technology}
@@ -362,6 +412,16 @@ const Projects = ({ initialIndex }: ProjectsProps) => {
               <h3 className="text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl lg:text-6xl">
                 {currentProject.title}
               </h3>
+              {currentProject.awards && (
+                <div className="mt-6 flex flex-wrap gap-3">
+                  {currentProject.awards.map((award) => (
+                    <span key={award} className="inline-flex items-center gap-2 rounded-full border border-amber-400/25 bg-amber-400/10 px-4 py-2 text-sm font-semibold text-amber-200">
+                      <Trophy className="h-4 w-4 shrink-0" aria-hidden="true" />
+                      {award}
+                    </span>
+                  ))}
+                </div>
+              )}
               <p className="mt-8 text-lg leading-8 text-neutral-400 sm:text-xl sm:leading-9">
                 {currentProject.description}
               </p>
@@ -400,6 +460,35 @@ const Projects = ({ initialIndex }: ProjectsProps) => {
                 </a>
               )}
             </div>
+
+            {currentProject.gallery && (
+              <div className="mt-14 border-t border-neutral-800 pt-10">
+                <h4 className="mb-6 text-lg font-semibold">Project gallery</h4>
+                <div className="grid items-start gap-6 lg:grid-cols-[1.5fr_1fr]">
+                  {currentProject.gallery.map((photo) => (
+                    <figure key={photo.src} className="overflow-hidden rounded-2xl border border-neutral-800 bg-neutral-950">
+                      <a
+                        href={photo.src}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={`Open full image: ${photo.alt}`}
+                        className="block focus-visible:outline focus-visible:outline-2 focus-visible:outline-white focus-visible:-outline-offset-2"
+                      >
+                        <img
+                          src={photo.src}
+                          alt={photo.alt}
+                          loading="lazy"
+                          className="block max-h-[32rem] w-full object-contain"
+                        />
+                      </a>
+                      <figcaption className="border-t border-neutral-800 px-5 py-4 text-sm leading-relaxed text-neutral-400">
+                        {photo.caption}
+                      </figcaption>
+                    </figure>
+                  ))}
+                </div>
+              </div>
+            )}
 
             <div className="mt-14 border-t border-neutral-800 pt-10">
               <TechnologyRail technologies={currentProject.techStack} />

@@ -21,7 +21,7 @@ const Hero = () => {
       },
     },
     {
-      label: 'Data Engineering Intern @ S&C Electric Company',
+      label: 'Prev Data Engineering Intern @ S&C Electric Company',
       description:
         'Built Azure and Airflow ETL workflows for 20+ years of switchgear data, modeled 3M+ sales records in Power BI, and delivered a React comparison tool saving $75,000+ annually.',
     },
@@ -29,6 +29,11 @@ const Hero = () => {
       label: 'Co-Founder @ MiniAI',
       description:
         'Leading product engineering and operations for an AI education startup that has reached more than 1,000 students internationally.',
+    },
+    {
+      label: 'Hack the Valley 11 Winner',
+      description:
+        'Won 3rd Overall and 1st for the UofT School of Cities prize with Premiere, a property inspection and redevelopment platform combining Raspberry Pi robotics, iPhone LiDAR, and interactive 3D visualization. Competed among 750+ hackers and 100+ teams.',
     },
   ];
 
@@ -156,7 +161,7 @@ const Hero = () => {
           </h1>
             <div className="mx-auto max-w-2xl text-left lg:mx-0">
               <p className="mb-5 text-base leading-7 text-neutral-500 sm:text-lg">
-                I’m passionate about educational technology, data engineering and analytics, and machine learning. Outside of building software, I enjoy weightlifting, playing basketball, solving speedcubes, and listening to music. Currently:
+                I’m passionate about educational technology, data engineering and analytics, and machine learning. Outside of building software, I enjoy weightlifting, playing basketball, solving speedcubes, and listening to music.
               </p>
 
             <ul className="space-y-1 border-l border-neutral-700 pl-5">
