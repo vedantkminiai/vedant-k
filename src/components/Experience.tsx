@@ -25,9 +25,9 @@ const experiences = [
     period: 'May 2026 — August 2026',
     type: 'Internship',
     icon: Code,
-    image: 'https://powerandtelecom.ca/wp-content/uploads/2024/03/Sccanada_pt_836.jpg',
-    imageFit: 'cover',
-    coverImage: 'https://www.sandc.com/globalassets/sac-electric/content-callouts/tripsaver/logo2.png',
+    image: '/sandc-logo.webp',
+    imageFit: 'contain',
+    coverImage: '/sandc-logo.webp',
     coverImageFit: 'contain',
     description:
       'Completed a four-month Data Engineering internship at S&C Electric, building ETL pipelines to process more than 20 years of Metal-Enclosed Switchgear and Vista component data. Developed Python, Azure, and Apache Airflow workflows; transformed REST API data into Azure SQL dimension tables; created Power BI and Excel data models; and delivered a React comparison tool for switchgear cost analysis.',
@@ -405,7 +405,7 @@ const Experience = ({ initialIndex }: ExperienceProps) => {
             <ArrowRight className="h-5 w-5" />
           </button>
 
-          <div className="grid lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
             <div className="relative min-h-[310px] overflow-hidden bg-neutral-800 lg:min-h-[540px]">
               <img
                 key={currentExperience.coverImage ?? currentExperience.image}
@@ -423,10 +423,10 @@ const Experience = ({ initialIndex }: ExperienceProps) => {
               </div>
             </div>
 
-            <div className="flex flex-col justify-between p-7 sm:p-10 lg:p-12">
+            <div className="flex min-w-0 flex-col justify-between p-5 sm:p-10 lg:p-12">
               <div>
-                <div className="mb-8 flex items-start justify-between gap-5">
-                  <div className="flex flex-wrap items-center gap-3 text-sm text-neutral-400">
+                <div className="mb-8 flex flex-wrap items-start justify-between gap-5">
+                  <div className="flex min-w-0 flex-wrap items-center gap-3 text-sm text-neutral-400">
                     <span className="rounded-full border border-neutral-700 px-4 py-2">
                       {currentExperience.period}
                     </span>
@@ -447,7 +447,7 @@ const Experience = ({ initialIndex }: ExperienceProps) => {
                   </div>
                 </div>
 
-                <h3 className="max-w-2xl text-4xl font-bold leading-[1.05] tracking-tight sm:text-5xl">
+                <h3 className="max-w-2xl break-words text-3xl font-bold leading-[1.05] tracking-tight sm:text-5xl">
                   {currentExperience.title}
                 </h3>
                 <p className="mt-7 max-w-2xl text-lg leading-relaxed text-neutral-400">
